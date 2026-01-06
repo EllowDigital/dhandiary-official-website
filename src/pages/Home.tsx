@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Wifi, WifiOff, BarChart3, Smartphone, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Layout from "@/components/layout/Layout";
 import ScreenshotCarousel from "@/components/home/ScreenshotCarousel";
-import appMockup from "@/assets/app-mockup.png";
 
 const features = [
   {
@@ -81,11 +81,22 @@ const Home = () => {
             <div className="flex justify-center lg:justify-end animate-slide-up">
               <div className="relative">
                 <div className="absolute inset-0 bg-hero-gradient opacity-20 blur-3xl rounded-full scale-110" />
-                <img
-                  src={appMockup}
-                  alt="DhanDiary App Preview"
-                  className="relative w-72 sm:w-80 lg:w-96 animate-float"
-                />
+                <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md animate-float">
+                  <div className="rounded-[2.5rem] bg-card border border-border shadow-elevated p-2 sm:p-3">
+                    <div className="mx-auto mb-2 sm:mb-3 h-4 sm:h-5 w-16 sm:w-20 rounded-full bg-muted" />
+                    <AspectRatio
+                      ratio={9 / 19.5}
+                      className="overflow-hidden rounded-[2rem] bg-background"
+                    >
+                      <img
+                        src="/img/Screenshot/1s.jpg"
+                        alt="DhanDiary app screenshot"
+                        className="h-full w-full object-contain"
+                        loading="eager"
+                      />
+                    </AspectRatio>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
