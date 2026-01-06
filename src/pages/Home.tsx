@@ -5,6 +5,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Layout from "@/components/layout/Layout";
 import ScreenshotCarousel from "@/components/home/ScreenshotCarousel";
 import screenshotDashboard from "@/assets/screenshot-dashboard.png";
+import { APP_CONFIG } from "@/lib/appConfig";
 
 const features = [
   {
@@ -39,7 +40,7 @@ const Home = () => {
             <div className="text-center lg:text-left animate-fade-in">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-6">
                 <Smartphone className="w-4 h-4" />
-                Version 2.4.0 Now Available
+                Version {APP_CONFIG.version} Now Available
               </div>
               
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
