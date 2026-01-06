@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Wifi, WifiOff, BarChart3, Smartphone, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import ScreenshotCarousel from "@/components/home/ScreenshotCarousel";
 import appMockup from "@/assets/app-mockup.png";
 
 const features = [
@@ -133,8 +134,11 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Screenshots Section */}
+      <ScreenshotCarousel />
+
       {/* CTA Section */}
-      <section className="section-padding bg-card">
+      <section className="section-padding bg-subtle-gradient">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
