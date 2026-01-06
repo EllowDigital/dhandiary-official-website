@@ -69,7 +69,9 @@ const ScreenshotCarousel = () => {
   }, []);
 
   const goToPrevious = () => {
-    setActiveIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
+    setActiveIndex(
+      (prev) => (prev - 1 + screenshots.length) % screenshots.length,
+    );
   };
 
   const goToNext = () => {
@@ -104,7 +106,9 @@ const ScreenshotCarousel = () => {
             <div className="flex items-end justify-center gap-4 lg:gap-6 py-8">
               {screenshots.map((screenshot, index) => {
                 const isActive = index === activeIndex;
-                const isPrev = index === (activeIndex - 1 + screenshots.length) % screenshots.length;
+                const isPrev =
+                  index ===
+                  (activeIndex - 1 + screenshots.length) % screenshots.length;
                 const isNext = index === (activeIndex + 1) % screenshots.length;
                 const isVisible = isActive || isPrev || isNext;
 
@@ -129,7 +133,9 @@ const ScreenshotCarousel = () => {
                         src={screenshot.image}
                         alt={screenshot.title}
                         className={`object-cover transition-all duration-500 ${
-                          isActive ? "w-48 sm:w-56 lg:w-64" : "w-36 sm:w-44 lg:w-48"
+                          isActive
+                            ? "w-48 sm:w-56 lg:w-64"
+                            : "w-36 sm:w-44 lg:w-48"
                         }`}
                         loading="lazy"
                       />

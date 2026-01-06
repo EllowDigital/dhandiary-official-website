@@ -15,24 +15,35 @@ const Footer = () => {
                 className="w-9 h-9 rounded-xl object-contain shadow-soft"
                 loading="lazy"
               />
-              <span className="font-display font-bold text-xl text-foreground">DhanDiary</span>
+              <span className="font-display font-bold text-xl text-foreground">
+                DhanDiary
+              </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Simple, secure personal finance tracking for everyone. No ads, no trackers, just clean money management.
+              Simple, secure personal finance tracking for everyone. No ads, no
+              trackers, just clean money management.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-display font-semibold text-foreground mb-4">Quick Links</h3>
+            <h3 className="font-display font-semibold text-foreground mb-4">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/features" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <Link
+                  to="/features"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
                   Features
                 </Link>
               </li>
               <li>
-                <Link to="/download" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <Link
+                  to="/download"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
                   Download
                 </Link>
               </li>
@@ -45,17 +56,26 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/roadmap" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <Link
+                  to="/roadmap"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
                   Roadmap
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <Link
+                  to="/about"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <Link
+                  to="/contact"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
                   Contact
                 </Link>
               </li>
@@ -64,20 +84,31 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h3 className="font-display font-semibold text-foreground mb-4">Legal</h3>
+            <h3 className="font-display font-semibold text-foreground mb-4">
+              Legal
+            </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <Link
+                  to="/terms"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
                   Terms &amp; Conditions
                 </Link>
               </li>
               <li>
-                <Link to="/eula" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <Link
+                  to="/eula"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
                   EULA
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                <Link
+                  to="/privacy"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
                   Privacy Policy
                 </Link>
               </li>
@@ -86,11 +117,16 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-display font-semibold text-foreground mb-4">Contact</h3>
+            <h3 className="font-display font-semibold text-foreground mb-4">
+              Contact
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:sarwanyadav6174@gmail.com" className="hover:text-primary transition-colors">
+                <a
+                  href="mailto:sarwanyadav6174@gmail.com"
+                  className="hover:text-primary transition-colors"
+                >
                   sarwanyadav6174@gmail.com
                 </a>
               </li>

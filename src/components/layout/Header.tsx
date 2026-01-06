@@ -30,7 +30,9 @@ const Header = () => {
               className="w-9 h-9 rounded-xl object-contain shadow-soft"
               loading="eager"
             />
-            <span className="font-display font-bold text-xl text-foreground">DhanDiary</span>
+            <span className="font-display font-bold text-xl text-foreground">
+              DhanDiary
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

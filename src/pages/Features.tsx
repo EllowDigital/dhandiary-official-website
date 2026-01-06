@@ -83,7 +83,8 @@ const Features = () => {
             <span className="text-gradient block">Simple Experience</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to manage your personal finances, without the complexity. Built for speed, security, and simplicity.
+            Everything you need to manage your personal finances, without the
+            complexity. Built for speed, security, and simplicity.
           </p>
         </div>
       </section>

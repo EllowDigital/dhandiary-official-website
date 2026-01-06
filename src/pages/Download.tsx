@@ -1,4 +1,10 @@
-import { ExternalLink, Download as DownloadIcon, Smartphone, Shield, Check } from "lucide-react";
+import {
+  ExternalLink,
+  Download as DownloadIcon,
+  Smartphone,
+  Shield,
+  Check,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { APP_CONFIG } from "@/lib/appConfig";
@@ -70,7 +76,7 @@ const DownloadPage = () => {
       <section className="section-padding">
         <div className="container mx-auto max-w-4xl">
           <div className="grid gap-4 mb-12">
-            {downloadOptions.map((option, index) => (
+            {downloadOptions.map((option, index) =>
               option.url ? (
                 <a
                   key={index}
@@ -90,7 +96,9 @@ const DownloadPage = () => {
                     <h3 className="font-display font-semibold text-foreground text-lg">
                       {option.name}
                     </h3>
-                    <p className="text-muted-foreground text-sm">{option.description}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {option.description}
+                    </p>
                   </div>
                   <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                 </a>
@@ -98,7 +106,9 @@ const DownloadPage = () => {
                 <div
                   key={index}
                   className={`flex items-center gap-4 p-6 rounded-2xl border ${
-                    option.primary ? "bg-card border-border" : "bg-muted/50 border-border"
+                    option.primary
+                      ? "bg-card border-border"
+                      : "bg-muted/50 border-border"
                   }`}
                 >
                   <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-primary">
@@ -108,11 +118,13 @@ const DownloadPage = () => {
                     <h3 className="font-display font-semibold text-foreground text-lg">
                       {option.name}
                     </h3>
-                    <p className="text-muted-foreground text-sm">{option.description}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {option.description}
+                    </p>
                   </div>
                 </div>
-              )
-            ))}
+              ),
+            )}
           </div>
 
           <div className="mb-12 p-6 rounded-2xl bg-card border border-border">
@@ -120,8 +132,12 @@ const DownloadPage = () => {
               Installing via APK?
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              If Android shows a warning or blocks installation, follow our step-by-step guide: {" "}
-              <Link to="/how-to-install-apk" className="text-primary hover:underline font-medium">
+              If Android shows a warning or blocks installation, follow our
+              step-by-step guide:{" "}
+              <Link
+                to="/how-to-install-apk"
+                className="text-primary hover:underline font-medium"
+              >
                 How to Install DhanDiary APK
               </Link>
               .
@@ -145,10 +161,15 @@ const DownloadPage = () => {
                 ) : null}
               </div>
               <div className="space-y-2">
-                <h4 className="font-medium text-foreground text-sm">Requirements:</h4>
+                <h4 className="font-medium text-foreground text-sm">
+                  Requirements:
+                </h4>
                 <ul className="space-y-1">
                   {requirements.map((req, index) => (
-                    <li key={index} className="flex items-center gap-2 text-muted-foreground text-sm">
+                    <li
+                      key={index}
+                      className="flex items-center gap-2 text-muted-foreground text-sm"
+                    >
                       <Check className="w-4 h-4 text-primary" />
                       {req}
                     </li>
@@ -172,7 +193,8 @@ const DownloadPage = () => {
                 Is DhanDiary free to use?
               </h3>
               <p className="text-muted-foreground">
-                Yes! DhanDiary is completely free with no ads, no subscriptions, and no hidden costs.
+                Yes! DhanDiary is completely free with no ads, no subscriptions,
+                and no hidden costs.
               </p>
             </div>
             <div className="p-6 rounded-xl bg-background border border-border">
@@ -180,7 +202,8 @@ const DownloadPage = () => {
                 Is my data safe?
               </h3>
               <p className="text-muted-foreground">
-                Absolutely. Your data is stored locally on your device. We don't collect, share, or sell your personal information.
+                Absolutely. Your data is stored locally on your device. We don't
+                collect, share, or sell your personal information.
               </p>
             </div>
             <div className="p-6 rounded-xl bg-background border border-border">
@@ -188,7 +211,8 @@ const DownloadPage = () => {
                 Does it work offline?
               </h3>
               <p className="text-muted-foreground">
-                Yes! DhanDiary is designed to work fully offline. All your data is stored locally and syncs when you're back online.
+                Yes! DhanDiary is designed to work fully offline. All your data
+                is stored locally and syncs when you're back online.
               </p>
             </div>
             <div className="p-6 rounded-xl bg-background border border-border">
@@ -196,7 +220,8 @@ const DownloadPage = () => {
                 Is it available on iOS?
               </h3>
               <p className="text-muted-foreground">
-                Currently, DhanDiary is available only for Android devices. iOS support may come in the future.
+                Currently, DhanDiary is available only for Android devices. iOS
+                support may come in the future.
               </p>
             </div>
           </div>

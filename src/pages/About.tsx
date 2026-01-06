@@ -32,10 +32,15 @@ const About = () => {
                 </h2>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                DhanDiary was born from a simple frustration – most finance apps are bloated with features, filled with ads, and often compromise on privacy. We wanted something different: a clean, fast, and secure way to track daily income and expenses without the noise.
+                DhanDiary was born from a simple frustration – most finance apps
+                are bloated with features, filled with ads, and often compromise
+                on privacy. We wanted something different: a clean, fast, and
+                secure way to track daily income and expenses without the noise.
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                Built and maintained independently by EllowDigital, DhanDiary is crafted with care for people who value simplicity and privacy in their personal finance journey.
+                Built and maintained independently by EllowDigital, DhanDiary is
+                crafted with care for people who value simplicity and privacy in
+                their personal finance journey.
               </p>
             </div>
 
@@ -49,10 +54,14 @@ const About = () => {
                 </h2>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                To provide everyone with a simple, secure, and reliable tool for personal finance management – regardless of their technical expertise or financial background.
+                To provide everyone with a simple, secure, and reliable tool for
+                personal finance management – regardless of their technical
+                expertise or financial background.
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                We believe that tracking your money should be as natural as checking the time. No learning curve, no subscriptions, no compromises.
+                We believe that tracking your money should be as natural as
+                checking the time. No learning curve, no subscriptions, no
+                compromises.
               </p>
             </div>
 
@@ -68,19 +77,31 @@ const About = () => {
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span><strong className="text-foreground">Privacy First:</strong> Your data is yours. We don't track, collect, or sell it.</span>
+                  <span>
+                    <strong className="text-foreground">Privacy First:</strong>{" "}
+                    Your data is yours. We don't track, collect, or sell it.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span><strong className="text-foreground">Simplicity:</strong> Clean design that gets out of your way.</span>
+                  <span>
+                    <strong className="text-foreground">Simplicity:</strong>{" "}
+                    Clean design that gets out of your way.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span><strong className="text-foreground">Reliability:</strong> Works offline, syncs seamlessly, never loses your data.</span>
+                  <span>
+                    <strong className="text-foreground">Reliability:</strong>{" "}
+                    Works offline, syncs seamlessly, never loses your data.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span><strong className="text-foreground">Accessibility:</strong> Free for everyone, no hidden costs.</span>
+                  <span>
+                    <strong className="text-foreground">Accessibility:</strong>{" "}
+                    Free for everyone, no hidden costs.
+                  </span>
                 </li>
               </ul>
             </div>

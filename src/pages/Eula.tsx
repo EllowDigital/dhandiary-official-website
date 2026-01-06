@@ -1,5 +1,15 @@
 import Layout from "@/components/layout/Layout";
-import { KeyRound, Shield, RefreshCcw, BadgeCheck, Link2, Ban, AlertTriangle, Globe, Mail } from "lucide-react";
+import {
+  KeyRound,
+  Shield,
+  RefreshCcw,
+  BadgeCheck,
+  Link2,
+  Ban,
+  AlertTriangle,
+  Globe,
+  Mail,
+} from "lucide-react";
 
 const sections = [
   {
@@ -7,8 +17,8 @@ const sections = [
     title: "1. License Grant",
     content: (
       <p>
-        You are granted a limited, revocable, non-exclusive, non-transferable license to
-        install and use DhanDiary on devices you own or control.
+        You are granted a limited, revocable, non-exclusive, non-transferable
+        license to install and use DhanDiary on devices you own or control.
       </p>
     ),
   },
@@ -32,7 +42,9 @@ const sections = [
     content: (
       <>
         <p>Updates may be installed automatically.</p>
-        <p className="mt-3">We are not obligated to provide ongoing support or updates.</p>
+        <p className="mt-3">
+          We are not obligated to provide ongoing support or updates.
+        </p>
       </>
     ),
   },
@@ -41,8 +53,8 @@ const sections = [
     title: "4. Ownership",
     content: (
       <p>
-        EllowDigital retains all ownership and intellectual property rights. This agreement
-        does not transfer ownership to you.
+        EllowDigital retains all ownership and intellectual property rights.
+        This agreement does not transfer ownership to you.
       </p>
     ),
   },
@@ -51,8 +63,8 @@ const sections = [
     title: "5. Third-Party Components",
     content: (
       <p>
-        The software may include open-source or third-party components governed by their own
-        licenses.
+        The software may include open-source or third-party components governed
+        by their own licenses.
       </p>
     ),
   },
@@ -61,23 +73,27 @@ const sections = [
     title: "6. Termination",
     content: (
       <p>
-        This EULA remains effective until terminated. Upon termination, you must uninstall
-        and delete all copies of the software.
+        This EULA remains effective until terminated. Upon termination, you must
+        uninstall and delete all copies of the software.
       </p>
     ),
   },
   {
     icon: <Globe className="w-6 h-6" />,
     title: "7. Export Compliance",
-    content: <p>You agree to comply with all applicable export laws and regulations.</p>,
+    content: (
+      <p>
+        You agree to comply with all applicable export laws and regulations.
+      </p>
+    ),
   },
   {
     icon: <AlertTriangle className="w-6 h-6" />,
     title: "8. Disclaimer of Warranty",
     content: (
       <p>
-        The software is provided &quot;AS IS&quot; without warranties of any kind. You assume all
-        risks related to its use.
+        The software is provided &quot;AS IS&quot; without warranties of any
+        kind. You assume all risks related to its use.
       </p>
     ),
   },
@@ -87,8 +103,8 @@ const sections = [
     content: (
       <>
         <p>
-          EllowDigital is not liable for incidental or consequential damages. Liability is
-          limited to:
+          EllowDigital is not liable for incidental or consequential damages.
+          Liability is limited to:
         </p>
         <ul className="list-disc list-inside text-muted-foreground space-y-2 mt-3">
           <li>Amount paid for the license, or</li>
@@ -137,13 +153,16 @@ const Eula = () => {
                 DhanDiary — End User License Agreement (EULA)
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                This EULA is a legal agreement between you and EllowDigital governing the
-                installation and use of the DhanDiary software.
+                This EULA is a legal agreement between you and EllowDigital
+                governing the installation and use of the DhanDiary software.
               </p>
             </div>
 
             {sections.map((section, index) => (
-              <div key={index} className="p-6 lg:p-8 rounded-2xl bg-card border border-border">
+              <div
+                key={index}
+                className="p-6 lg:p-8 rounded-2xl bg-card border border-border"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary flex-shrink-0">
                     {section.icon}
@@ -152,7 +171,9 @@ const Eula = () => {
                     <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                       {section.title}
                     </h3>
-                    <div className="text-muted-foreground leading-relaxed">{section.content}</div>
+                    <div className="text-muted-foreground leading-relaxed">
+                      {section.content}
+                    </div>
                   </div>
                 </div>
               </div>

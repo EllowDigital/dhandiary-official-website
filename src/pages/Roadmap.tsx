@@ -41,7 +41,9 @@ const longTermVision = [
 
 const statusBadge = (status: RoadmapItem["status"]) => {
   if (status === "Released") {
-    return <Badge className="bg-primary text-primary-foreground">Released</Badge>;
+    return (
+      <Badge className="bg-primary text-primary-foreground">Released</Badge>
+    );
   }
 
   if (status === "In Progress") {
@@ -72,7 +74,9 @@ const Roadmap = () => {
             DhanDiary Roadmap
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Here’s what we’re working on and what’s coming next for DhanDiary. This roadmap reflects our current plans and may evolve based on user feedback.
+            Here’s what we’re working on and what’s coming next for DhanDiary.
+            This roadmap reflects our current plans and may evolve based on user
+            feedback.
           </p>
         </div>
       </section>
@@ -87,7 +91,9 @@ const Roadmap = () => {
                 <h2 className="font-display text-2xl font-bold text-foreground">
                   Recently Released
                 </h2>
-                <Badge className="bg-primary text-primary-foreground">Released</Badge>
+                <Badge className="bg-primary text-primary-foreground">
+                  Released
+                </Badge>
               </div>
               <div className="grid gap-4">
                 {recentlyReleased.map((item, index) => (
@@ -98,10 +104,16 @@ const Roadmap = () => {
                     <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
                       <div className="flex items-center justify-between gap-3">
-                        <p className="text-foreground font-medium">{item.text}</p>
-                        <div className="hidden sm:block">{statusBadge(item.status)}</div>
+                        <p className="text-foreground font-medium">
+                          {item.text}
+                        </p>
+                        <div className="hidden sm:block">
+                          {statusBadge(item.status)}
+                        </div>
                       </div>
-                      <div className="sm:hidden mt-2">{statusBadge(item.status)}</div>
+                      <div className="sm:hidden mt-2">
+                        {statusBadge(item.status)}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -125,16 +137,23 @@ const Roadmap = () => {
                     <Loader2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
                       <div className="flex items-center justify-between gap-3">
-                        <p className="text-foreground font-medium">{item.text}</p>
-                        <div className="hidden sm:block">{statusBadge(item.status)}</div>
+                        <p className="text-foreground font-medium">
+                          {item.text}
+                        </p>
+                        <div className="hidden sm:block">
+                          {statusBadge(item.status)}
+                        </div>
                       </div>
-                      <div className="sm:hidden mt-2">{statusBadge(item.status)}</div>
+                      <div className="sm:hidden mt-2">
+                        {statusBadge(item.status)}
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
               <p className="text-muted-foreground text-sm mt-6">
-                We avoid exact dates here, because app reviews and platform rules can change unexpectedly.
+                We avoid exact dates here, because app reviews and platform
+                rules can change unexpectedly.
               </p>
             </div>
 
@@ -155,10 +174,16 @@ const Roadmap = () => {
                     <Clock className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                     <div className="flex-1">
                       <div className="flex items-center justify-between gap-3">
-                        <p className="text-foreground font-medium">{item.text}</p>
-                        <div className="hidden sm:block">{statusBadge(item.status)}</div>
+                        <p className="text-foreground font-medium">
+                          {item.text}
+                        </p>
+                        <div className="hidden sm:block">
+                          {statusBadge(item.status)}
+                        </div>
                       </div>
-                      <div className="sm:hidden mt-2">{statusBadge(item.status)}</div>
+                      <div className="sm:hidden mt-2">
+                        {statusBadge(item.status)}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -171,7 +196,8 @@ const Roadmap = () => {
                 Long-Term Vision
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                These are high-level goals that guide where DhanDiary is going over time.
+                These are high-level goals that guide where DhanDiary is going
+                over time.
               </p>
               <div className="grid gap-3">
                 {longTermVision.map((text, index) => (
@@ -192,7 +218,8 @@ const Roadmap = () => {
                 Want to help shape the roadmap?
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-                Your feedback helps us prioritize improvements and build the features that matter most.
+                Your feedback helps us prioritize improvements and build the
+                features that matter most.
               </p>
               <Button asChild variant="hero" size="lg">
                 <Link to="/contact">
@@ -204,7 +231,8 @@ const Roadmap = () => {
 
             {/* Footer note */}
             <p className="text-muted-foreground text-sm text-center">
-              This roadmap is subject to change based on user feedback and platform requirements.
+              This roadmap is subject to change based on user feedback and
+              platform requirements.
             </p>
           </div>
         </div>

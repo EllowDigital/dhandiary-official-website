@@ -17,7 +17,9 @@ const steps = [
     title: "Step 1",
     text: (
       <>
-        Tap <span className="font-semibold text-foreground">Download anyway</span> when Chrome shows a warning.
+        Tap{" "}
+        <span className="font-semibold text-foreground">Download anyway</span>{" "}
+        when Chrome shows a warning.
       </>
     ),
   },
@@ -26,7 +28,9 @@ const steps = [
     title: "Step 2",
     text: (
       <>
-        After download completes, tap <span className="font-semibold text-foreground">Open</span> to start installing the APK file.
+        After download completes, tap{" "}
+        <span className="font-semibold text-foreground">Open</span> to start
+        installing the APK file.
       </>
     ),
   },
@@ -35,7 +39,9 @@ const steps = [
     title: "Step 3",
     text: (
       <>
-        If Android blocks the install, tap <span className="font-semibold text-foreground">Settings</span> when prompted.
+        If Android blocks the install, tap{" "}
+        <span className="font-semibold text-foreground">Settings</span> when
+        prompted.
       </>
     ),
   },
@@ -44,7 +50,11 @@ const steps = [
     title: "Step 4",
     text: (
       <>
-        Turn ON the switch <span className="font-semibold text-foreground">Allow from this source</span>.
+        Turn ON the switch{" "}
+        <span className="font-semibold text-foreground">
+          Allow from this source
+        </span>
+        .
       </>
     ),
   },
@@ -53,7 +63,8 @@ const steps = [
     title: "Step 5",
     text: (
       <>
-        Go back and tap <span className="font-semibold text-foreground">Install</span>.
+        Go back and tap{" "}
+        <span className="font-semibold text-foreground">Install</span>.
       </>
     ),
   },
@@ -88,7 +99,8 @@ const InstallApk = () => {
             How to Install DhanDiary APK on Android
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            If you downloaded DhanDiary directly from your browser, follow these simple steps to install it safely.
+            If you downloaded DhanDiary directly from your browser, follow these
+            simple steps to install it safely.
           </p>
         </div>
       </section>
@@ -98,7 +110,10 @@ const InstallApk = () => {
         <div className="container mx-auto container-narrow">
           <div className="space-y-6">
             {steps.map((step, index) => (
-              <div key={index} className="p-6 lg:p-8 rounded-2xl bg-card border border-border">
+              <div
+                key={index}
+                className="p-6 lg:p-8 rounded-2xl bg-card border border-border"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary flex-shrink-0">
                     {step.icon}
@@ -107,7 +122,9 @@ const InstallApk = () => {
                     <h2 className="font-display text-xl font-semibold text-foreground mb-2">
                       {step.title}
                     </h2>
-                    <p className="text-muted-foreground leading-relaxed">{step.text}</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.text}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -130,14 +147,21 @@ const InstallApk = () => {
               Why does Android show this warning?
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Android shows this warning to protect you from apps that are not installed from an app store. This is normal when you install an APK directly from your browser. You can allow the install for Chrome (or your browser) and continue.
+              Android shows this warning to protect you from apps that are not
+              installed from an app store. This is normal when you install an
+              APK directly from your browser. You can allow the install for
+              Chrome (or your browser) and continue.
             </p>
           </div>
 
           {/* CTA */}
           <div className="mt-10 text-center">
             <Button asChild variant="hero" size="xl">
-              <a href={APP_CONFIG.downloads.apk} target="_blank" rel="noopener noreferrer">
+              <a
+                href={APP_CONFIG.downloads.apk}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Download DhanDiary APK
               </a>
             </Button>

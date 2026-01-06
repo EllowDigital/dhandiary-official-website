@@ -1,5 +1,17 @@
 import Layout from "@/components/layout/Layout";
-import { Scale, User, Shield, CreditCard, BadgeCheck, Link2, Ban, AlertTriangle, Gavel, RefreshCcw, Mail } from "lucide-react";
+import {
+  Scale,
+  User,
+  Shield,
+  CreditCard,
+  BadgeCheck,
+  Link2,
+  Ban,
+  AlertTriangle,
+  Gavel,
+  RefreshCcw,
+  Mail,
+} from "lucide-react";
 
 const sections = [
   {
@@ -7,9 +19,9 @@ const sections = [
     title: "1. Acceptance of Terms",
     content: (
       <p>
-        By downloading, installing, or using DhanDiary, you agree to these Terms &amp;
-        Conditions. If you are accepting on behalf of a company, you represent that you
-        have the authority to bind that entity.
+        By downloading, installing, or using DhanDiary, you agree to these Terms
+        &amp; Conditions. If you are accepting on behalf of a company, you
+        represent that you have the authority to bind that entity.
       </p>
     ),
   },
@@ -18,11 +30,15 @@ const sections = [
     title: "2. Eligibility & Accounts",
     content: (
       <ul className="list-disc list-inside text-muted-foreground space-y-2">
-        <li>You must be at least 13 years old or of legal age in your jurisdiction.</li>
+        <li>
+          You must be at least 13 years old or of legal age in your
+          jurisdiction.
+        </li>
         <li>Account credentials must be kept confidential.</li>
         <li>You are responsible for all activity under your account.</li>
         <li>
-          Accounts violating these terms or applicable law may be suspended or terminated.
+          Accounts violating these terms or applicable law may be suspended or
+          terminated.
         </li>
       </ul>
     ),
@@ -32,14 +48,20 @@ const sections = [
     title: "3. Permitted Use",
     content: (
       <>
-        <p>DhanDiary is provided for personal or organizational finance tracking only.</p>
+        <p>
+          DhanDiary is provided for personal or organizational finance tracking
+          only.
+        </p>
         <p className="mt-3">You agree NOT to:</p>
         <ul className="list-disc list-inside text-muted-foreground space-y-2 mt-3">
           <li>
-            Reverse engineer, decompile, or extract source code except where permitted by law.
+            Reverse engineer, decompile, or extract source code except where
+            permitted by law.
           </li>
           <li>Upload malicious code, automated scripts, or excessive data.</li>
-          <li>Use the service for unlawful, fraudulent, or infringing activities.</li>
+          <li>
+            Use the service for unlawful, fraudulent, or infringing activities.
+          </li>
         </ul>
       </>
     ),
@@ -50,10 +72,12 @@ const sections = [
     content: (
       <>
         <p>
-          Core mobile functionality is currently free. If paid tiers are introduced, pricing
-          and billing details will be disclosed in advance.
+          Core mobile functionality is currently free. If paid tiers are
+          introduced, pricing and billing details will be disclosed in advance.
         </p>
-        <p className="mt-3">Taxes may apply. All fees are non-refundable unless required by law.</p>
+        <p className="mt-3">
+          Taxes may apply. All fees are non-refundable unless required by law.
+        </p>
       </>
     ),
   },
@@ -62,8 +86,9 @@ const sections = [
     title: "5. Intellectual Property",
     content: (
       <p>
-        All logos, trademarks, code, and content provided by EllowDigital remain our property.
-        You retain ownership of the content you input into the service.
+        All logos, trademarks, code, and content provided by EllowDigital remain
+        our property. You retain ownership of the content you input into the
+        service.
       </p>
     ),
   },
@@ -72,8 +97,8 @@ const sections = [
     title: "6. Third-Party Services",
     content: (
       <p>
-        Some features rely on third-party services such as databases, analytics, or
-        authentication providers. Their individual terms may apply.
+        Some features rely on third-party services such as databases, analytics,
+        or authentication providers. Their individual terms may apply.
       </p>
     ),
   },
@@ -90,8 +115,8 @@ const sections = [
           <li>Present security risks</li>
         </ul>
         <p className="mt-3">
-          Upon termination, cloud data may be deleted. Local data remains on your device until
-          you remove it.
+          Upon termination, cloud data may be deleted. Local data remains on
+          your device until you remove it.
         </p>
       </>
     ),
@@ -101,8 +126,9 @@ const sections = [
     title: "8. Disclaimers",
     content: (
       <p>
-        DhanDiary is provided &quot;AS IS&quot; without warranties of any kind, including implied
-        warranties of merchantability or fitness for a particular purpose.
+        DhanDiary is provided &quot;AS IS&quot; without warranties of any kind,
+        including implied warranties of merchantability or fitness for a
+        particular purpose.
       </p>
     ),
   },
@@ -112,8 +138,8 @@ const sections = [
     content: (
       <>
         <p>
-          To the fullest extent permitted by law, EllowDigital is not liable for indirect,
-          incidental, special, or consequential damages.
+          To the fullest extent permitted by law, EllowDigital is not liable for
+          indirect, incidental, special, or consequential damages.
         </p>
         <p className="mt-3">Total liability is limited to the greater of:</p>
         <ul className="list-disc list-inside text-muted-foreground space-y-2 mt-3">
@@ -138,8 +164,8 @@ const sections = [
     title: "11. Changes to Terms",
     content: (
       <p>
-        Terms may be updated due to new features or legal requirements. Continued use after
-        the effective date constitutes acceptance.
+        Terms may be updated due to new features or legal requirements.
+        Continued use after the effective date constitutes acceptance.
       </p>
     ),
   },
@@ -183,13 +209,17 @@ const Terms = () => {
                 DhanDiary — Terms &amp; Conditions
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                These Terms &amp; Conditions describe the mutual responsibilities between you and
-                EllowDigital when using the DhanDiary mobile, desktop, or web products.
+                These Terms &amp; Conditions describe the mutual
+                responsibilities between you and EllowDigital when using the
+                DhanDiary mobile, desktop, or web products.
               </p>
             </div>
 
             {sections.map((section, index) => (
-              <div key={index} className="p-6 lg:p-8 rounded-2xl bg-card border border-border">
+              <div
+                key={index}
+                className="p-6 lg:p-8 rounded-2xl bg-card border border-border"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary flex-shrink-0">
                     {section.icon}
@@ -198,7 +228,9 @@ const Terms = () => {
                     <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                       {section.title}
                     </h3>
-                    <div className="text-muted-foreground leading-relaxed">{section.content}</div>
+                    <div className="text-muted-foreground leading-relaxed">
+                      {section.content}
+                    </div>
                   </div>
                 </div>
               </div>

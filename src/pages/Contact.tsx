@@ -31,7 +31,9 @@ const Contact = () => {
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                 Email Support
               </h3>
-              <p className="text-primary font-medium">sarwanyadav6174@gmail.com</p>
+              <p className="text-primary font-medium">
+                sarwanyadav6174@gmail.com
+              </p>
               <p className="text-muted-foreground text-sm mt-2">
                 For questions, feedback, or bug reports
               </p>

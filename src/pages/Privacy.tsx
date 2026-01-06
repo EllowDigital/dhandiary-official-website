@@ -10,16 +10,20 @@ const sections = [
         <p>We collect only what is necessary to provide our services:</p>
         <ul className="list-disc list-inside text-muted-foreground space-y-2 mt-3">
           <li>
-            <span className="font-medium text-foreground">Profile Details:</span> Name (optional)
-            and email address
+            <span className="font-medium text-foreground">
+              Profile Details:
+            </span>{" "}
+            Name (optional) and email address
           </li>
           <li>
-            <span className="font-medium text-foreground">Finance Entries:</span> Income,
-            expenses, categories, notes, and attachments
+            <span className="font-medium text-foreground">
+              Finance Entries:
+            </span>{" "}
+            Income, expenses, categories, notes, and attachments
           </li>
           <li>
-            <span className="font-medium text-foreground">Diagnostics:</span> Device info, OS
-            version, crash logs, anonymized usage data
+            <span className="font-medium text-foreground">Diagnostics:</span>{" "}
+            Device info, OS version, crash logs, anonymized usage data
           </li>
         </ul>
       </>
@@ -110,8 +114,8 @@ const sections = [
     title: "8. Children’s Privacy",
     content: (
       <p>
-        DhanDiary is not intended for children under 13. We do not knowingly collect
-        children’s data.
+        DhanDiary is not intended for children under 13. We do not knowingly
+        collect children’s data.
       </p>
     ),
   },
@@ -120,8 +124,8 @@ const sections = [
     title: "9. Policy Changes",
     content: (
       <p>
-        This policy may be updated due to legal or feature changes. Material updates will be
-        announced in-app.
+        This policy may be updated due to legal or feature changes. Material
+        updates will be announced in-app.
       </p>
     ),
   },
@@ -165,13 +169,17 @@ const Privacy = () => {
                 Privacy Policy
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                DhanDiary provides finance tools designed with privacy by default. This policy
-                explains what data we collect and how it is used.
+                DhanDiary provides finance tools designed with privacy by
+                default. This policy explains what data we collect and how it is
+                used.
               </p>
             </div>
 
             {sections.map((section, index) => (
-              <div key={index} className="p-6 lg:p-8 rounded-2xl bg-card border border-border">
+              <div
+                key={index}
+                className="p-6 lg:p-8 rounded-2xl bg-card border border-border"
+              >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary flex-shrink-0">
                     {section.icon}
@@ -180,7 +188,9 @@ const Privacy = () => {
                     <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                       {section.title}
                     </h3>
-                    <div className="text-muted-foreground leading-relaxed">{section.content}</div>
+                    <div className="text-muted-foreground leading-relaxed">
+                      {section.content}
+                    </div>
                   </div>
                 </div>
               </div>

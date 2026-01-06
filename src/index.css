@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -40,8 +40,16 @@
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(162 63% 41%), hsl(170 60% 50%));
-    --gradient-subtle: linear-gradient(180deg, hsl(150 20% 99%), hsl(150 15% 96%));
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(162 63% 41%),
+      hsl(170 60% 50%)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      hsl(150 20% 99%),
+      hsl(150 15% 96%)
+    );
     --shadow-soft: 0 2px 8px -2px hsl(160 25% 12% / 0.08);
     --shadow-card: 0 4px 24px -4px hsl(160 25% 12% / 0.1);
     --shadow-elevated: 0 12px 40px -8px hsl(160 25% 12% / 0.15);
@@ -108,11 +116,16 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", sans-serif;
   }
 }
 
@@ -185,7 +198,8 @@
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {

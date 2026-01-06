@@ -1,5 +1,13 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Wifi, WifiOff, BarChart3, Smartphone, Lock } from "lucide-react";
+import {
+  ArrowRight,
+  Shield,
+  Wifi,
+  WifiOff,
+  BarChart3,
+  Smartphone,
+  Lock,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import ScreenshotCarousel from "@/components/home/ScreenshotCarousel";
@@ -9,17 +17,20 @@ const features = [
   {
     icon: <BarChart3 className="w-6 h-6" />,
     title: "Track Income & Expenses",
-    description: "Log your daily transactions with ease. Clean, simple, and fast.",
+    description:
+      "Log your daily transactions with ease. Clean, simple, and fast.",
   },
   {
     icon: <WifiOff className="w-6 h-6" />,
     title: "Works Offline",
-    description: "Full functionality without internet. Auto-syncs when you're back online.",
+    description:
+      "Full functionality without internet. Auto-syncs when you're back online.",
   },
   {
     icon: <Shield className="w-6 h-6" />,
     title: "Privacy First",
-    description: "No ads, no trackers. Your financial data stays private and secure.",
+    description:
+      "No ads, no trackers. Your financial data stays private and secure.",
   },
   {
     icon: <Lock className="w-6 h-6" />,
@@ -40,16 +51,17 @@ const Home = () => {
                 <Smartphone className="w-4 h-4" />
                 Version {APP_CONFIG.version} Now Available
               </div>
-              
+
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
                 Your Personal
                 <span className="text-gradient block">Finance Companion</span>
               </h1>
-              
+
               <p className="text-lg sm:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed">
-                Track income and expenses effortlessly. DhanDiary is fast, secure, offline-first, and designed for simplicity.
+                Track income and expenses effortlessly. DhanDiary is fast,
+                secure, offline-first, and designed for simplicity.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button asChild variant="hero" size="xl">
                   <Link to="/download">
@@ -107,7 +119,8 @@ const Home = () => {
               Why Choose DhanDiary?
             </h2>
             <p className="text-muted-foreground text-lg">
-              Built with simplicity and privacy at its core. Everything you need, nothing you don't.
+              Built with simplicity and privacy at its core. Everything you
+              need, nothing you don't.
             </p>
           </div>
 
@@ -152,7 +165,8 @@ const Home = () => {
               Ready to Take Control of Your Finances?
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Download DhanDiary today and start your journey to better money management. Free, secure, and private.
+              Download DhanDiary today and start your journey to better money
+              management. Free, secure, and private.
             </p>
             <Button asChild variant="hero" size="xl">
               <Link to="/download">
