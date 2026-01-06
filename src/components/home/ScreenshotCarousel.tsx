@@ -1,28 +1,60 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import screenshotDashboard from "@/assets/screenshot-dashboard.png";
-import screenshotCharts from "@/assets/screenshot-charts.png";
-import screenshotAdd from "@/assets/screenshot-add.png";
-
 const screenshots = [
   {
     id: 1,
-    image: screenshotDashboard,
-    title: "Dashboard Overview",
-    description: "See your financial summary at a glance",
+    image: "/img/Screenshot/1s.jpg",
+    title: "App Screenshot 1",
+    description: "DhanDiary preview",
   },
   {
     id: 2,
-    image: screenshotCharts,
-    title: "Charts & Analytics",
-    description: "Visualize spending patterns with intuitive charts",
+    image: "/img/Screenshot/2s.jpg",
+    title: "App Screenshot 2",
+    description: "DhanDiary preview",
   },
   {
     id: 3,
-    image: screenshotAdd,
-    title: "Add Transactions",
-    description: "Log income and expenses in seconds",
+    image: "/img/Screenshot/3s.jpg",
+    title: "App Screenshot 3",
+    description: "DhanDiary preview",
+  },
+  {
+    id: 4,
+    image: "/img/Screenshot/4s.jpg",
+    title: "App Screenshot 4",
+    description: "DhanDiary preview",
+  },
+  {
+    id: 5,
+    image: "/img/Screenshot/5s.jpg",
+    title: "App Screenshot 5",
+    description: "DhanDiary preview",
+  },
+  {
+    id: 6,
+    image: "/img/Screenshot/6s.jpg",
+    title: "App Screenshot 6",
+    description: "DhanDiary preview",
+  },
+  {
+    id: 7,
+    image: "/img/Screenshot/7s.jpg",
+    title: "App Screenshot 7",
+    description: "DhanDiary preview",
+  },
+  {
+    id: 8,
+    image: "/img/Screenshot/8s.jpg",
+    title: "App Screenshot 8",
+    description: "DhanDiary preview",
+  },
+  {
+    id: 9,
+    image: "/img/Screenshot/9s.jpg",
+    title: "App Screenshot 9",
+    description: "DhanDiary preview",
   },
 ];
 
