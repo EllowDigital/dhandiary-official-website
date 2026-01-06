@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Wifi, WifiOff, BarChart3, Smartphone, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Layout from "@/components/layout/Layout";
 import ScreenshotCarousel from "@/components/home/ScreenshotCarousel";
-import screenshotDashboard from "@/assets/screenshot-dashboard.png";
 import { APP_CONFIG } from "@/lib/appConfig";
 
 const features = [
@@ -84,19 +82,15 @@ const Home = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-hero-gradient opacity-20 blur-3xl rounded-full scale-110" />
                 <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl animate-float">
-                  <div className="rounded-[2.75rem] bg-card border border-border shadow-elevated p-2 sm:p-3">
-                    <div className="mx-auto mb-2 sm:mb-3 h-4 sm:h-5 w-16 sm:w-20 rounded-full bg-muted" />
-                    <AspectRatio
-                      ratio={9 / 19.5}
-                      className="overflow-hidden rounded-[2rem] bg-background"
-                    >
+                  <div className="rounded-[2.75rem] bg-card border border-border shadow-elevated p-8 sm:p-10">
+                    <div className="mx-auto max-w-xs sm:max-w-sm">
                       <img
-                        src={screenshotDashboard}
-                        alt="DhanDiary app screenshot"
-                        className="h-full w-full object-contain"
+                        src="/img/logo.png"
+                        alt="DhanDiary logo"
+                        className="w-full h-auto object-contain"
                         loading="eager"
                       />
-                    </AspectRatio>
+                    </div>
                   </div>
                 </div>
               </div>
