@@ -1,34 +1,49 @@
 import { ExternalLink, Download as DownloadIcon, Smartphone, Shield, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import { APP_CONFIG } from "@/lib/appConfig";
 
 const downloadOptions = [
   {
     name: "Indus App Store",
     description: "Download from Indus App Store for Android",
     icon: <Smartphone className="w-6 h-6" />,
-    url: "https://store.indus.com/app/com.ellowdigital.dhandiary",
+    url: APP_CONFIG.downloads.indus,
     primary: true,
   },
   {
     name: "Amazon Appstore",
     description: "Available on Amazon Appstore",
     icon: <Smartphone className="w-6 h-6" />,
-    url: "https://www.amazon.com/gp/product/B0DQ7MGDG2",
+    url: APP_CONFIG.downloads.amazon,
     primary: true,
   },
   {
     name: "Direct APK Download",
-    description: "Download APK directly (v2.4.0)",
+    description: `Download APK directly (v${APP_CONFIG.version})`,
     icon: <DownloadIcon className="w-6 h-6" />,
-    url: "#",
+    url: APP_CONFIG.downloads.apk,
+    primary: false,
+  },
+  {
+    name: "Huawei AppGallery",
+    description: "Available on Huawei AppGallery (link coming soon)",
+    icon: <Smartphone className="w-6 h-6" />,
+    url: "",
+    primary: false,
+  },
+  {
+    name: "OPPO App Market",
+    description: "Available on OPPO App Market (link coming soon)",
+    icon: <Smartphone className="w-6 h-6" />,
+    url: "",
     primary: false,
   },
 ];
 
 const requirements = [
-  "Android 6.0 or higher",
-  "50 MB storage space",
+  `Android ${APP_CONFIG.minAndroid} or higher`,
+  `${APP_CONFIG.sizeMb} MB storage space`,
   "Works on phones and tablets",
 ];
 
@@ -56,28 +71,47 @@ const DownloadPage = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="grid gap-4 mb-12">
             {downloadOptions.map((option, index) => (
-              <a
-                key={index}
-                href={option.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center gap-4 p-6 rounded-2xl border transition-all duration-300 hover:shadow-card group ${
-                  option.primary
-                    ? "bg-card border-border hover:border-primary/30"
-                    : "bg-muted/50 border-border hover:border-primary/30"
-                }`}
-              >
-                <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  {option.icon}
+              option.url ? (
+                <a
+                  key={index}
+                  href={option.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-4 p-6 rounded-2xl border transition-all duration-300 hover:shadow-card group ${
+                    option.primary
+                      ? "bg-card border-border hover:border-primary/30"
+                      : "bg-muted/50 border-border hover:border-primary/30"
+                  }`}
+                >
+                  <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    {option.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-display font-semibold text-foreground text-lg">
+                      {option.name}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">{option.description}</p>
+                  </div>
+                  <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                </a>
+              ) : (
+                <div
+                  key={index}
+                  className={`flex items-center gap-4 p-6 rounded-2xl border ${
+                    option.primary ? "bg-card border-border" : "bg-muted/50 border-border"
+                  }`}
+                >
+                  <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-primary">
+                    {option.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-display font-semibold text-foreground text-lg">
+                      {option.name}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">{option.description}</p>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-display font-semibold text-foreground text-lg">
-                    {option.name}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">{option.description}</p>
-                </div>
-                <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
+              )
             ))}
           </div>
 
@@ -86,11 +120,16 @@ const DownloadPage = () => {
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
               <div>
                 <h3 className="font-display text-xl font-semibold text-foreground mb-2">
-                  Current Version: 2.4.0
+                  Current Version: {APP_CONFIG.version}
                 </h3>
                 <p className="text-muted-foreground">
                   Latest stable release with all features and security updates.
                 </p>
+                {APP_CONFIG.releaseDate ? (
+                  <p className="text-muted-foreground text-sm mt-2">
+                    Released: {APP_CONFIG.releaseDate}
+                  </p>
+                ) : null}
               </div>
               <div className="space-y-2">
                 <h4 className="font-medium text-foreground text-sm">Requirements:</h4>
