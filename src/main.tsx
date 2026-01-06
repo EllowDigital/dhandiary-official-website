@@ -8,3 +8,11 @@ createRoot(document.getElementById("root")!).render(
 		<App />
 	</HelmetProvider>
 );
+
+const preloader = document.getElementById("preloader");
+if (preloader) {
+	preloader.setAttribute("data-hide", "true");
+	window.setTimeout(() => {
+		preloader.remove();
+	}, 260);
+}

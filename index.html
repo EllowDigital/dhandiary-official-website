@@ -126,6 +126,73 @@
     </script>
   </head>
   <body>
+    <style>
+      /* Lightweight preloader shown before React mounts */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: hsl(var(--background, 0 0% 100%));
+        color: hsl(var(--foreground, 240 10% 3.9%));
+        z-index: 9999;
+        transition: opacity 220ms ease;
+      }
+      #preloader[data-hide="true"] {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #preloader .inner {
+        text-align: center;
+      }
+      #preloader img {
+        width: 72px;
+        height: 72px;
+        object-fit: contain;
+        border-radius: 18px;
+        display: block;
+        margin: 0 auto 14px;
+      }
+      #preloader .brand {
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        font-weight: 700;
+        font-size: 18px;
+        margin: 0 0 10px;
+      }
+      #preloader .spinner {
+        width: 28px;
+        height: 28px;
+        margin: 0 auto;
+        border-radius: 999px;
+        border: 3px solid hsl(var(--border, 240 5.9% 90%));
+        border-top-color: hsl(var(--primary, 142 76% 36%));
+        animation: preloader-spin 900ms linear infinite;
+      }
+      @keyframes preloader-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #preloader {
+          transition: none;
+        }
+        #preloader .spinner {
+          animation: none;
+        }
+      }
+    </style>
+
+    <div id="preloader" role="status" aria-live="polite" aria-label="Loading">
+      <div class="inner">
+        <img src="/img/logo.png" alt="DhanDiary" />
+        <p class="brand">Loading DhanDiary…</p>
+        <div class="spinner" aria-hidden="true"></div>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
