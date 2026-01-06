@@ -37,6 +37,19 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link
+                  to="/how-to-install-apk"
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
+                  How to Install APK
+                </Link>
+              </li>
+              <li>
+                <Link to="/roadmap" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  Roadmap
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                   About Us
                 </Link>

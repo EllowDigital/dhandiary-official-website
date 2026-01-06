@@ -10,6 +10,8 @@ import DownloadPage from "./pages/Download";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Eula from "./pages/Eula";
+import InstallApk from "./pages/InstallApk";
+import Roadmap from "./pages/Roadmap";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/eula" element={<Eula />} />
+          <Route path="/how-to-install-apk" element={<InstallApk />} />
+          <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
