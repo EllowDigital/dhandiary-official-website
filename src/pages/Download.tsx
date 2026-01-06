@@ -1,5 +1,5 @@
 import { ExternalLink, Download as DownloadIcon, Smartphone, Shield, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { APP_CONFIG } from "@/lib/appConfig";
 
@@ -113,6 +113,19 @@ const DownloadPage = () => {
                 </div>
               )
             ))}
+          </div>
+
+          <div className="mb-12 p-6 rounded-2xl bg-card border border-border">
+            <h2 className="font-display text-xl font-semibold text-foreground mb-2">
+              Installing via APK?
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              If Android shows a warning or blocks installation, follow our step-by-step guide: {" "}
+              <Link to="/how-to-install-apk" className="text-primary hover:underline font-medium">
+                How to Install DhanDiary APK
+              </Link>
+              .
+            </p>
           </div>
 
           {/* Version Info */}
