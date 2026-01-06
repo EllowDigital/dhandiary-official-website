@@ -1,3 +1,6 @@
+# DhanDiary - Personal Finance Tracker
+# https://dhandiary.com
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://dhandiary.com/sitemap.xml
