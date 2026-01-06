@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Features from "./pages/Features";
 import DownloadPage from "./pages/Download";
 import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Eula from "./pages/Eula";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/features" element={<Features />} />
           <Route path="/download" element={<DownloadPage />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/eula" element={<Eula />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

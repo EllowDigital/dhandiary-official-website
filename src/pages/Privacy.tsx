@@ -1,32 +1,4 @@
-import { Shield, Eye, Lock, Database, Mail } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-
-const policies = [
-  {
-    icon: <Shield className="w-6 h-6" />,
-    title: "Your Data Stays Private",
-    content:
-      "DhanDiary does not collect, store, or share your personal financial data with third parties. What you enter in the app stays on your device.",
-  },
-  {
-    icon: <Eye className="w-6 h-6" />,
-    title: "No Ads, No Trackers",
-    content:
-      "We don't display advertisements or use tracking technologies. Your usage patterns and financial information are never monitored or analyzed for advertising purposes.",
-  },
-  {
-    icon: <Lock className="w-6 h-6" />,
-    title: "Secure Authentication",
-    content:
-      "When you create an account, we use industry-standard encryption and secure authentication methods. Your login credentials are protected using modern security protocols.",
-  },
-  {
-    icon: <Database className="w-6 h-6" />,
-    title: "Offline Data Storage",
-    content:
-      "All your financial data is stored locally on your device using an offline-first database. This means your sensitive information never leaves your device without your explicit consent.",
-  },
-];
 
 const Privacy = () => {
   return (
@@ -34,78 +6,144 @@ const Privacy = () => {
       {/* Hero */}
       <section className="bg-subtle-gradient section-padding">
         <div className="container mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-6">
-            <Shield className="w-4 h-4" />
-            Privacy First
-          </div>
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-4">
             Privacy Policy
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-            Your privacy is our priority. Learn how DhanDiary protects your data.
+            Last Updated: 12 December 2025
           </p>
         </div>
       </section>
 
-      {/* Policy Details */}
+      {/* Content */}
       <section className="section-padding">
         <div className="container mx-auto container-narrow">
-          <div className="space-y-8">
-            {policies.map((policy, index) => (
-              <div
-                key={index}
-                className="p-6 lg:p-8 rounded-2xl bg-card border border-border"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary flex-shrink-0">
-                    {policy.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-display text-xl font-semibold text-foreground mb-2">
-                      {policy.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {policy.content}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Additional Info */}
-          <div className="mt-12 p-6 lg:p-8 rounded-2xl bg-accent/50 border border-primary/20">
-            <h3 className="font-display text-xl font-semibold text-foreground mb-4">
-              Third-Party Services
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              DhanDiary uses the following third-party services for authentication only:
+          <div className="space-y-10 text-muted-foreground leading-relaxed">
+            <p>
+              DhanDiary provides finance tools designed with privacy by default. This policy
+              explains what data we collect and how it is used.
             </p>
-            <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li>Google Sign-In (for optional OAuth authentication)</li>
-              <li>GitHub Sign-In (for optional OAuth authentication)</li>
-            </ul>
-            <p className="text-muted-foreground leading-relaxed mt-4">
-              These services are used solely for account authentication and do not have access to your financial data within the app.
-            </p>
-          </div>
 
-          {/* Contact */}
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground mb-4">
-              Have questions about our privacy practices?
-            </p>
-            <a
-              href="mailto:sarwanyadav6174@gmail.com"
-              className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-            >
-              <Mail className="w-4 h-4" />
-              Contact us at sarwanyadav6174@gmail.com
-            </a>
-          </div>
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                1. Data We Collect
+              </h2>
+              <p>We collect only what is necessary to provide our services:</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>
+                  <span className="font-medium text-foreground">Profile Details:</span> Name (optional)
+                  and email address
+                </li>
+                <li>
+                  <span className="font-medium text-foreground">Finance Entries:</span> Income,
+                  expenses, categories, notes, and attachments
+                </li>
+                <li>
+                  <span className="font-medium text-foreground">Diagnostics:</span> Device info, OS
+                  version, crash logs, anonymized usage data
+                </li>
+              </ul>
+            </div>
 
-          <div className="mt-12 text-center text-sm text-muted-foreground">
-            <p>Last updated: January 2026</p>
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                2. How We Use Data
+              </h2>
+              <p>Data is used to:</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Display ledgers, charts, and insights</li>
+                <li>Authenticate and sync accounts</li>
+                <li>Provide optional cloud backups</li>
+                <li>Improve stability and performance</li>
+              </ul>
+              <p>We never sell or rent personal data.</p>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                3. Cloud Backup &amp; Sync
+              </h2>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Cloud sync is optional</li>
+                <li>Data is transmitted securely over HTTPS</li>
+                <li>Data is encrypted at rest</li>
+                <li>Only authenticated sessions can access data</li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                4. Security Practices
+              </h2>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Secure credential storage</li>
+                <li>Enforced transport encryption</li>
+                <li>Regular dependency updates</li>
+                <li>Restricted access to production data</li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                5. Sharing &amp; Third Parties
+              </h2>
+              <p>We do not share personal or financial data with marketers.</p>
+              <p>Limited partners include:</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Database hosting providers</li>
+                <li>Authentication services</li>
+                <li>Analytics and crash-reporting tools</li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                6. Your Rights
+              </h2>
+              <p>You have the right to:</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Access and export your data</li>
+                <li>Request deletion of backups</li>
+                <li>Manage preferences in-app</li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                7. Retention &amp; Data Residency
+              </h2>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Local data stays on your device until deleted</li>
+                <li>Cloud backups remain until account deletion</li>
+                <li>Infrastructure complies with Indian privacy regulations</li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                8. Children’s Privacy
+              </h2>
+              <p>
+                DhanDiary is not intended for children under 13. We do not knowingly collect
+                children’s data.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">
+                9. Policy Changes
+              </h2>
+              <p>
+                This policy may be updated due to legal or feature changes. Material updates
+                will be announced in-app.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h2 className="font-display text-2xl font-semibold text-foreground">10. Contact Us</h2>
+              <p>Developer Email: sarwanyadav6174@gmail.com</p>
+              <p>Team Email: ellowdigitalindia@gmail.com</p>
+            </div>
           </div>
         </div>
       </section>
