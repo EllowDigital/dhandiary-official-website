@@ -38,9 +38,17 @@ const About = () => {
                 secure way to track daily income and expenses without the noise.
               </p>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                Built and maintained independently by EllowDigital, DhanDiary is
-                crafted with care for people who value simplicity and privacy in
-                their personal finance journey.
+                Built and maintained independently by{" "}
+                <a
+                  href="https://ellowdigital.space"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  EllowDigital
+                </a>
+                , DhanDiary is crafted with care for people who value simplicity
+                and privacy in their personal finance journey.
               </p>
             </div>
 

@@ -80,7 +80,14 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Company</p>
-                  <p className="font-semibold text-foreground">EllowDigital</p>
+                  <a
+                    href="https://ellowdigital.space"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground hover:underline"
+                  >
+                    EllowDigital
+                  </a>
                 </div>
               </div>
             </div>
