@@ -148,16 +148,15 @@ const Footer = () => {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} DhanDiary. Built by{" "}
-               <a
-                 href="https://ellowdigital.space"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="text-primary hover:underline"
-               >
-                 EllowDigital
-               </a>{" "}
-               Credits to{" "}
+              © {new Date().getFullYear()} DhanDiary. Built &amp; Developed by{" "}
+              <a
+                href="https://ellowdigital.space"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                EllowDigital
+              </a>
             </p>
             <p className="text-muted-foreground text-sm">
               Made with ❤️ by Sarwan Yadav
