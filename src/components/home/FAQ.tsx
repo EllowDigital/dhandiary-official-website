@@ -1,10 +1,13 @@
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { HelpCircle } from "lucide-react";
+import { HelpCircle, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const faqs = [
   {
@@ -37,53 +40,72 @@ const faqs = [
     answer:
       "No account is required to use DhanDiary's core features. However, creating an account (with email, Google, or GitHub) enables cloud sync, backup, and access across multiple devices.",
   },
-  {
-    question: "How do I add recurring transactions?",
-    answer:
-      "DhanDiary supports recurring transactions for regular income or expenses. Simply toggle the 'Recurring' option when adding a transaction and set the frequency (daily, weekly, monthly, or yearly).",
-  },
-  {
-    question: "Can I export my data?",
-    answer:
-      "Yes! You can export your transaction history and reports in multiple formats. This makes it easy to analyze your finances in spreadsheets or share with financial advisors.",
-  },
 ];
 
 const FAQ = () => {
   return (
-    <section className="section-padding">
-      <div className="container mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-6">
-            <HelpCircle className="w-4 h-4" />
+    <section className="py-12 sm:py-16 lg:py-20 xl:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 lg:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+            <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4" />
             Got Questions?
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-lg mx-auto">
             Everything you need to know about DhanDiary. Can't find what you're
-            looking for? Contact our support.
+            looking for?
           </p>
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem
+              <motion.div
                 key={index}
-                value={`item-${index}`}
-                className="bg-card border border-border rounded-2xl px-6 data-[state=open]:shadow-card transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <AccordionTrigger className="text-left font-display font-semibold text-foreground hover:text-primary py-5 [&[data-state=open]>svg]:rotate-180">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem
+                  value={`item-${index}`}
+                  className="bg-card border border-border rounded-xl sm:rounded-2xl px-4 sm:px-6 data-[state=open]:shadow-card transition-shadow"
+                >
+                  <AccordionTrigger className="text-left font-display font-semibold text-foreground hover:text-primary py-4 sm:py-5 text-sm sm:text-base [&[data-state=open]>svg]:rotate-180">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-4 sm:pb-5 leading-relaxed text-sm sm:text-base">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             ))}
           </Accordion>
+
+          {/* Contact CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="mt-8 sm:mt-10 text-center p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-accent/50 border border-border"
+          >
+            <h3 className="font-display font-semibold text-foreground text-base sm:text-lg mb-2">
+              Still have questions?
+            </h3>
+            <p className="text-muted-foreground text-sm sm:text-base mb-4">
+              We're here to help. Reach out to our support team.
+            </p>
+            <Button asChild variant="outline" size="sm" className="gap-2">
+              <Link to="/contact">
+                <Mail className="w-4 h-4" />
+                Contact Support
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </div>
     </section>
