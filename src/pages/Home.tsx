@@ -7,10 +7,14 @@ import {
   BarChart3,
   Smartphone,
   Lock,
+  Star,
+  Download,
+  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import ScreenshotCarousel from "@/components/home/ScreenshotCarousel";
+import FAQ from "@/components/home/FAQ";
 import { APP_CONFIG } from "@/lib/appConfig";
 
 const features = [
@@ -39,22 +43,39 @@ const features = [
   },
 ];
 
+const stats = [
+  { icon: <Download className="w-5 h-5" />, value: "10K+", label: "Downloads" },
+  { icon: <Star className="w-5 h-5" />, value: "4.8", label: "Rating" },
+  { icon: <Users className="w-5 h-5" />, value: "5K+", label: "Active Users" },
+];
+
 const Home = () => {
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Hero Section - Enhanced */}
       <section className="relative overflow-hidden bg-subtle-gradient">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/5 to-transparent rounded-full" />
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28 relative">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="text-center lg:text-left animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-6">
-                <Smartphone className="w-4 h-4" />
-                Version {APP_CONFIG.version} Now Available
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6 animate-pulse">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                Version {APP_CONFIG.version} — Now Available
               </div>
 
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-6">
                 Your Personal
-                <span className="text-gradient block">Finance Companion</span>
+                <span className="text-gradient block mt-2">Finance Companion</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed">
@@ -74,34 +95,86 @@ const Home = () => {
                 </Button>
               </div>
 
-              <div className="flex items-center gap-6 mt-10 justify-center lg:justify-start">
-                <div className="flex items-center gap-2 text-muted-foreground text-sm">
+              {/* Stats */}
+              <div className="flex items-center gap-8 mt-10 justify-center lg:justify-start">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="flex items-center justify-center gap-1.5 text-primary mb-1">
+                      {stat.icon}
+                      <span className="font-display font-bold text-xl text-foreground">
+                        {stat.value}
+                      </span>
+                    </div>
+                    <span className="text-muted-foreground text-sm">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Trust Badges */}
+              <div className="flex items-center gap-6 mt-8 justify-center lg:justify-start">
+                <div className="flex items-center gap-2 text-muted-foreground text-sm px-3 py-1.5 rounded-full bg-background/50 border border-border">
                   <Shield className="w-4 h-4 text-primary" />
                   No Ads
                 </div>
-                <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                <div className="flex items-center gap-2 text-muted-foreground text-sm px-3 py-1.5 rounded-full bg-background/50 border border-border">
                   <Wifi className="w-4 h-4 text-primary" />
                   Offline First
                 </div>
-                <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                <div className="flex items-center gap-2 text-muted-foreground text-sm px-3 py-1.5 rounded-full bg-background/50 border border-border">
                   <Lock className="w-4 h-4 text-primary" />
                   Secure
                 </div>
               </div>
             </div>
 
+            {/* Hero Visual */}
             <div className="flex justify-center lg:justify-end animate-slide-up">
               <div className="relative">
-                <div className="absolute inset-0 bg-hero-gradient opacity-20 blur-3xl rounded-full scale-110" />
-                <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl animate-float">
-                  <div className="rounded-[2.75rem] bg-card border border-border shadow-elevated p-8 sm:p-10">
-                    <div className="mx-auto max-w-xs sm:max-w-sm">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-hero-gradient opacity-30 blur-3xl rounded-full scale-125" />
+                
+                {/* Phone Frame */}
+                <div className="relative animate-float">
+                  <div className="relative bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[3rem] p-3 shadow-elevated">
+                    {/* Notch */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-7 bg-zinc-900 rounded-b-2xl z-10 flex items-center justify-center">
+                      <div className="w-16 h-4 bg-zinc-800 rounded-full" />
+                    </div>
+                    {/* Screen */}
+                    <div className="relative bg-black rounded-[2.5rem] overflow-hidden">
                       <img
-                        src="/img/logo.png"
-                        alt="DhanDiary logo"
-                        className="w-full h-auto object-contain"
+                        src="/img/Screenshot/1s.jpg"
+                        alt="DhanDiary App Dashboard"
+                        className="w-64 sm:w-72 lg:w-80 h-auto object-cover"
                         loading="eager"
                       />
+                    </div>
+                    {/* Home Indicator */}
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-28 h-1.5 bg-zinc-600 rounded-full" />
+                  </div>
+
+                  {/* Floating Elements */}
+                  <div className="absolute -top-4 -right-4 bg-card border border-border rounded-2xl p-3 shadow-elevated animate-bounce-slow">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                        <ArrowRight className="w-4 h-4 text-green-500 rotate-[-45deg]" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-muted-foreground">Income</p>
+                        <p className="font-semibold text-green-500 text-sm">+₹25,000</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-2xl p-3 shadow-elevated animate-bounce-slow" style={{ animationDelay: '0.5s' }}>
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                        <BarChart3 className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-muted-foreground">Savings</p>
+                        <p className="font-semibold text-primary text-sm">₹12,500</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -156,6 +229,9 @@ const Home = () => {
 
       {/* Screenshots Section */}
       <ScreenshotCarousel />
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* CTA Section */}
       <section className="section-padding bg-subtle-gradient">
