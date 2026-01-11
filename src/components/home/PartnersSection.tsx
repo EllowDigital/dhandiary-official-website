@@ -184,7 +184,7 @@ const PartnersSection = () => {
           className="text-center"
         >
           <p className="text-sm text-muted-foreground uppercase tracking-wider mb-6">
-            As Featured In
+            As featured in
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {pressMentions.map((mention, index) => (
