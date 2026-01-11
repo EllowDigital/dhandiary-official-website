@@ -79,12 +79,7 @@ const PartnersSection = () => {
       url: APP_CONFIG.downloads.oppo,
       badge: (
         <svg viewBox="0 0 135 40" className="h-10 w-auto">
-          <rect
-            width="135"
-            height="40"
-            rx="5"
-            fill="hsl(var(--foreground))"
-          />
+          <rect width="135" height="40" rx="5" fill="hsl(var(--foreground))" />
           <text
             x="67.5"
             y="14"
