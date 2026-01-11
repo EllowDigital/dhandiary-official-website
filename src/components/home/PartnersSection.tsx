@@ -72,6 +72,43 @@ const PartnersSection = () => {
         </>
       ),
     },
+    {
+      name: "OPPO App Market",
+      rating: "4.8",
+      reviews: "OPPO",
+      url: APP_CONFIG.downloads.oppo,
+      badge: (
+        <svg viewBox="0 0 135 40" className="h-10 w-auto">
+          <rect
+            width="135"
+            height="40"
+            rx="5"
+            fill="hsl(var(--foreground))"
+          />
+          <text
+            x="67.5"
+            y="14"
+            textAnchor="middle"
+            fill="hsl(var(--background))"
+            fontSize="7"
+            fontFamily="system-ui"
+          >
+            AVAILABLE ON
+          </text>
+          <text
+            x="67.5"
+            y="28"
+            textAnchor="middle"
+            fill="hsl(var(--background))"
+            fontSize="11"
+            fontWeight="bold"
+            fontFamily="system-ui"
+          >
+            OPPO App Market
+          </text>
+        </svg>
+      ),
+    },
   ];
 
   const pressMentions = [
@@ -105,15 +142,25 @@ const PartnersSection = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex flex-col items-center gap-2"
               >
-                <a
-                  href={store.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:scale-105 transition-transform"
-                  aria-label={`Download from ${store.name}`}
-                >
-                  {store.badge}
-                </a>
+                {store.url ? (
+                  <a
+                    href={store.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:scale-105 transition-transform"
+                    aria-label={`Download from ${store.name}`}
+                  >
+                    {store.badge}
+                  </a>
+                ) : (
+                  <div
+                    className="opacity-60 cursor-not-allowed"
+                    aria-label={`${store.name} link coming soon`}
+                    title="Link coming soon"
+                  >
+                    {store.badge}
+                  </div>
+                )}
                 <div className="flex items-center gap-1">
                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                   <span className="text-sm font-semibold text-foreground">

@@ -16,5 +16,6 @@ export const APP_CONFIG = {
     huawei:
       requiredEnv("VITE_DOWNLOAD_HUAWEI_URL") ||
       "https://url.cloud.huawei.com/yMQqh6QrTy",
+    oppo: requiredEnv("VITE_DOWNLOAD_OPPO_URL") || "",
   },
 } as const;
