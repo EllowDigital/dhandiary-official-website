@@ -53,9 +53,9 @@ const PartnersSection = () => {
       ),
     },
     {
-      name: "APK Direct",
+      name: "Expo APK",
       url: apkValid ? APP_CONFIG.downloads.apk : "",
-      disabledTitle: "Direct APK link expired (30-day limit)",
+      disabledTitle: "Expo APK link expired (30-day limit)",
       badge: (
         <svg viewBox="0 0 135 40" className="h-10 w-auto">
           <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
@@ -67,7 +67,7 @@ const PartnersSection = () => {
             fontSize="7"
             fontFamily="system-ui"
           >
-            DOWNLOAD
+            POWERED BY
           </text>
           <text
             x="67.5"
@@ -78,7 +78,7 @@ const PartnersSection = () => {
             fontWeight="bold"
             fontFamily="system-ui"
           >
-            APK Direct
+            Expo (APK)
           </text>
         </svg>
       ),
