@@ -152,8 +152,7 @@ const Testimonials = () => {
             <div className="hidden sm:block w-px h-8 bg-border" />
             <p className="text-muted-foreground text-sm sm:text-base">
               Based on{" "}
-              <span className="text-foreground font-semibold">2,500+</span>{" "}
-              reviews
+              <span className="text-foreground font-semibold">25</span> reviews
             </p>
           </div>
         </motion.div>

@@ -7,7 +7,7 @@ const PartnersSection = () => {
     {
       name: "Indus App Store",
       rating: "4.8",
-      reviews: "10K+ Reviews",
+      reviews: "25 Reviews",
       url: APP_CONFIG.downloads.indus || "https://indusapp.store/gfda9h89",
       badge: (
         <img
@@ -21,7 +21,7 @@ const PartnersSection = () => {
     {
       name: "Amazon Appstore",
       rating: "4.9",
-      reviews: "5K+ Downloads",
+      reviews: "25 Reviews",
       url: APP_CONFIG.downloads.amazon,
       badge: (
         <svg viewBox="0 0 135 40" className="h-10 w-auto">
@@ -53,7 +53,7 @@ const PartnersSection = () => {
     {
       name: "Huawei AppGallery",
       rating: "4.9",
-      reviews: "AppGallery",
+      reviews: "25 Reviews",
       url: APP_CONFIG.downloads.huawei,
       badge: (
         <>
@@ -75,7 +75,7 @@ const PartnersSection = () => {
     {
       name: "OPPO App Market",
       rating: "4.8",
-      reviews: "OPPO",
+      reviews: "25 Reviews",
       url: APP_CONFIG.downloads.oppo,
       badge: (
         <svg viewBox="0 0 135 40" className="h-10 w-auto">

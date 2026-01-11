@@ -56,7 +56,7 @@ const features = [
 const stats = [
   {
     icon: <Download className="w-4 h-4 sm:w-5 sm:h-5" />,
-    value: "10K+",
+    value: "1K+",
     label: "Downloads",
   },
   {
@@ -222,12 +222,12 @@ const Home = () => {
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 sm:w-28 h-5 sm:h-7 bg-zinc-900 rounded-b-xl sm:rounded-b-2xl z-10 flex items-center justify-center">
                       <div className="w-12 sm:w-16 h-3 sm:h-4 bg-zinc-800 rounded-full" />
                     </div>
-                    {/* Screen */}
-                    <div className="relative bg-black rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden">
+                    {/* Screen (add a top safe-area so the notch doesn't cover screenshot content) */}
+                    <div className="relative bg-black rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden pt-6 sm:pt-7">
                       <img
                         src="/img/Screenshot/1s.jpg"
                         alt="DhanDiary App Dashboard"
-                        className="w-48 sm:w-64 md:w-72 lg:w-80 h-auto object-cover"
+                        className="block w-48 sm:w-64 md:w-72 lg:w-80 h-auto object-cover"
                         loading="eager"
                       />
                     </div>

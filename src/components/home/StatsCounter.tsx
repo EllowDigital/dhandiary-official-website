@@ -5,7 +5,7 @@ import { Download, Users, Receipt, TrendingUp } from "lucide-react";
 const stats = [
   {
     icon: <Download className="w-6 h-6 sm:w-8 sm:h-8" />,
-    value: 10000,
+    value: 1000,
     suffix: "+",
     label: "Downloads",
     description: "Happy users worldwide",
