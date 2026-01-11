@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { APP_CONFIG } from "@/lib/appConfig";
+import { APP_CONFIG, isApkDownloadLinkValid } from "@/lib/appConfig";
 
 const PartnersSection = () => {
+  const apkValid = isApkDownloadLinkValid();
+
   const appStores = [
     {
       name: "Indus App Store",
@@ -46,6 +48,37 @@ const PartnersSection = () => {
             fontFamily="system-ui"
           >
             Amazon Appstore
+          </text>
+        </svg>
+      ),
+    },
+    {
+      name: "APK Direct",
+      url: apkValid ? APP_CONFIG.downloads.apk : "",
+      disabledTitle: "Direct APK link expired (30-day limit)",
+      badge: (
+        <svg viewBox="0 0 135 40" className="h-10 w-auto">
+          <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
+          <text
+            x="67.5"
+            y="14"
+            textAnchor="middle"
+            fill="hsl(var(--background))"
+            fontSize="7"
+            fontFamily="system-ui"
+          >
+            DOWNLOAD
+          </text>
+          <text
+            x="67.5"
+            y="28"
+            textAnchor="middle"
+            fill="hsl(var(--background))"
+            fontSize="11"
+            fontWeight="bold"
+            fontFamily="system-ui"
+          >
+            APK Direct
           </text>
         </svg>
       ),
@@ -151,20 +184,22 @@ const PartnersSection = () => {
                   <div
                     className="opacity-60 cursor-not-allowed"
                     aria-label={`${store.name} link coming soon`}
-                    title="Link coming soon"
+                    title={store.disabledTitle || "Link coming soon"}
                   >
                     {store.badge}
                   </div>
                 )}
-                <div className="flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  <span className="text-sm font-semibold text-foreground">
-                    {store.rating}
-                  </span>
-                  <span className="text-xs text-muted-foreground">
-                    ({store.reviews})
-                  </span>
-                </div>
+                {store.rating && store.reviews ? (
+                  <div className="flex items-center gap-1">
+                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    <span className="text-sm font-semibold text-foreground">
+                      {store.rating}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      ({store.reviews})
+                    </span>
+                  </div>
+                ) : null}
               </motion.div>
             ))}
           </div>

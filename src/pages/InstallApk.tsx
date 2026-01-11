@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import {
   AlertTriangle,
   Download,
@@ -9,7 +10,7 @@ import {
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { APP_CONFIG } from "@/lib/appConfig";
+import { APP_CONFIG, isApkDownloadLinkValid } from "@/lib/appConfig";
 
 const steps = [
   {
@@ -74,6 +75,8 @@ const InstallApk = () => {
   const title = "How to Install DhanDiary APK on Android";
   const description =
     "Install DhanDiary APK safely on Android. Learn how to allow unknown apps, fix blocked install warnings, and complete setup step-by-step.";
+
+  const apkValid = isApkDownloadLinkValid();
 
   return (
     <Layout>
@@ -156,15 +159,30 @@ const InstallApk = () => {
 
           {/* CTA */}
           <div className="mt-10 text-center">
-            <Button asChild variant="hero" size="xl">
-              <a
-                href={APP_CONFIG.downloads.apk}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download DhanDiary APK
-              </a>
-            </Button>
+            {apkValid ? (
+              <Button asChild variant="hero" size="xl">
+                <a
+                  href={APP_CONFIG.downloads.apk}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download DhanDiary APK
+                </a>
+              </Button>
+            ) : (
+              <div className="inline-flex flex-col items-center gap-3">
+                <Button variant="hero" size="xl" disabled>
+                  APK link expired (30-day limit)
+                </Button>
+                <p className="text-muted-foreground text-sm">
+                  Please download from an app store on the{" "}
+                  <Link to="/download" className="text-primary hover:underline">
+                    Download page
+                  </Link>
+                  .
+                </p>
+              </div>
+            )}
             <p className="text-muted-foreground text-sm mt-3">
               Android {APP_CONFIG.minAndroid}+ • {APP_CONFIG.sizeMb} MB
             </p>

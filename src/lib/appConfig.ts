@@ -35,7 +35,7 @@ export const isApkDownloadLinkValid = (now: Date = new Date()): boolean => {
   if (expiresAt) return now.getTime() <= expiresAt.getTime();
 
   const releaseDate = parseDateSafe(APP_CONFIG.releaseDate);
-  if (!releaseDate) return true;
+  if (!releaseDate) return false;
 
   const thirtyDaysMs = 30 * 24 * 60 * 60 * 1000;
   return now.getTime() - releaseDate.getTime() <= thirtyDaysMs;
