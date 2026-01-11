@@ -1,7 +1,9 @@
-import { ExternalLink, Smartphone, Shield, Check } from "lucide-react";
+import { ExternalLink, Smartphone, Shield, Check, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import { APP_CONFIG } from "@/lib/appConfig";
+import { APP_CONFIG, isApkDownloadLinkValid } from "@/lib/appConfig";
+
+const apkLinkValid = isApkDownloadLinkValid();
 
 const downloadOptions = [
   {
@@ -51,6 +53,41 @@ const downloadOptions = [
     ),
     url: APP_CONFIG.downloads.amazon,
     primary: true,
+  },
+  {
+    name: "Direct APK Download",
+    description: apkLinkValid
+      ? `Direct download (valid for 30 days)`
+      : "Direct APK link expired (use an app store)",
+    icon: <Download className="w-6 h-6" />,
+    badge: (
+      <svg viewBox="0 0 135 40" className="h-10 w-auto">
+        <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          DOWNLOAD
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          APK Direct
+        </text>
+      </svg>
+    ),
+    url: apkLinkValid ? APP_CONFIG.downloads.apk : "",
+    primary: false,
   },
   {
     name: "Huawei AppGallery",
