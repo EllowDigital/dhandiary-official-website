@@ -1,4 +1,10 @@
-import { ExternalLink, Smartphone, Shield, Check, Download } from "lucide-react";
+import {
+  ExternalLink,
+  Smartphone,
+  Shield,
+  Check,
+  Download,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { APP_CONFIG, isApkDownloadLinkValid } from "@/lib/appConfig";
