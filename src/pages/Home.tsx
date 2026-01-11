@@ -20,6 +20,7 @@ import Testimonials from "@/components/home/Testimonials";
 import HowItWorks from "@/components/home/HowItWorks";
 import StatsCounter from "@/components/home/StatsCounter";
 import ComparisonTable from "@/components/home/ComparisonTable";
+import PartnersSection from "@/components/home/PartnersSection";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/home/ScrollReveal";
 import { APP_CONFIG } from "@/lib/appConfig";
 
@@ -296,6 +297,11 @@ const Home = () => {
       {/* Stats Counter Section */}
       <ScrollReveal animation="fadeUp">
         <StatsCounter />
+      </ScrollReveal>
+
+      {/* Partners/Featured Section */}
+      <ScrollReveal animation="fadeUp">
+        <PartnersSection />
       </ScrollReveal>
 
       {/* Screenshots Section */}
