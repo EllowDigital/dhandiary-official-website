@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import ScreenshotCarousel from "@/components/home/ScreenshotCarousel";
 import FAQ from "@/components/home/FAQ";
+import Testimonials from "@/components/home/Testimonials";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/home/ScrollReveal";
 import { APP_CONFIG } from "@/lib/appConfig";
 
@@ -287,6 +288,11 @@ const Home = () => {
       {/* Screenshots Section */}
       <ScrollReveal animation="fadeUp">
         <ScreenshotCarousel />
+      </ScrollReveal>
+
+      {/* Testimonials Section */}
+      <ScrollReveal animation="fadeUp">
+        <Testimonials />
       </ScrollReveal>
 
       {/* FAQ Section */}
