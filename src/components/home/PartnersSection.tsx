@@ -1,30 +1,75 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import { APP_CONFIG } from "@/lib/appConfig";
 
 const PartnersSection = () => {
   const appStores = [
     {
-      name: "Google Play",
+      name: "Indus App Store",
       rating: "4.8",
       reviews: "10K+ Reviews",
+      url: APP_CONFIG.downloads.indus || "https://indusapp.store/gfda9h89",
+      badge: (
+        <img
+          alt="Get it on Indus Appstore"
+          src="https://docstore.indusappstore.com/public/external/developerdashboard-static/badge-black-full-color-english.png"
+          className="h-10 w-auto"
+          loading="lazy"
+        />
+      ),
+    },
+    {
+      name: "Amazon Appstore",
+      rating: "4.9",
+      reviews: "5K+ Downloads",
+      url: APP_CONFIG.downloads.amazon,
       badge: (
         <svg viewBox="0 0 135 40" className="h-10 w-auto">
           <rect width="135" height="40" rx="5" fill="hsl(var(--foreground))" />
-          <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">GET IT ON</text>
-          <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="12" fontWeight="bold" fontFamily="system-ui">Google Play</text>
+          <text
+            x="67.5"
+            y="14"
+            textAnchor="middle"
+            fill="hsl(var(--background))"
+            fontSize="7"
+            fontFamily="system-ui"
+          >
+            AVAILABLE ON
+          </text>
+          <text
+            x="67.5"
+            y="28"
+            textAnchor="middle"
+            fill="hsl(var(--background))"
+            fontSize="11"
+            fontWeight="bold"
+            fontFamily="system-ui"
+          >
+            Amazon Appstore
+          </text>
         </svg>
       ),
     },
     {
-      name: "APK Direct",
+      name: "Huawei AppGallery",
       rating: "4.9",
-      reviews: "5K+ Downloads",
+      reviews: "AppGallery",
+      url: APP_CONFIG.downloads.huawei,
       badge: (
-        <svg viewBox="0 0 135 40" className="h-10 w-auto">
-          <rect width="135" height="40" rx="5" fill="hsl(var(--foreground))" />
-          <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">DOWNLOAD</text>
-          <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="12" fontWeight="bold" fontFamily="system-ui">APK Direct</text>
-        </svg>
+        <>
+          <img
+            src="/img/Appstores/Huawei-light.png"
+            alt="Huawei AppGallery"
+            className="h-10 w-auto dark:hidden"
+            loading="lazy"
+          />
+          <img
+            src="/img/Appstores/Huawei-dark.png"
+            alt="Huawei AppGallery"
+            className="h-10 w-auto hidden dark:block"
+            loading="lazy"
+          />
+        </>
       ),
     },
   ];
@@ -60,13 +105,23 @@ const PartnersSection = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex flex-col items-center gap-2"
               >
-                <div className="hover:scale-105 transition-transform cursor-pointer">
+                <a
+                  href={store.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-105 transition-transform"
+                  aria-label={`Download from ${store.name}`}
+                >
                   {store.badge}
-                </div>
+                </a>
                 <div className="flex items-center gap-1">
                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  <span className="text-sm font-semibold text-foreground">{store.rating}</span>
-                  <span className="text-xs text-muted-foreground">({store.reviews})</span>
+                  <span className="text-sm font-semibold text-foreground">
+                    {store.rating}
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    ({store.reviews})
+                  </span>
                 </div>
               </motion.div>
             ))}

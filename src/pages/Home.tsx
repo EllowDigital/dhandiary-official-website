@@ -21,7 +21,10 @@ import HowItWorks from "@/components/home/HowItWorks";
 import StatsCounter from "@/components/home/StatsCounter";
 import ComparisonTable from "@/components/home/ComparisonTable";
 import PartnersSection from "@/components/home/PartnersSection";
-import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/home/ScrollReveal";
+import ScrollReveal, {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/home/ScrollReveal";
 import { APP_CONFIG } from "@/lib/appConfig";
 
 const features = [
@@ -51,9 +54,21 @@ const features = [
 ];
 
 const stats = [
-  { icon: <Download className="w-4 h-4 sm:w-5 sm:h-5" />, value: "10K+", label: "Downloads" },
-  { icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />, value: "4.8", label: "Rating" },
-  { icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" />, value: "5K+", label: "Active Users" },
+  {
+    icon: <Download className="w-4 h-4 sm:w-5 sm:h-5" />,
+    value: "10K+",
+    label: "Downloads",
+  },
+  {
+    icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />,
+    value: "4.8",
+    label: "Rating",
+  },
+  {
+    icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" />,
+    value: "5K+",
+    label: "Active Users",
+  },
 ];
 
 const Home = () => {
@@ -103,7 +118,9 @@ const Home = () => {
                 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-4 sm:mb-6"
               >
                 Your Personal
-                <span className="text-gradient block mt-1 sm:mt-2">Finance Companion</span>
+                <span className="text-gradient block mt-1 sm:mt-2">
+                  Finance Companion
+                </span>
               </motion.h1>
 
               <motion.p
@@ -122,13 +139,23 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
               >
-                <Button asChild variant="hero" size="lg" className="w-full sm:w-auto">
+                <Button
+                  asChild
+                  variant="hero"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
                   <Link to="/download">
                     Download Free
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Link>
                 </Button>
-                <Button asChild variant="heroOutline" size="lg" className="w-full sm:w-auto">
+                <Button
+                  asChild
+                  variant="heroOutline"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
                   <Link to="/features">Explore Features</Link>
                 </Button>
               </motion.div>
@@ -148,7 +175,9 @@ const Home = () => {
                         {stat.value}
                       </span>
                     </div>
-                    <span className="text-muted-foreground text-xs sm:text-sm">{stat.label}</span>
+                    <span className="text-muted-foreground text-xs sm:text-sm">
+                      {stat.label}
+                    </span>
                   </div>
                 ))}
               </motion.div>
@@ -185,7 +214,7 @@ const Home = () => {
               <div className="relative">
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-hero-gradient opacity-20 sm:opacity-30 blur-3xl rounded-full scale-110 sm:scale-125" />
-                
+
                 {/* Phone Frame */}
                 <div className="relative animate-float">
                   <div className="relative bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[2rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-elevated">
@@ -218,8 +247,12 @@ const Home = () => {
                         <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
                       </div>
                       <div>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground">Income</p>
-                        <p className="font-semibold text-green-500 text-xs sm:text-sm">+₹25,000</p>
+                        <p className="text-[10px] sm:text-xs text-muted-foreground">
+                          Income
+                        </p>
+                        <p className="font-semibold text-green-500 text-xs sm:text-sm">
+                          +₹25,000
+                        </p>
                       </div>
                     </div>
                   </motion.div>
@@ -235,8 +268,12 @@ const Home = () => {
                         <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
                       </div>
                       <div>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground">Savings</p>
-                        <p className="font-semibold text-primary text-xs sm:text-sm">₹12,500</p>
+                        <p className="text-[10px] sm:text-xs text-muted-foreground">
+                          Savings
+                        </p>
+                        <p className="font-semibold text-primary text-xs sm:text-sm">
+                          ₹12,500
+                        </p>
                       </div>
                     </div>
                   </motion.div>
@@ -250,7 +287,10 @@ const Home = () => {
       {/* Features Preview */}
       <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal animation="fadeUp" className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-16">
+          <ScrollReveal
+            animation="fadeUp"
+            className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-16"
+          >
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
               Why Choose DhanDiary?
             </h2>
@@ -278,8 +318,17 @@ const Home = () => {
             ))}
           </StaggerContainer>
 
-          <ScrollReveal animation="fadeUp" delay={0.4} className="text-center mt-8 sm:mt-12">
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
+          <ScrollReveal
+            animation="fadeUp"
+            delay={0.4}
+            className="text-center mt-8 sm:mt-12"
+          >
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
               <Link to="/features">
                 View All Features
                 <ArrowRight className="w-4 h-4" />
@@ -336,7 +385,12 @@ const Home = () => {
                 Download DhanDiary today and start your journey to better money
                 management. Free, secure, and private.
               </p>
-              <Button asChild variant="hero" size="lg" className="w-full sm:w-auto">
+              <Button
+                asChild
+                variant="hero"
+                size="lg"
+                className="w-full sm:w-auto"
+              >
                 <Link to="/download">
                   Get DhanDiary Now
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />

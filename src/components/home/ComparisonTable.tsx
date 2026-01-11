@@ -66,16 +66,24 @@ const ComparisonTable = () => {
             {/* Table Header */}
             <div className="grid grid-cols-4 gap-2 sm:gap-4 p-4 sm:p-5 bg-accent/50 border-b border-border">
               <div className="text-left">
-                <span className="font-semibold text-foreground text-sm sm:text-base">Feature</span>
+                <span className="font-semibold text-foreground text-sm sm:text-base">
+                  Feature
+                </span>
               </div>
               <div className="text-center">
-                <span className="font-bold text-primary text-sm sm:text-base">DhanDiary</span>
+                <span className="font-bold text-primary text-sm sm:text-base">
+                  DhanDiary
+                </span>
               </div>
               <div className="text-center">
-                <span className="text-muted-foreground text-xs sm:text-sm">App A</span>
+                <span className="text-muted-foreground text-xs sm:text-sm">
+                  App A
+                </span>
               </div>
               <div className="text-center">
-                <span className="text-muted-foreground text-xs sm:text-sm">App B</span>
+                <span className="text-muted-foreground text-xs sm:text-sm">
+                  App B
+                </span>
               </div>
             </div>
 
@@ -91,7 +99,9 @@ const ComparisonTable = () => {
                   className="grid grid-cols-4 gap-2 sm:gap-4 p-4 sm:p-5 hover:bg-accent/30 transition-colors"
                 >
                   <div className="text-left flex items-center">
-                    <span className="text-foreground text-xs sm:text-sm">{feature.name}</span>
+                    <span className="text-foreground text-xs sm:text-sm">
+                      {feature.name}
+                    </span>
                   </div>
                   <div className="flex items-center justify-center">
                     <FeatureIcon value={feature.dhandiary} />

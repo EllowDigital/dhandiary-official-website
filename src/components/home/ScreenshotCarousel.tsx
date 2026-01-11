@@ -71,7 +71,7 @@ const ScreenshotCarousel = () => {
 
   const goToPrevious = () => {
     setActiveIndex(
-      (prev) => (prev - 1 + screenshots.length) % screenshots.length
+      (prev) => (prev - 1 + screenshots.length) % screenshots.length,
     );
   };
 
@@ -97,7 +97,8 @@ const ScreenshotCarousel = () => {
             See DhanDiary in Action
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-lg mx-auto">
-            Clean, intuitive interface designed for effortless money management on your Android device.
+            Clean, intuitive interface designed for effortless money management
+            on your Android device.
           </p>
         </div>
 

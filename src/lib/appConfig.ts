@@ -13,5 +13,8 @@ export const APP_CONFIG = {
     indus: requiredEnv("VITE_DOWNLOAD_INDUS_URL") || "",
     amazon: requiredEnv("VITE_DOWNLOAD_AMAZON_URL") || "",
     apk: requiredEnv("VITE_DOWNLOAD_APK_URL") || "",
+    huawei:
+      requiredEnv("VITE_DOWNLOAD_HUAWEI_URL") ||
+      "https://url.cloud.huawei.com/yMQqh6QrTy",
   },
 } as const;

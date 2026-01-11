@@ -33,7 +33,15 @@ const stats = [
   },
 ];
 
-const AnimatedCounter = ({ value, suffix, inView }: { value: number; suffix: string; inView: boolean }) => {
+const AnimatedCounter = ({
+  value,
+  suffix,
+  inView,
+}: {
+  value: number;
+  suffix: string;
+  inView: boolean;
+}) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -65,7 +73,8 @@ const AnimatedCounter = ({ value, suffix, inView }: { value: number; suffix: str
 
   return (
     <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
-      {formatNumber(count)}{suffix}
+      {formatNumber(count)}
+      {suffix}
     </span>
   );
 };
@@ -105,9 +114,13 @@ const StatsCounter = () => {
               <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl sm:rounded-2xl bg-accent flex items-center justify-center text-primary mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                 {stat.icon}
               </div>
-              
-              <AnimatedCounter value={stat.value} suffix={stat.suffix} inView={isInView} />
-              
+
+              <AnimatedCounter
+                value={stat.value}
+                suffix={stat.suffix}
+                inView={isInView}
+              />
+
               <h3 className="font-display font-semibold text-foreground text-sm sm:text-base mt-2 mb-1">
                 {stat.label}
               </h3>

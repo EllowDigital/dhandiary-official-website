@@ -141,7 +141,9 @@ const Testimonials = () => {
                   <Star
                     key={i}
                     className={`w-5 h-5 ${
-                      i < 5 ? "text-yellow-500 fill-yellow-500" : "text-muted-foreground/30"
+                      i < 5
+                        ? "text-yellow-500 fill-yellow-500"
+                        : "text-muted-foreground/30"
                     }`}
                   />
                 ))}
@@ -149,7 +151,9 @@ const Testimonials = () => {
             </div>
             <div className="hidden sm:block w-px h-8 bg-border" />
             <p className="text-muted-foreground text-sm sm:text-base">
-              Based on <span className="text-foreground font-semibold">2,500+</span> reviews
+              Based on{" "}
+              <span className="text-foreground font-semibold">2,500+</span>{" "}
+              reviews
             </p>
           </div>
         </motion.div>

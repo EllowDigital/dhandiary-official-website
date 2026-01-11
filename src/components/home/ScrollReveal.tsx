@@ -1,7 +1,13 @@
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef, ReactNode } from "react";
 
-type AnimationType = "fadeUp" | "fadeIn" | "fadeLeft" | "fadeRight" | "scale" | "stagger";
+type AnimationType =
+  | "fadeUp"
+  | "fadeIn"
+  | "fadeLeft"
+  | "fadeRight"
+  | "scale"
+  | "stagger";
 
 interface ScrollRevealProps {
   children: ReactNode;

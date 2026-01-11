@@ -1,10 +1,4 @@
-import {
-  ExternalLink,
-  Download as DownloadIcon,
-  Smartphone,
-  Shield,
-  Check,
-} from "lucide-react";
+import { ExternalLink, Smartphone, Shield, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import { APP_CONFIG } from "@/lib/appConfig";
@@ -14,29 +8,72 @@ const downloadOptions = [
     name: "Indus App Store",
     description: "Download from Indus App Store for Android",
     icon: <Smartphone className="w-6 h-6" />,
-    url: APP_CONFIG.downloads.indus,
+    badge: (
+      <img
+        alt="Get it on Indus Appstore"
+        src="https://docstore.indusappstore.com/public/external/developerdashboard-static/badge-black-full-color-english.png"
+        className="h-10 w-auto"
+        loading="lazy"
+      />
+    ),
+    url: APP_CONFIG.downloads.indus || "https://indusapp.store/gfda9h89",
     primary: true,
   },
   {
     name: "Amazon Appstore",
     description: "Available on Amazon Appstore",
     icon: <Smartphone className="w-6 h-6" />,
+    badge: (
+      <svg viewBox="0 0 135 40" className="h-10 w-auto">
+        <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          AVAILABLE ON
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          Amazon Appstore
+        </text>
+      </svg>
+    ),
     url: APP_CONFIG.downloads.amazon,
     primary: true,
   },
   {
-    name: "Direct APK Download",
-    description: `Download APK directly (v${APP_CONFIG.version})`,
-    icon: <DownloadIcon className="w-6 h-6" />,
-    url: APP_CONFIG.downloads.apk,
-    primary: false,
-  },
-  {
     name: "Huawei AppGallery",
-    description: "Available on Huawei AppGallery (link coming soon)",
+    description: "Download from Huawei AppGallery",
     icon: <Smartphone className="w-6 h-6" />,
-    url: "",
-    primary: false,
+    badge: (
+      <>
+        <img
+          src="/img/Appstores/Huawei-light.png"
+          alt="Huawei AppGallery"
+          className="h-10 w-auto dark:hidden"
+          loading="lazy"
+        />
+        <img
+          src="/img/Appstores/Huawei-dark.png"
+          alt="Huawei AppGallery"
+          className="h-10 w-auto hidden dark:block"
+          loading="lazy"
+        />
+      </>
+    ),
+    url: APP_CONFIG.downloads.huawei,
+    primary: true,
   },
   {
     name: "OPPO App Market",
@@ -89,9 +126,15 @@ const DownloadPage = () => {
                       : "bg-muted/50 border-border hover:border-primary/30"
                   }`}
                 >
-                  <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    {option.icon}
-                  </div>
+                  {option.badge ? (
+                    <div className="shrink-0 hover:scale-105 transition-transform">
+                      {option.badge}
+                    </div>
+                  ) : (
+                    <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      {option.icon}
+                    </div>
+                  )}
                   <div className="flex-1">
                     <h3 className="font-display font-semibold text-foreground text-lg">
                       {option.name}
@@ -111,9 +154,13 @@ const DownloadPage = () => {
                       : "bg-muted/50 border-border"
                   }`}
                 >
-                  <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-primary">
-                    {option.icon}
-                  </div>
+                  {option.badge ? (
+                    <div className="shrink-0">{option.badge}</div>
+                  ) : (
+                    <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center text-primary">
+                      {option.icon}
+                    </div>
+                  )}
                   <div className="flex-1">
                     <h3 className="font-display font-semibold text-foreground text-lg">
                       {option.name}
@@ -129,7 +176,7 @@ const DownloadPage = () => {
 
           <div className="mb-12 p-6 rounded-2xl bg-card border border-border">
             <h2 className="font-display text-xl font-semibold text-foreground mb-2">
-              Installing via APK?
+              Trouble installing?
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
               If Android shows a warning or blocks installation, follow our

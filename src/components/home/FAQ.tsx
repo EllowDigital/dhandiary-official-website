@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "What platforms is DhanDiary available on?",
     answer:
-      "DhanDiary is currently available for Android devices. You can download it from the Indus App Store, Amazon App Store, or directly as an APK. iOS and web versions are planned for future releases.",
+      "DhanDiary is currently available for Android devices. You can download it from the Indus App Store, Amazon Appstore, or Huawei AppGallery. iOS and web versions are planned for future releases.",
   },
   {
     question: "Can I backup my data?",
@@ -61,7 +61,11 @@ const FAQ = () => {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
+          <Accordion
+            type="single"
+            collapsible
+            className="space-y-3 sm:space-y-4"
+          >
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}

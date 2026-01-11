@@ -6,25 +6,29 @@ const steps = [
     number: "01",
     icon: <Download className="w-6 h-6" />,
     title: "Download the App",
-    description: "Get DhanDiary free from our website. Quick install, no bloatware.",
+    description:
+      "Get DhanDiary free from our website. Quick install, no bloatware.",
   },
   {
     number: "02",
     icon: <UserPlus className="w-6 h-6" />,
     title: "Create Your Account",
-    description: "Sign up with email or continue with Google. Takes less than a minute.",
+    description:
+      "Sign up with email or continue with Google. Takes less than a minute.",
   },
   {
     number: "03",
     icon: <Wallet className="w-6 h-6" />,
     title: "Add Transactions",
-    description: "Log your income and expenses with just a few taps. Fast and intuitive.",
+    description:
+      "Log your income and expenses with just a few taps. Fast and intuitive.",
   },
   {
     number: "04",
     icon: <PieChart className="w-6 h-6" />,
     title: "Track & Analyze",
-    description: "View beautiful charts and insights to understand your spending habits.",
+    description:
+      "View beautiful charts and insights to understand your spending habits.",
   },
 ];
 
