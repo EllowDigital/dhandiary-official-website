@@ -21,7 +21,7 @@ import HowItWorks from "@/components/home/HowItWorks";
 import StatsCounter from "@/components/home/StatsCounter";
 import ComparisonTable from "@/components/home/ComparisonTable";
 import PartnersSection from "@/components/home/PartnersSection";
-import NewsletterSection from "@/components/home/NewsletterSection";
+
 import ScrollReveal, {
   StaggerContainer,
   StaggerItem,
@@ -374,10 +374,6 @@ const Home = () => {
         <FAQ />
       </ScrollReveal>
 
-      {/* Newsletter Section */}
-      <ScrollReveal animation="fadeUp">
-        <NewsletterSection />
-      </ScrollReveal>
 
       {/* CTA Section */}
       <section className="section-padding bg-subtle-gradient">
