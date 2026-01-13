@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode, useState, useEffect, forwardRef } from "react";
 import { useLocation } from "react-router-dom";
 
 interface PageTransitionProps {
@@ -29,8 +29,9 @@ const pageVariants = {
   },
 };
 
-const LoadingSpinner = () => (
+const LoadingSpinner = forwardRef<HTMLDivElement>((_, ref) => (
   <motion.div
+    ref={ref}
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
@@ -52,7 +53,8 @@ const LoadingSpinner = () => (
       </div>
     </div>
   </motion.div>
-);
+));
+LoadingSpinner.displayName = "LoadingSpinner";
 
 const PageTransition = ({ children }: PageTransitionProps) => {
   const location = useLocation();
