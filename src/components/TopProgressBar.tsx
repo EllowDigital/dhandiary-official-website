@@ -51,12 +51,13 @@ const TopProgressBar = () => {
     };
   }, [location.pathname, progress]);
 
-  if (!isLoading) return null;
-
   return (
     <motion.div
       className="fixed top-0 left-0 right-0 z-[100] h-1"
-      style={{ opacity }}
+      style={{ opacity: isLoading ? 1 : 0, pointerEvents: "none" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isLoading ? 1 : 0 }}
+      transition={{ duration: 0.2 }}
     >
       <motion.div
         className="h-full bg-gradient-to-r from-primary via-primary to-primary/50"
@@ -65,10 +66,7 @@ const TopProgressBar = () => {
       {/* Glow effect */}
       <motion.div
         className="absolute top-0 right-0 h-full w-24 bg-gradient-to-r from-transparent to-primary/50 blur-sm"
-        style={{ 
-          opacity,
-          x: useTransform(width, (w) => `calc(${w} - 100%)`)
-        }}
+        style={{ opacity }}
       />
     </motion.div>
   );
