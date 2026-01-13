@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
   ArrowRight,
   Shield,
@@ -73,25 +74,52 @@ const stats = [
 ];
 
 const Home = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Parallax transforms for background elements
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const scale1 = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+  const scale2 = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  const opacity1 = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 45]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -30]);
+
   return (
     <Layout>
-      {/* Hero Section - Enhanced with Framer Motion */}
-      <section className="relative overflow-hidden bg-subtle-gradient min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] flex items-center">
-        {/* Background Elements */}
+      {/* Hero Section - Enhanced with Parallax */}
+      <section 
+        ref={heroRef}
+        className="relative overflow-hidden bg-subtle-gradient min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] flex items-center"
+      >
+        {/* Parallax Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            style={{ y: y1, scale: scale1, rotate: rotate1, opacity: opacity1 }}
             className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-primary/10 rounded-full blur-3xl"
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
+            style={{ y: y2, scale: scale2, rotate: rotate2, opacity: opacity1 }}
             className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-accent/20 rounded-full blur-3xl"
           />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-radial from-primary/5 to-transparent rounded-full" />
+          <motion.div
+            style={{ y: y3, opacity: opacity1 }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-radial from-primary/5 to-transparent rounded-full"
+          />
+          {/* Additional floating elements */}
+          <motion.div
+            style={{ y: useTransform(scrollYProgress, [0, 1], [0, -80]), opacity: opacity1 }}
+            className="absolute top-1/4 right-1/4 w-32 h-32 bg-primary/5 rounded-full blur-2xl"
+          />
+          <motion.div
+            style={{ y: useTransform(scrollYProgress, [0, 1], [0, 120]), opacity: opacity1 }}
+            className="absolute bottom-1/3 left-1/4 w-40 h-40 bg-accent/10 rounded-full blur-2xl"
+          />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 relative w-full">
