@@ -92,6 +92,39 @@ const downloadOptions = [
     primary: true,
   },
   {
+    name: "Vivio Appstore",
+    description: "Currently unavailable",
+    icon: <Smartphone className="w-6 h-6" />,
+    badge: (
+      <svg viewBox="0 0 135 40" className="h-12 w-auto">
+        <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          AVAILABLE ON
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          Vivio Appstore
+        </text>
+      </svg>
+    ),
+    url: "",
+    primary: false,
+  },
+  {
     name: "Direct APK Download",
     description: apkLinkValid
       ? "Manual install (valid for 30 days)"
