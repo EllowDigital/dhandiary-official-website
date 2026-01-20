@@ -13,6 +13,7 @@ export const APP_CONFIG = {
     indus: requiredEnv("VITE_DOWNLOAD_INDUS_URL") || "",
     amazon: requiredEnv("VITE_DOWNLOAD_AMAZON_URL") || "",
     apk: requiredEnv("VITE_DOWNLOAD_APK_URL") || "",
+    googleDriveApk: requiredEnv("VITE_DOWNLOAD_GOOGLE_DRIVE_APK_URL") || "",
     apkExpiresAt: requiredEnv("VITE_DOWNLOAD_APK_EXPIRES_AT") || "",
     huawei:
       requiredEnv("VITE_DOWNLOAD_HUAWEI_URL") ||

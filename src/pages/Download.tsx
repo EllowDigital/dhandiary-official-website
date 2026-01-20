@@ -160,6 +160,41 @@ const downloadOptions = [
     primary: false,
   },
   {
+    name: "Google Drive (Latest APK)",
+    description: APP_CONFIG.downloads.googleDriveApk
+      ? "Latest APK hosted on Google Drive"
+      : "Link coming soon",
+    icon: <Download className="w-6 h-6" />,
+    badge: (
+      <svg viewBox="0 0 135 40" className="h-12 w-auto">
+        <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          DOWNLOAD
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          Google Drive
+        </text>
+      </svg>
+    ),
+    url: APP_CONFIG.downloads.googleDriveApk,
+    primary: false,
+  },
+  {
     name: "OPPO App Market",
     description: "Coming soon",
     icon: <Smartphone className="w-6 h-6" />,

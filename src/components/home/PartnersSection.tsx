@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { Star, ExternalLink } from "lucide-react";
-import { APP_CONFIG, isApkDownloadLinkValid } from "@/lib/appConfig";
+import { Star, ExternalLink, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { APP_CONFIG } from "@/lib/appConfig";
 
 const PartnersSection = () => {
-  const apkValid = isApkDownloadLinkValid();
-
   const appStores = [
     {
       name: "Indus App Store",
@@ -53,9 +52,9 @@ const PartnersSection = () => {
       ),
     },
     {
-      name: "Expo APK",
-      url: apkValid ? APP_CONFIG.downloads.apk : "",
-      disabledTitle: "Expo APK link expired (30-day limit)",
+      name: "See more",
+      url: "/download",
+      internal: true,
       badge: (
         <svg viewBox="0 0 135 40" className="h-12 w-auto">
           <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
@@ -67,7 +66,7 @@ const PartnersSection = () => {
             fontSize="7"
             fontFamily="system-ui"
           >
-            POWERED BY
+            SEE MORE
           </text>
           <text
             x="67.5"
@@ -78,7 +77,7 @@ const PartnersSection = () => {
             fontWeight="bold"
             fontFamily="system-ui"
           >
-            Expo (APK)
+            Download Page
           </text>
         </svg>
       ),
@@ -239,35 +238,54 @@ const PartnersSection = () => {
               className="group"
             >
               {store.url ? (
-                <a
-                  href={store.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 h-full"
-                  aria-label={`Download from ${store.name}`}
-                >
-                  <div className="mb-4 transform group-hover:scale-105 transition-transform duration-300">
-                    {store.badge}
-                  </div>
-                  <h3 className="font-semibold text-foreground text-sm mb-2 text-center">
-                    {store.name}
-                  </h3>
-                  {store.rating && store.reviews ? (
-                    <div className="flex items-center gap-1.5 mb-3">
-                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-semibold text-foreground">
-                        {store.rating}
-                      </span>
-                      <span className="text-xs text-muted-foreground">
-                        ({store.reviews})
-                      </span>
+                store.internal ? (
+                  <Link
+                    to={store.url}
+                    className="flex flex-col items-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 h-full"
+                    aria-label="See more download options"
+                  >
+                    <div className="mb-4 transform group-hover:scale-105 transition-transform duration-300">
+                      {store.badge}
                     </div>
-                  ) : null}
-                  <div className="flex items-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>Download</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </div>
-                </a>
+                    <h3 className="font-semibold text-foreground text-sm mb-2 text-center">
+                      {store.name}
+                    </h3>
+                    <div className="flex items-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span>Open</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </div>
+                  </Link>
+                ) : (
+                  <a
+                    href={store.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 h-full"
+                    aria-label={`Download from ${store.name}`}
+                  >
+                    <div className="mb-4 transform group-hover:scale-105 transition-transform duration-300">
+                      {store.badge}
+                    </div>
+                    <h3 className="font-semibold text-foreground text-sm mb-2 text-center">
+                      {store.name}
+                    </h3>
+                    {store.rating && store.reviews ? (
+                      <div className="flex items-center gap-1.5 mb-3">
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-sm font-semibold text-foreground">
+                          {store.rating}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          ({store.reviews})
+                        </span>
+                      </div>
+                    ) : null}
+                    <div className="flex items-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span>Download</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </div>
+                  </a>
+                )
               ) : (
                 <div
                   className="flex flex-col items-center p-6 rounded-2xl bg-muted/50 border border-border h-full opacity-60 cursor-not-allowed"
