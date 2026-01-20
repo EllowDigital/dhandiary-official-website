@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ReactNode, useState, useEffect, forwardRef } from "react";
+import { ReactNode, useState, useEffect, forwardRef, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 interface PageTransitionProps {
@@ -60,11 +60,16 @@ const PageTransition = ({ children }: PageTransitionProps) => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [displayChildren, setDisplayChildren] = useState(children);
+  const latestChildrenRef = useRef(children);
+
+  useEffect(() => {
+    latestChildrenRef.current = children;
+  }, [children]);
 
   useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => {
-      setDisplayChildren(children);
+      setDisplayChildren(latestChildrenRef.current);
       setIsLoading(false);
     }, 150);
 

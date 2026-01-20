@@ -5,12 +5,12 @@ import { useLocation } from "react-router-dom";
 const TopProgressBar = () => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const progress = useSpring(0, {
     stiffness: 100,
     damping: 30,
   });
-  
+
   const width = useTransform(progress, [0, 100], ["0%", "100%"]);
   const opacity = useTransform(progress, [0, 90, 100], [1, 1, 0]);
 
@@ -18,22 +18,22 @@ const TopProgressBar = () => {
     // Start loading
     setIsLoading(true);
     progress.set(0);
-    
+
     // Animate to 30% quickly
     const timer1 = setTimeout(() => {
       progress.set(30);
     }, 50);
-    
+
     // Animate to 60%
     const timer2 = setTimeout(() => {
       progress.set(60);
     }, 150);
-    
+
     // Animate to 90%
     const timer3 = setTimeout(() => {
       progress.set(90);
     }, 250);
-    
+
     // Complete
     const timer4 = setTimeout(() => {
       progress.set(100);

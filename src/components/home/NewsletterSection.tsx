@@ -13,7 +13,7 @@ const NewsletterSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       toast({
         title: "Invalid email",
@@ -24,14 +24,14 @@ const NewsletterSection = () => {
     }
 
     setIsLoading(true);
-    
+
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    
+
     setIsLoading(false);
     setIsSubmitted(true);
     setEmail("");
-    
+
     toast({
       title: "Successfully subscribed!",
       description: "You'll receive updates about DhanDiary.",
@@ -85,7 +85,8 @@ const NewsletterSection = () => {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="text-muted-foreground text-lg mb-8"
               >
-                Get notified about new features, tips for better money management, and exclusive updates.
+                Get notified about new features, tips for better money
+                management, and exclusive updates.
               </motion.p>
 
               {/* Form */}
@@ -119,7 +120,11 @@ const NewsletterSection = () => {
                     <span className="flex items-center gap-2">
                       <motion.div
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
                         className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
                       />
                       Subscribing...

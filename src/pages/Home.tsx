@@ -93,7 +93,7 @@ const Home = () => {
   return (
     <Layout>
       {/* Hero Section - Enhanced with Parallax */}
-      <section 
+      <section
         ref={heroRef}
         className="relative overflow-hidden bg-subtle-gradient min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] flex items-center"
       >
@@ -113,11 +113,17 @@ const Home = () => {
           />
           {/* Additional floating elements */}
           <motion.div
-            style={{ y: useTransform(scrollYProgress, [0, 1], [0, -80]), opacity: opacity1 }}
+            style={{
+              y: useTransform(scrollYProgress, [0, 1], [0, -80]),
+              opacity: opacity1,
+            }}
             className="absolute top-1/4 right-1/4 w-32 h-32 bg-primary/5 rounded-full blur-2xl"
           />
           <motion.div
-            style={{ y: useTransform(scrollYProgress, [0, 1], [0, 120]), opacity: opacity1 }}
+            style={{
+              y: useTransform(scrollYProgress, [0, 1], [0, 120]),
+              opacity: opacity1,
+            }}
             className="absolute bottom-1/3 left-1/4 w-40 h-40 bg-accent/10 rounded-full blur-2xl"
           />
         </div>
@@ -401,7 +407,6 @@ const Home = () => {
       <ScrollReveal animation="fadeUp">
         <FAQ />
       </ScrollReveal>
-
 
       {/* CTA Section */}
       <section className="section-padding bg-subtle-gradient">

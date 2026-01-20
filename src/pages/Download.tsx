@@ -279,7 +279,8 @@ const installSteps = [
   {
     step: 2,
     title: "Install & Open",
-    description: "Once downloaded, open the app and grant necessary permissions.",
+    description:
+      "Once downloaded, open the app and grant necessary permissions.",
   },
   {
     step: 3,
@@ -289,7 +290,8 @@ const installSteps = [
   {
     step: 4,
     title: "Start Tracking",
-    description: "Add your first transaction and take control of your finances!",
+    description:
+      "Add your first transaction and take control of your finances!",
   },
 ];
 
@@ -318,7 +320,8 @@ const DownloadPage = () => {
               Download DhanDiary
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8">
-              Get the app on your Android device. Free forever, no ads, no subscriptions.
+              Get the app on your Android device. Free forever, no ads, no
+              subscriptions.
             </p>
 
             {/* Quick feature badges */}
@@ -332,7 +335,9 @@ const DownloadPage = () => {
                   className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border"
                 >
                   <span className="text-primary">{feature.icon}</span>
-                  <span className="text-sm font-medium text-foreground">{feature.title}</span>
+                  <span className="text-sm font-medium text-foreground">
+                    {feature.title}
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -359,36 +364,9 @@ const DownloadPage = () => {
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {downloadOptions.filter(opt => opt.primary && opt.url).map((option, index) => (
-              <motion.a
-                key={index}
-                href={option.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ y: -4 }}
-                className="flex flex-col items-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 group"
-              >
-                <div className="mb-4 transform group-hover:scale-105 transition-transform">
-                  {option.badge}
-                </div>
-                <h3 className="font-semibold text-foreground mb-1">{option.name}</h3>
-                <p className="text-sm text-muted-foreground mb-3">{option.description}</p>
-                <div className="flex items-center gap-1 text-primary text-sm font-medium">
-                  <span>Download</span>
-                  <ExternalLink className="w-4 h-4" />
-                </div>
-              </motion.a>
-            ))}
-          </div>
-
-          {/* Secondary options */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            {downloadOptions.filter(opt => !opt.primary || !opt.url).map((option, index) =>
-              option.url ? (
+            {downloadOptions
+              .filter((opt) => opt.primary && opt.url)
+              .map((option, index) => (
                 <motion.a
                   key={index}
                   href={option.url}
@@ -397,33 +375,76 @@ const DownloadPage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-4 p-5 rounded-xl bg-muted/50 border border-border hover:border-primary/30 transition-all group"
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  whileHover={{ y: -4 }}
+                  className="flex flex-col items-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 group"
                 >
-                  <div className="shrink-0">{option.badge}</div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-foreground">{option.name}</h3>
-                    <p className="text-sm text-muted-foreground">{option.description}</p>
+                  <div className="mb-4 transform group-hover:scale-105 transition-transform">
+                    {option.badge}
                   </div>
-                  <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                  <h3 className="font-semibold text-foreground mb-1">
+                    {option.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {option.description}
+                  </p>
+                  <div className="flex items-center gap-1 text-primary text-sm font-medium">
+                    <span>Download</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </div>
                 </motion.a>
-              ) : (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-4 p-5 rounded-xl bg-muted/30 border border-border opacity-60"
-                >
-                  <div className="shrink-0">{option.badge}</div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-foreground">{option.name}</h3>
-                    <p className="text-sm text-muted-foreground">{option.description}</p>
-                  </div>
-                </motion.div>
-              )
-            )}
+              ))}
+          </div>
+
+          {/* Secondary options */}
+          <div className="grid sm:grid-cols-2 gap-4">
+            {downloadOptions
+              .filter((opt) => !opt.primary || !opt.url)
+              .map((option, index) =>
+                option.url ? (
+                  <motion.a
+                    key={index}
+                    href={option.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    className="flex items-center gap-4 p-5 rounded-xl bg-muted/50 border border-border hover:border-primary/30 transition-all group"
+                  >
+                    <div className="shrink-0">{option.badge}</div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-foreground">
+                        {option.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {option.description}
+                      </p>
+                    </div>
+                    <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    className="flex items-center gap-4 p-5 rounded-xl bg-muted/30 border border-border opacity-60"
+                  >
+                    <div className="shrink-0">{option.badge}</div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-foreground">
+                        {option.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {option.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ),
+              )}
           </div>
         </div>
       </section>
@@ -474,7 +495,9 @@ const DownloadPage = () => {
                     <p className="font-display text-3xl font-bold text-primary">
                       v{APP_CONFIG.version}
                     </p>
-                    <p className="text-muted-foreground">Latest Stable Release</p>
+                    <p className="text-muted-foreground">
+                      Latest Stable Release
+                    </p>
                   </div>
                   <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
                     Stable
@@ -486,7 +509,11 @@ const DownloadPage = () => {
                   </p>
                 )}
                 <div className="space-y-2">
-                  {["All features unlocked", "Latest security updates", "Bug fixes & improvements"].map((item, i) => (
+                  {[
+                    "All features unlocked",
+                    "Latest security updates",
+                    "Bug fixes & improvements",
+                  ].map((item, i) => (
                     <div key={i} className="flex items-center gap-2">
                       <Check className="w-4 h-4 text-primary" />
                       <span className="text-sm text-foreground">{item}</span>
@@ -531,8 +558,12 @@ const DownloadPage = () => {
                   {item.step}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <h3 className="font-semibold text-foreground mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {item.description}
+                  </p>
                 </div>
               </motion.div>
             ))}

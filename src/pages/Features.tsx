@@ -120,10 +120,13 @@ const Features = () => {
             </div>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               Powerful Features,
-              <span className="text-gradient block mt-2">Simple Experience</span>
+              <span className="text-gradient block mt-2">
+                Simple Experience
+              </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Everything you need to manage your personal finances, without the complexity. Built for speed, security, and simplicity.
+              Everything you need to manage your personal finances, without the
+              complexity. Built for speed, security, and simplicity.
             </p>
           </motion.div>
         </div>

@@ -218,7 +218,8 @@ const PartnersSection = () => {
             Available on Multiple Platforms
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Get DhanDiary from your preferred app store. Free to download, no subscriptions required.
+            Get DhanDiary from your preferred app store. Free to download, no
+            subscriptions required.
           </p>
         </motion.div>
 
@@ -295,7 +296,9 @@ const PartnersSection = () => {
                   <h3 className="font-semibold text-foreground text-sm mb-2 text-center">
                     {store.name}
                   </h3>
-                  <span className="text-xs text-muted-foreground">Coming Soon</span>
+                  <span className="text-xs text-muted-foreground">
+                    Coming Soon
+                  </span>
                 </div>
               )}
             </motion.div>

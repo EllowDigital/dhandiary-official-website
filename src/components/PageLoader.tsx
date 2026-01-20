@@ -32,7 +32,7 @@ const PageLoader = () => {
             }}
           />
         </div>
-        
+
         {/* Loading text with pulse */}
         <motion.p
           className="text-sm font-medium text-muted-foreground"

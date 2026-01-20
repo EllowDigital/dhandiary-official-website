@@ -9,9 +9,14 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(
-    Boolean,
-  ),
+  plugins: [
+    react(),
+    // Lovable helper plugin; opt-in only because it can break some React dev builds.
+    mode === "development" &&
+    process.env.VITE_ENABLE_COMPONENT_TAGGER === "true"
+      ? componentTagger()
+      : false,
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

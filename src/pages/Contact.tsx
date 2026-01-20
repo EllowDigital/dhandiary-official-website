@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Mail, ExternalLink, User, Building2, MessageCircle, Clock } from "lucide-react";
+import {
+  Mail,
+  ExternalLink,
+  User,
+  Building2,
+  MessageCircle,
+  Clock,
+} from "lucide-react";
 import Layout from "@/components/layout/Layout";
 
 const contactMethods = [
@@ -105,7 +112,11 @@ const Contact = () => {
                 variants={itemVariants}
                 href={method.href}
                 target={method.href.startsWith("mailto") ? undefined : "_blank"}
-                rel={method.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                rel={
+                  method.href.startsWith("mailto")
+                    ? undefined
+                    : "noopener noreferrer"
+                }
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className={`p-6 lg:p-8 rounded-2xl border transition-all duration-300 group ${
                   method.primary
@@ -126,7 +137,9 @@ const Contact = () => {
                   {method.title}
                 </h3>
                 <p className="text-primary font-medium mb-1">{method.value}</p>
-                <p className="text-muted-foreground text-sm">{method.description}</p>
+                <p className="text-muted-foreground text-sm">
+                  {method.description}
+                </p>
               </motion.a>
             ))}
           </motion.div>
@@ -149,7 +162,9 @@ const Contact = () => {
                     {member.icon}
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">{member.role}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {member.role}
+                    </p>
                     {member.href ? (
                       <a
                         href={member.href}
@@ -160,7 +175,9 @@ const Contact = () => {
                         {member.name}
                       </a>
                     ) : (
-                      <p className="font-semibold text-foreground">{member.name}</p>
+                      <p className="font-semibold text-foreground">
+                        {member.name}
+                      </p>
                     )}
                   </div>
                 </div>
