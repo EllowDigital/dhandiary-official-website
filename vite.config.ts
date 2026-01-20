@@ -5,6 +5,20 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  optimizeDeps: {
+    esbuildOptions: {
+      define: {
+        "process.env.NODE_ENV": JSON.stringify(
+          mode === "development" ? "development" : "production",
+        ),
+      },
+    },
+  },
+  define: {
+    "process.env.NODE_ENV": JSON.stringify(
+      mode === "development" ? "development" : "production",
+    ),
+  },
   server: {
     host: "::",
     port: 8080,

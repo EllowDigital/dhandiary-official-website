@@ -36,6 +36,14 @@ npm i
 npm run dev
 ```
 
+If you see errors like `'vite' is not recognized` or `'prettier' is not recognized`, your dev dependencies were not installed. Do a clean reinstall (Windows PowerShell):
+
+```powershell
+Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue
+npm ci
+npm run dev
+```
+
 **Edit a file directly in GitHub**
 
 - Navigate to the desired file(s).
