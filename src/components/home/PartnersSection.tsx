@@ -7,7 +7,6 @@ const PartnersSection = () => {
   const appStores = [
     {
       name: "Indus App Store",
-      description: "Recommended for Indian users",
       rating: "4.8",
       url: APP_CONFIG.downloads.indus || "https://indusapp.store/gfda9h89",
       badge: (
@@ -21,19 +20,17 @@ const PartnersSection = () => {
     },
     {
       name: "Amazon Appstore",
-      description: "Available worldwide",
       rating: "4.9",
       url: APP_CONFIG.downloads.amazon,
       badge: (
-        <div className="h-10 sm:h-11 px-4 sm:px-5 flex flex-col items-center justify-center bg-[#1a1a2e] border border-[#3dd8d8] rounded-lg">
-          <span className="text-[8px] sm:text-[9px] text-[#3dd8d8] uppercase tracking-wider font-medium">Available on</span>
-          <span className="text-xs sm:text-sm text-white font-bold">Amazon Appstore</span>
+        <div className="h-10 sm:h-11 px-4 sm:px-5 flex flex-col items-center justify-center bg-primary border-2 border-primary rounded-lg">
+          <span className="text-[8px] sm:text-[9px] text-primary-foreground uppercase tracking-wider font-medium">Available on</span>
+          <span className="text-xs sm:text-sm text-primary-foreground font-bold">Amazon Appstore</span>
         </div>
       ),
     },
     {
       name: "Huawei AppGallery",
-      description: "For Huawei devices",
       rating: "4.9",
       url: APP_CONFIG.downloads.huawei,
       badge: (
@@ -55,7 +52,6 @@ const PartnersSection = () => {
     },
     {
       name: "More Options",
-      description: "View all download options",
       url: "/download",
       internal: true,
       badge: (
@@ -109,7 +105,7 @@ const PartnersSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-10 lg:mb-12"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-xs sm:text-sm font-medium mb-4">
             Download Now
           </span>
           <h2 className="heading-2 text-foreground mb-3 sm:mb-4 text-balance">
@@ -141,7 +137,7 @@ const PartnersSection = () => {
                 store.internal ? (
                   <Link
                     to={store.url}
-                    className="flex flex-col items-center p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 h-full hover-lift"
+                    className="flex flex-col items-center p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 h-full"
                     aria-label="See more download options"
                   >
                     <div className="mb-3 sm:mb-4 transform group-hover:scale-105 transition-transform duration-300">
@@ -160,7 +156,7 @@ const PartnersSection = () => {
                     href={store.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-col items-center p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 h-full hover-lift"
+                    className="flex flex-col items-center p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 h-full"
                     aria-label={`Download from ${store.name}`}
                   >
                     <div className="mb-3 sm:mb-4 transform group-hover:scale-105 transition-transform duration-300">
