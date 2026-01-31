@@ -1,4 +1,7 @@
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/shared/PageHero";
+import SectionCard from "@/components/shared/SectionCard";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 import {
   KeyRound,
   Shield,
@@ -13,7 +16,7 @@ import {
 
 const sections = [
   {
-    icon: <KeyRound className="w-6 h-6" />,
+    icon: <KeyRound className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "1. License Grant",
     content: (
       <p>
@@ -23,12 +26,12 @@ const sections = [
     ),
   },
   {
-    icon: <Shield className="w-6 h-6" />,
+    icon: <Shield className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "2. Restrictions",
     content: (
       <>
-        <p>You may NOT:</p>
-        <ul className="list-disc list-inside text-muted-foreground space-y-2 mt-3">
+        <p className="font-medium text-foreground">You may NOT:</p>
+        <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 mt-2 sm:mt-3">
           <li>Rent, lease, sell, sublicense, or redistribute the software.</li>
           <li>Copy or modify the app except as permitted by law.</li>
           <li>Bypass security features or license checks.</li>
@@ -37,19 +40,17 @@ const sections = [
     ),
   },
   {
-    icon: <RefreshCcw className="w-6 h-6" />,
+    icon: <RefreshCcw className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "3. Updates & Availability",
     content: (
       <>
         <p>Updates may be installed automatically.</p>
-        <p className="mt-3">
-          We are not obligated to provide ongoing support or updates.
-        </p>
+        <p className="mt-2 sm:mt-3">We are not obligated to provide ongoing support or updates.</p>
       </>
     ),
   },
   {
-    icon: <BadgeCheck className="w-6 h-6" />,
+    icon: <BadgeCheck className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "4. Ownership",
     content: (
       <p>
@@ -59,7 +60,7 @@ const sections = [
     ),
   },
   {
-    icon: <Link2 className="w-6 h-6" />,
+    icon: <Link2 className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "5. Third-Party Components",
     content: (
       <p>
@@ -69,7 +70,7 @@ const sections = [
     ),
   },
   {
-    icon: <Ban className="w-6 h-6" />,
+    icon: <Ban className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "6. Termination",
     content: (
       <p>
@@ -79,7 +80,7 @@ const sections = [
     ),
   },
   {
-    icon: <Globe className="w-6 h-6" />,
+    icon: <Globe className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "7. Export Compliance",
     content: (
       <p>
@@ -88,7 +89,7 @@ const sections = [
     ),
   },
   {
-    icon: <AlertTriangle className="w-6 h-6" />,
+    icon: <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "8. Disclaimer of Warranty",
     content: (
       <p>
@@ -98,15 +99,12 @@ const sections = [
     ),
   },
   {
-    icon: <AlertTriangle className="w-6 h-6" />,
+    icon: <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "9. Limitation of Liability",
     content: (
       <>
-        <p>
-          EllowDigital is not liable for incidental or consequential damages.
-          Liability is limited to:
-        </p>
-        <ul className="list-disc list-inside text-muted-foreground space-y-2 mt-3">
+        <p>EllowDigital is not liable for incidental or consequential damages. Liability is limited to:</p>
+        <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 mt-2 sm:mt-3">
           <li>Amount paid for the license, or</li>
           <li>INR 500 if no fees were paid.</li>
         </ul>
@@ -114,13 +112,13 @@ const sections = [
     ),
   },
   {
-    icon: <Mail className="w-6 h-6" />,
+    icon: <Mail className="w-5 h-5 sm:w-6 sm:h-6" />,
     title: "10. Contact",
     content: (
-      <>
-        <p>Developer Email: sarwanyadav6174@gmail.com</p>
-        <p>Team Email: ellowdigitalindia@gmail.com</p>
-      </>
+      <div className="space-y-1">
+        <p>Developer Email: <a href="mailto:sarwanyadav6174@gmail.com" className="text-primary hover:underline">sarwanyadav6174@gmail.com</a></p>
+        <p>Team Email: <a href="mailto:ellowdigitalindia@gmail.com" className="text-primary hover:underline">ellowdigitalindia@gmail.com</a></p>
+      </div>
     ),
   },
 ];
@@ -128,61 +126,45 @@ const sections = [
 const Eula = () => {
   return (
     <Layout>
-      {/* Hero */}
-      <section className="bg-subtle-gradient section-padding">
-        <div className="container mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-6">
-            <KeyRound className="w-4 h-4" />
-            License
-          </div>
-          <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-4">
-            End User License Agreement (EULA)
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Effective Date: 12 December 2025
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge={{ icon: <KeyRound className="w-4 h-4" />, text: "License" }}
+        title="End User License Agreement (EULA)"
+        description="Effective Date: 12 December 2025"
+      />
 
       {/* Content */}
       <section className="section-padding">
-        <div className="container mx-auto container-narrow">
-          <div className="space-y-8">
-            <div className="p-6 lg:p-8 rounded-2xl bg-card border border-border">
-              <h2 className="font-display text-xl font-semibold text-foreground mb-2">
-                DhanDiary — End User License Agreement (EULA)
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                This EULA is a legal agreement between you and EllowDigital
-                governing the installation and use of the DhanDiary software.
-              </p>
-            </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="space-y-4 sm:space-y-6">
+            <AnimatedSection>
+              <div className="p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-accent/50 border border-primary/20">
+                <h2 className="font-display text-lg sm:text-xl font-semibold text-foreground mb-2">
+                  DhanDiary — End User License Agreement (EULA)
+                </h2>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  This EULA is a legal agreement between you and EllowDigital
+                  governing the installation and use of the DhanDiary software.
+                </p>
+              </div>
+            </AnimatedSection>
 
             {sections.map((section, index) => (
-              <div
-                key={index}
-                className="p-6 lg:p-8 rounded-2xl bg-card border border-border"
+              <SectionCard 
+                key={index} 
+                icon={section.icon} 
+                title={section.title}
+                delay={index * 0.05}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary flex-shrink-0">
-                    {section.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-display text-xl font-semibold text-foreground mb-2">
-                      {section.title}
-                    </h3>
-                    <div className="text-muted-foreground leading-relaxed">
-                      {section.content}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                {section.content}
+              </SectionCard>
             ))}
           </div>
 
-          <div className="mt-12 text-center text-sm text-muted-foreground">
-            <p>Effective date: 12 December 2025</p>
-          </div>
+          <AnimatedSection delay={0.5} className="mt-8 sm:mt-12 text-center">
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              Effective date: 12 December 2025
+            </p>
+          </AnimatedSection>
         </div>
       </section>
     </Layout>

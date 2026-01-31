@@ -1,7 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import { CheckCircle2, Loader2, Clock, MessageSquare } from "lucide-react";
+import { motion } from "framer-motion";
+import { CheckCircle2, Loader2, Clock, MessageSquare, Sparkles, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/shared/PageHero";
+import AnimatedSection, { StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -41,22 +44,18 @@ const longTermVision = [
 
 const statusBadge = (status: RoadmapItem["status"]) => {
   if (status === "Released") {
-    return (
-      <Badge className="bg-primary text-primary-foreground">Released</Badge>
-    );
+    return <Badge className="bg-primary text-primary-foreground text-xs">Released</Badge>;
   }
-
   if (status === "In Progress") {
-    return <Badge variant="secondary">In Progress</Badge>;
+    return <Badge variant="secondary" className="text-xs">In Progress</Badge>;
   }
-
-  return <Badge variant="outline">Planned</Badge>;
+  return <Badge variant="outline" className="text-xs">Planned</Badge>;
 };
 
 const Roadmap = () => {
-  const metaTitle = "DhanDiary Roadmap – What’s Coming Next";
+  const metaTitle = "DhanDiary Roadmap – What's Coming Next";
   const metaDescription =
-    "See what’s recently released, what we’re working on now, and what’s planned next for DhanDiary. This roadmap may evolve based on user feedback.";
+    "See what's recently released, what we're working on now, and what's planned next for DhanDiary. This roadmap may evolve based on user feedback.";
 
   return (
     <Layout>
@@ -67,172 +66,147 @@ const Roadmap = () => {
         <link rel="canonical" href="https://dhandiary.com/roadmap" />
       </Helmet>
 
-      {/* Hero */}
-      <section className="bg-subtle-gradient section-padding">
-        <div className="container mx-auto text-center">
-          <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-4">
-            DhanDiary Roadmap
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Here’s what we’re working on and what’s coming next for DhanDiary.
-            This roadmap reflects our current plans and may evolve based on user
-            feedback.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge={{ icon: <Target className="w-4 h-4" />, text: "Product Roadmap" }}
+        title="DhanDiary Roadmap"
+        description="Here's what we're working on and what's coming next. This roadmap reflects our current plans and may evolve based on user feedback."
+      />
 
       {/* Content */}
       <section className="section-padding">
-        <div className="container mx-auto container-narrow">
-          <div className="space-y-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10">
             {/* Recently Released */}
-            <div className="p-6 lg:p-8 rounded-2xl bg-card border border-border">
-              <div className="flex items-center justify-between gap-4 mb-6">
-                <h2 className="font-display text-2xl font-bold text-foreground">
-                  Recently Released
-                </h2>
-                <Badge className="bg-primary text-primary-foreground">
-                  Released
-                </Badge>
-              </div>
-              <div className="grid gap-4">
-                {recentlyReleased.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-background border border-border"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="text-foreground font-medium">
-                          {item.text}
-                        </p>
-                        <div className="hidden sm:block">
-                          {statusBadge(item.status)}
+            <AnimatedSection>
+              <div className="p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-card border border-border">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-4 sm:mb-6">
+                  <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+                    Recently Released
+                  </h2>
+                  <Badge className="bg-primary text-primary-foreground w-fit">Released</Badge>
+                </div>
+                <StaggerContainer className="grid gap-3 sm:gap-4">
+                  {recentlyReleased.map((item, index) => (
+                    <StaggerItem key={index}>
+                      <div className="flex items-start gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background border border-border hover:border-primary/30 transition-colors">
+                        <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
+                            <p className="text-foreground font-medium text-sm sm:text-base">{item.text}</p>
+                            <div className="w-fit">{statusBadge(item.status)}</div>
+                          </div>
                         </div>
                       </div>
-                      <div className="sm:hidden mt-2">
-                        {statusBadge(item.status)}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* In Progress */}
-            <div className="p-6 lg:p-8 rounded-2xl bg-card border border-border">
-              <div className="flex items-center justify-between gap-4 mb-6">
-                <h2 className="font-display text-2xl font-bold text-foreground">
-                  In Progress
-                </h2>
-                <Badge variant="secondary">In Progress</Badge>
-              </div>
-              <div className="grid gap-4">
-                {inProgress.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-background border border-border"
-                  >
-                    <Loader2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="text-foreground font-medium">
-                          {item.text}
-                        </p>
-                        <div className="hidden sm:block">
-                          {statusBadge(item.status)}
+            <AnimatedSection delay={0.1}>
+              <div className="p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-card border border-border">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-4 sm:mb-6">
+                  <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+                    In Progress
+                  </h2>
+                  <Badge variant="secondary" className="w-fit">In Progress</Badge>
+                </div>
+                <StaggerContainer className="grid gap-3 sm:gap-4">
+                  {inProgress.map((item, index) => (
+                    <StaggerItem key={index}>
+                      <div className="flex items-start gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background border border-border hover:border-primary/30 transition-colors">
+                        <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0 animate-spin" />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
+                            <p className="text-foreground font-medium text-sm sm:text-base">{item.text}</p>
+                            <div className="w-fit">{statusBadge(item.status)}</div>
+                          </div>
                         </div>
                       </div>
-                      <div className="sm:hidden mt-2">
-                        {statusBadge(item.status)}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
+                <p className="text-muted-foreground text-xs sm:text-sm mt-4 sm:mt-6">
+                  We avoid exact dates here, because app reviews and platform rules can change unexpectedly.
+                </p>
               </div>
-              <p className="text-muted-foreground text-sm mt-6">
-                We avoid exact dates here, because app reviews and platform
-                rules can change unexpectedly.
-              </p>
-            </div>
+            </AnimatedSection>
 
             {/* Planned */}
-            <div className="p-6 lg:p-8 rounded-2xl bg-card border border-border">
-              <div className="flex items-center justify-between gap-4 mb-6">
-                <h2 className="font-display text-2xl font-bold text-foreground">
-                  Planned (Coming Next)
-                </h2>
-                <Badge variant="outline">Planned</Badge>
-              </div>
-              <div className="grid gap-4">
-                {planned.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-background border border-border"
-                  >
-                    <Clock className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="text-foreground font-medium">
-                          {item.text}
-                        </p>
-                        <div className="hidden sm:block">
-                          {statusBadge(item.status)}
+            <AnimatedSection delay={0.2}>
+              <div className="p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-card border border-border">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 mb-4 sm:mb-6">
+                  <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+                    Planned (Coming Next)
+                  </h2>
+                  <Badge variant="outline" className="w-fit">Planned</Badge>
+                </div>
+                <StaggerContainer className="grid gap-3 sm:gap-4">
+                  {planned.map((item, index) => (
+                    <StaggerItem key={index}>
+                      <div className="flex items-start gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background border border-border hover:border-primary/30 transition-colors">
+                        <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
+                            <p className="text-foreground font-medium text-sm sm:text-base">{item.text}</p>
+                            <div className="w-fit">{statusBadge(item.status)}</div>
+                          </div>
                         </div>
                       </div>
-                      <div className="sm:hidden mt-2">
-                        {statusBadge(item.status)}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* Long-Term Vision */}
-            <div className="p-6 lg:p-8 rounded-2xl bg-card border border-border">
-              <h2 className="font-display text-2xl font-bold text-foreground mb-4">
-                Long-Term Vision
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                These are high-level goals that guide where DhanDiary is going
-                over time.
-              </p>
-              <div className="grid gap-3">
-                {longTermVision.map((text, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-background border border-border"
-                  >
-                    <span className="text-primary font-bold mt-0.5">•</span>
-                    <p className="text-foreground font-medium">{text}</p>
-                  </div>
-                ))}
+            <AnimatedSection delay={0.3}>
+              <div className="p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-accent/50 border border-primary/20">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                  <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+                    Long-Term Vision
+                  </h2>
+                </div>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
+                  These are high-level goals that guide where DhanDiary is going over time.
+                </p>
+                <StaggerContainer className="grid gap-2 sm:gap-3">
+                  {longTermVision.map((text, index) => (
+                    <StaggerItem key={index}>
+                      <div className="flex items-start gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background border border-border">
+                        <span className="text-primary font-bold mt-0.5">•</span>
+                        <p className="text-foreground font-medium text-sm sm:text-base">{text}</p>
+                      </div>
+                    </StaggerItem>
+                  ))}
+                </StaggerContainer>
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* CTA */}
-            <div className="p-6 lg:p-8 rounded-2xl bg-accent/50 border border-primary/20 text-center">
-              <h2 className="font-display text-2xl font-bold text-foreground mb-2">
-                Want to help shape the roadmap?
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-                Your feedback helps us prioritize improvements and build the
-                features that matter most.
-              </p>
-              <Button asChild variant="hero" size="lg">
-                <Link to="/contact">
-                  <MessageSquare className="w-5 h-5" />
-                  Share Feedback
-                </Link>
-              </Button>
-            </div>
+            <AnimatedSection delay={0.4}>
+              <div className="p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-card border border-border text-center">
+                <MessageSquare className="w-8 h-8 sm:w-10 sm:h-10 text-primary mx-auto mb-3 sm:mb-4" />
+                <h2 className="font-display text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-2">
+                  Want to help shape the roadmap?
+                </h2>
+                <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto mb-4 sm:mb-6">
+                  Your feedback helps us prioritize improvements and build the features that matter most.
+                </p>
+                <Button asChild variant="hero" size="lg">
+                  <Link to="/contact">
+                    <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
+                    Share Feedback
+                  </Link>
+                </Button>
+              </div>
+            </AnimatedSection>
 
             {/* Footer note */}
-            <p className="text-muted-foreground text-sm text-center">
-              This roadmap is subject to change based on user feedback and
-              platform requirements.
+            <p className="text-muted-foreground text-xs sm:text-sm text-center">
+              This roadmap is subject to change based on user feedback and platform requirements.
             </p>
           </div>
         </div>

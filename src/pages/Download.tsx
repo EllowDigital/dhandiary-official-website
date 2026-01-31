@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/shared/PageHero";
+import AnimatedSection, { StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
 import { APP_CONFIG, isApkDownloadLinkValid } from "@/lib/appConfig";
 
 const apkLinkValid = isApkDownloadLinkValid();
@@ -23,12 +25,12 @@ const downloadOptions = [
   {
     name: "Indus App Store",
     description: "Recommended for Indian users",
-    icon: <Smartphone className="w-6 h-6" />,
+    icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <img
         alt="Get it on Indus Appstore"
         src="https://docstore.indusappstore.com/public/external/developerdashboard-static/badge-black-full-color-english.png"
-        className="h-12 w-auto"
+        className="h-10 sm:h-12 w-auto"
         loading="lazy"
       />
     ),
@@ -38,31 +40,12 @@ const downloadOptions = [
   {
     name: "Amazon Appstore",
     description: "Available worldwide",
-    icon: <Smartphone className="w-6 h-6" />,
+    icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-12 w-auto">
+      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          AVAILABLE ON
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          Amazon Appstore
-        </text>
+        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">AVAILABLE ON</text>
+        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">Amazon Appstore</text>
       </svg>
     ),
     url: APP_CONFIG.downloads.amazon,
@@ -71,31 +54,12 @@ const downloadOptions = [
   {
     name: "Samsung Galaxy Store",
     description: "For Samsung devices",
-    icon: <Smartphone className="w-6 h-6" />,
+    icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-12 w-auto">
+      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          AVAILABLE ON
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          Galaxy Store
-        </text>
+        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">AVAILABLE ON</text>
+        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">Galaxy Store</text>
       </svg>
     ),
     url: APP_CONFIG.downloads.samsung,
@@ -104,21 +68,11 @@ const downloadOptions = [
   {
     name: "Huawei AppGallery",
     description: "For Huawei devices",
-    icon: <Smartphone className="w-6 h-6" />,
+    icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <>
-        <img
-          src="/img/Appstores/Huawei-light.png"
-          alt="Huawei AppGallery"
-          className="h-12 w-auto dark:hidden"
-          loading="lazy"
-        />
-        <img
-          src="/img/Appstores/Huawei-dark.png"
-          alt="Huawei AppGallery"
-          className="h-12 w-auto hidden dark:block"
-          loading="lazy"
-        />
+        <img src="/img/Appstores/Huawei-light.png" alt="Huawei AppGallery" className="h-10 sm:h-12 w-auto dark:hidden" loading="lazy" />
+        <img src="/img/Appstores/Huawei-dark.png" alt="Huawei AppGallery" className="h-10 sm:h-12 w-auto hidden dark:block" loading="lazy" />
       </>
     ),
     url: APP_CONFIG.downloads.huawei,
@@ -127,31 +81,12 @@ const downloadOptions = [
   {
     name: "Vivio Appstore",
     description: "Currently unavailable",
-    icon: <Smartphone className="w-6 h-6" />,
+    icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-12 w-auto">
+      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          AVAILABLE ON
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          Vivio Appstore
-        </text>
+        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">AVAILABLE ON</text>
+        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">Vivio Appstore</text>
       </svg>
     ),
     url: "",
@@ -159,34 +94,13 @@ const downloadOptions = [
   },
   {
     name: "Direct APK Download",
-    description: apkLinkValid
-      ? "Manual install (valid for 30 days)"
-      : "APK link expired — use app stores",
-    icon: <Download className="w-6 h-6" />,
+    description: apkLinkValid ? "Manual install (valid for 30 days)" : "APK link expired — use app stores",
+    icon: <Download className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-12 w-auto">
+      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          DOWNLOAD
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          APK Direct
-        </text>
+        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">DOWNLOAD</text>
+        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">APK Direct</text>
       </svg>
     ),
     url: apkLinkValid ? APP_CONFIG.downloads.apk : "",
@@ -194,34 +108,13 @@ const downloadOptions = [
   },
   {
     name: "Google Drive (Latest APK)",
-    description: APP_CONFIG.downloads.googleDriveApk
-      ? "Latest APK hosted on Google Drive"
-      : "Link coming soon",
-    icon: <Download className="w-6 h-6" />,
+    description: APP_CONFIG.downloads.googleDriveApk ? "Latest APK hosted on Google Drive" : "Link coming soon",
+    icon: <Download className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-12 w-auto">
+      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          DOWNLOAD
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          Google Drive
-        </text>
+        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">DOWNLOAD</text>
+        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">Google Drive</text>
       </svg>
     ),
     url: APP_CONFIG.downloads.googleDriveApk,
@@ -230,31 +123,12 @@ const downloadOptions = [
   {
     name: "OPPO App Market",
     description: "Coming soon",
-    icon: <Smartphone className="w-6 h-6" />,
+    icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-12 w-auto">
+      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          AVAILABLE ON
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          OPPO App Market
-        </text>
+        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">AVAILABLE ON</text>
+        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">OPPO App Market</text>
       </svg>
     ),
     url: "",
@@ -263,298 +137,191 @@ const downloadOptions = [
 ];
 
 const requirements = [
-  {
-    icon: <Cpu className="w-5 h-5" />,
-    label: "Android Version",
-    value: `${APP_CONFIG.minAndroid} or higher`,
-  },
-  {
-    icon: <HardDrive className="w-5 h-5" />,
-    label: "Storage Space",
-    value: `${APP_CONFIG.sizeMb} MB`,
-  },
-  {
-    icon: <Smartphone className="w-5 h-5" />,
-    label: "Device Type",
-    value: "Phones & Tablets",
-  },
-  {
-    icon: <Tablet className="w-5 h-5" />,
-    label: "Screen Size",
-    value: "All sizes supported",
-  },
+  { icon: <Cpu className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Android Version", value: `${APP_CONFIG.minAndroid} or higher` },
+  { icon: <HardDrive className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Storage Space", value: `${APP_CONFIG.sizeMb} MB` },
+  { icon: <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Device Type", value: "Phones & Tablets" },
+  { icon: <Tablet className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Screen Size", value: "All sizes supported" },
 ];
 
 const features = [
-  {
-    icon: <WifiOff className="w-5 h-5" />,
-    title: "Works Offline",
-    description: "Full functionality without internet",
-  },
-  {
-    icon: <Lock className="w-5 h-5" />,
-    title: "Secure & Private",
-    description: "Your data stays on your device",
-  },
-  {
-    icon: <BarChart3 className="w-5 h-5" />,
-    title: "Smart Insights",
-    description: "Beautiful charts & analytics",
-  },
+  { icon: <WifiOff className="w-4 h-4 sm:w-5 sm:h-5" />, title: "Works Offline", description: "Full functionality without internet" },
+  { icon: <Lock className="w-4 h-4 sm:w-5 sm:h-5" />, title: "Secure & Private", description: "Your data stays on your device" },
+  { icon: <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />, title: "Smart Insights", description: "Beautiful charts & analytics" },
 ];
 
 const installSteps = [
-  {
-    step: 1,
-    title: "Download the App",
-    description: "Choose your preferred app store above and tap to download.",
-  },
-  {
-    step: 2,
-    title: "Install & Open",
-    description:
-      "Once downloaded, open the app and grant necessary permissions.",
-  },
-  {
-    step: 3,
-    title: "Create Account",
-    description: "Sign up with email or use Google/GitHub for quick access.",
-  },
-  {
-    step: 4,
-    title: "Start Tracking",
-    description:
-      "Add your first transaction and take control of your finances!",
-  },
+  { step: 1, title: "Download the App", description: "Choose your preferred app store above and tap to download." },
+  { step: 2, title: "Install & Open", description: "Once downloaded, open the app and grant necessary permissions." },
+  { step: 3, title: "Create Account", description: "Sign up with email or use Google/GitHub for quick access." },
+  { step: 4, title: "Start Tracking", description: "Add your first transaction and take control of your finances!" },
+];
+
+const faqs = [
+  { q: "Is DhanDiary free to use?", a: "Yes! DhanDiary is completely free with no ads, no subscriptions, and no hidden costs." },
+  { q: "Is my data safe?", a: "Absolutely. Your data is stored locally on your device. We don't collect, share, or sell your personal information." },
+  { q: "Does it work offline?", a: "Yes! DhanDiary is designed to work fully offline. All your data is stored locally and syncs when you're back online." },
+  { q: "Is it available on iOS?", a: "Currently, DhanDiary is available only for Android devices. iOS support may come in the future." },
 ];
 
 const DownloadPage = () => {
   return (
     <Layout>
-      {/* Hero */}
-      <section className="relative bg-subtle-gradient overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+      <PageHero
+        badge={{ icon: <Shield className="w-4 h-4" />, text: "Safe & Verified Download" }}
+        title="Download DhanDiary"
+        description="Get the app on your Android device. Free forever, no ads, no subscriptions."
+      >
+        {/* Quick feature badges */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+              className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-card border border-border"
+            >
+              <span className="text-primary">{feature.icon}</span>
+              <span className="text-xs sm:text-sm font-medium text-foreground">{feature.title}</span>
+            </motion.div>
+          ))}
         </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              <Shield className="w-4 h-4" />
-              Safe & Verified Download
-            </div>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Download DhanDiary
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8">
-              Get the app on your Android device. Free forever, no ads, no
-              subscriptions.
-            </p>
-
-            {/* Quick feature badges */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border"
-                >
-                  <span className="text-primary">{feature.icon}</span>
-                  <span className="text-sm font-medium text-foreground">
-                    {feature.title}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Download Options */}
       <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
+          <AnimatedSection className="text-center mb-8 sm:mb-10">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3">
               Choose Your App Store
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm sm:text-base">
               Download from your preferred platform
             </p>
-          </motion.div>
+          </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {downloadOptions
-              .filter((opt) => opt.primary && opt.url)
-              .map((option, index) => (
+          <StaggerContainer className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+            {downloadOptions.filter((opt) => opt.primary && opt.url).map((option, index) => (
+              <StaggerItem key={index}>
                 <motion.a
-                  key={index}
                   href={option.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
                   whileHover={{ y: -4 }}
-                  className="flex flex-col items-center p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 group"
+                  className="flex flex-col items-center p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 group h-full"
                 >
-                  <div className="mb-4 transform group-hover:scale-105 transition-transform">
+                  <div className="mb-3 sm:mb-4 transform group-hover:scale-105 transition-transform">
                     {option.badge}
                   </div>
-                  <h3 className="font-semibold text-foreground mb-1">
+                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1 text-center">
                     {option.name}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-3">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3 text-center">
                     {option.description}
                   </p>
-                  <div className="flex items-center gap-1 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-1 text-primary text-xs sm:text-sm font-medium mt-auto">
                     <span>Download</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                   </div>
                 </motion.a>
-              ))}
-          </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
 
           {/* Secondary options */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            {downloadOptions
-              .filter((opt) => !opt.primary || !opt.url)
-              .map((option, index) =>
-                option.url ? (
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            {downloadOptions.filter((opt) => !opt.primary || !opt.url).map((option, index) =>
+              option.url ? (
+                <StaggerItem key={index}>
                   <motion.a
-                    key={index}
                     href={option.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    className="flex items-center gap-4 p-5 rounded-xl bg-muted/50 border border-border hover:border-primary/30 transition-all group"
+                    whileHover={{ x: 4 }}
+                    className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-lg sm:rounded-xl bg-muted/50 border border-border hover:border-primary/30 transition-all group"
                   >
                     <div className="shrink-0">{option.badge}</div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-foreground">
-                        {option.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {option.description}
-                      </p>
+                      <h3 className="font-semibold text-foreground text-sm sm:text-base">{option.name}</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{option.description}</p>
                     </div>
-                    <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
                   </motion.a>
-                ) : (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    className="flex items-center gap-4 p-5 rounded-xl bg-muted/30 border border-border opacity-60"
-                  >
+                </StaggerItem>
+              ) : (
+                <StaggerItem key={index}>
+                  <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-lg sm:rounded-xl bg-muted/30 border border-border opacity-60">
                     <div className="shrink-0">{option.badge}</div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-foreground">
-                        {option.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {option.description}
-                      </p>
+                      <h3 className="font-semibold text-foreground text-sm sm:text-base">{option.name}</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{option.description}</p>
                     </div>
-                  </motion.div>
-                ),
-              )}
-          </div>
+                  </div>
+                </StaggerItem>
+              )
+            )}
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Device Requirements */}
-      <section className="py-16 bg-card">
+      <section className="py-12 sm:py-16 bg-card">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
             {/* Requirements */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-display text-2xl font-bold text-foreground mb-6">
+            <AnimatedSection animation="fadeLeft">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">
                 Device Compatibility
               </h2>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {requirements.map((req, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className="p-4 rounded-xl bg-background border border-border"
+                    whileHover={{ y: -2 }}
+                    className="p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background border border-border hover:border-primary/30 transition-all"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-primary mb-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-accent flex items-center justify-center text-primary mb-2 sm:mb-3">
                       {req.icon}
                     </div>
-                    <p className="text-sm text-muted-foreground">{req.label}</p>
-                    <p className="font-semibold text-foreground">{req.value}</p>
-                  </div>
+                    <p className="text-xs sm:text-sm text-muted-foreground">{req.label}</p>
+                    <p className="font-semibold text-foreground text-sm sm:text-base">{req.value}</p>
+                  </motion.div>
                 ))}
               </div>
-            </motion.div>
+            </AnimatedSection>
 
             {/* Version Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-display text-2xl font-bold text-foreground mb-6">
+            <AnimatedSection animation="fadeRight" delay={0.1}>
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">
                 Current Version
               </h2>
-              <div className="p-6 rounded-2xl bg-background border border-border">
-                <div className="flex items-start justify-between mb-4">
+              <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-background border border-border">
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
                   <div>
-                    <p className="font-display text-3xl font-bold text-primary">
+                    <p className="font-display text-2xl sm:text-3xl font-bold text-primary">
                       v{APP_CONFIG.version}
                     </p>
-                    <p className="text-muted-foreground">
-                      Latest Stable Release
-                    </p>
+                    <p className="text-muted-foreground text-sm sm:text-base">Latest Stable Release</p>
                   </div>
-                  <div className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                  <div className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium">
                     Stable
                   </div>
                 </div>
                 {APP_CONFIG.releaseDate && (
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
                     Released: {APP_CONFIG.releaseDate}
                   </p>
                 )}
-                <div className="space-y-2">
-                  {[
-                    "All features unlocked",
-                    "Latest security updates",
-                    "Bug fixes & improvements",
-                  ].map((item, i) => (
+                <div className="space-y-1.5 sm:space-y-2">
+                  {["All features unlocked", "Latest security updates", "Bug fixes & improvements"].map((item, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary" />
-                      <span className="text-sm text-foreground">{item}</span>
+                      <Check className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -562,122 +329,85 @@ const DownloadPage = () => {
       {/* Installation Guide */}
       <section className="section-padding">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
+          <AnimatedSection className="text-center mb-8 sm:mb-12">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3">
               Installation Guide
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm sm:text-base">
               Get started in just a few simple steps
             </p>
-          </motion.div>
+          </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {installSteps.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="flex gap-4 p-5 rounded-xl bg-card border border-border"
-              >
-                <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold shrink-0">
-                  {item.step}
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
+              <StaggerItem key={index}>
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  className="flex gap-3 sm:gap-4 p-4 sm:p-5 rounded-lg sm:rounded-xl bg-card border border-border hover:border-primary/30 transition-all"
+                >
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm sm:text-base shrink-0">
+                    {item.step}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           {/* APK Help Link */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 p-5 rounded-xl bg-accent/50 border border-primary/20"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="font-semibold text-foreground mb-1">
-                  Trouble installing APK?
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  Follow our step-by-step guide for manual installation
-                </p>
+          <AnimatedSection delay={0.4} className="mt-6 sm:mt-8">
+            <div className="p-4 sm:p-5 rounded-lg sm:rounded-xl bg-accent/50 border border-primary/20">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div>
+                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1">
+                    Trouble installing APK?
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    Follow our step-by-step guide for manual installation
+                  </p>
+                </div>
+                <Link
+                  to="/how-to-install-apk"
+                  className="flex items-center gap-1 text-primary font-medium text-sm sm:text-base hover:underline shrink-0"
+                >
+                  View Guide
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
               </div>
-              <Link
-                to="/how-to-install-apk"
-                className="flex items-center gap-1 text-primary font-medium hover:underline shrink-0"
-              >
-                View Guide
-                <ChevronRight className="w-4 h-4" />
-              </Link>
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-card">
+      <section className="py-12 sm:py-16 bg-card">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
+          <AnimatedSection className="text-center mb-8 sm:mb-10">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-3">
               Frequently Asked Questions
             </h2>
-          </motion.div>
+          </AnimatedSection>
 
-          <div className="space-y-4">
-            {[
-              {
-                q: "Is DhanDiary free to use?",
-                a: "Yes! DhanDiary is completely free with no ads, no subscriptions, and no hidden costs.",
-              },
-              {
-                q: "Is my data safe?",
-                a: "Absolutely. Your data is stored locally on your device. We don't collect, share, or sell your personal information.",
-              },
-              {
-                q: "Does it work offline?",
-                a: "Yes! DhanDiary is designed to work fully offline. All your data is stored locally and syncs when you're back online.",
-              },
-              {
-                q: "Is it available on iOS?",
-                a: "Currently, DhanDiary is available only for Android devices. iOS support may come in the future.",
-              },
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="p-5 rounded-xl bg-background border border-border"
-              >
-                <h3 className="font-semibold text-foreground mb-2">{faq.q}</h3>
-                <p className="text-muted-foreground text-sm">{faq.a}</p>
-              </motion.div>
+          <StaggerContainer className="space-y-3 sm:space-y-4">
+            {faqs.map((faq, index) => (
+              <StaggerItem key={index}>
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  className="p-4 sm:p-5 rounded-lg sm:rounded-xl bg-background border border-border hover:border-primary/30 transition-all"
+                >
+                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-1.5 sm:mb-2">{faq.q}</h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm">{faq.a}</p>
+                </motion.div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
     </Layout>
