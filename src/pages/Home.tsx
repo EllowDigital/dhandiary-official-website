@@ -27,6 +27,7 @@ import ScrollReveal, {
   StaggerContainer,
   StaggerItem,
 } from "@/components/home/ScrollReveal";
+import FloatingParticles from "@/components/home/FloatingParticles";
 import { APP_CONFIG } from "@/lib/appConfig";
 
 const features = [
@@ -98,6 +99,9 @@ const Home = () => {
         className="relative overflow-hidden bg-subtle-gradient min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] flex items-center"
       >
         {/* Parallax Background Elements */}
+        {/* Floating Particles */}
+        <FloatingParticles />
+        
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             style={{ y: y1, scale: scale1, rotate: rotate1, opacity: opacity1 }}
