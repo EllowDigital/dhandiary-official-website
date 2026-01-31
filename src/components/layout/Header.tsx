@@ -28,7 +28,9 @@ const Header = () => {
       setIsDark(stored === "dark");
       document.documentElement.classList.toggle("dark", stored === "dark");
     } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
       setIsDark(prefersDark);
       document.documentElement.classList.toggle("dark", prefersDark);
     }
@@ -130,7 +132,9 @@ const Header = () => {
               <button
                 onClick={toggleTheme}
                 className="p-2.5 rounded-xl hover:bg-muted transition-all duration-200 focus-ring touch-target"
-                aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+                aria-label={
+                  isDark ? "Switch to light mode" : "Switch to dark mode"
+                }
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {isDark ? (

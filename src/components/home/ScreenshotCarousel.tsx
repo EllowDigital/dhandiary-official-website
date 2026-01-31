@@ -82,7 +82,7 @@ const ScreenshotCarousel = () => {
 
   const goToPrevious = useCallback(() => {
     setActiveIndex(
-      (prev) => (prev - 1 + screenshots.length) % screenshots.length
+      (prev) => (prev - 1 + screenshots.length) % screenshots.length,
     );
   }, []);
 
@@ -157,7 +157,11 @@ const ScreenshotCarousel = () => {
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
                       className={`cursor-pointer flex-shrink-0 ${
-                        visibleCount === 1 ? "" : !isActive ? "hidden sm:block" : ""
+                        visibleCount === 1
+                          ? ""
+                          : !isActive
+                            ? "hidden sm:block"
+                            : ""
                       }`}
                       onClick={() => setActiveIndex(index)}
                     >

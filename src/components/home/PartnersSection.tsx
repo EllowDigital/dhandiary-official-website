@@ -24,8 +24,12 @@ const PartnersSection = () => {
       url: APP_CONFIG.downloads.amazon,
       badge: (
         <div className="h-10 sm:h-11 px-4 sm:px-5 flex flex-col items-center justify-center bg-primary border-2 border-primary rounded-lg">
-          <span className="text-[8px] sm:text-[9px] text-primary-foreground uppercase tracking-wider font-medium">Available on</span>
-          <span className="text-xs sm:text-sm text-primary-foreground font-bold">Amazon Appstore</span>
+          <span className="text-[8px] sm:text-[9px] text-primary-foreground uppercase tracking-wider font-medium">
+            Available on
+          </span>
+          <span className="text-xs sm:text-sm text-primary-foreground font-bold">
+            Amazon Appstore
+          </span>
         </div>
       ),
     },
@@ -56,8 +60,12 @@ const PartnersSection = () => {
       internal: true,
       badge: (
         <div className="h-10 sm:h-11 px-4 sm:px-5 flex flex-col items-center justify-center bg-primary rounded-lg">
-          <span className="text-[8px] sm:text-[9px] text-primary-foreground uppercase tracking-wider font-medium">See All</span>
-          <span className="text-xs sm:text-sm text-primary-foreground font-bold">Download Options</span>
+          <span className="text-[8px] sm:text-[9px] text-primary-foreground uppercase tracking-wider font-medium">
+            See All
+          </span>
+          <span className="text-xs sm:text-sm text-primary-foreground font-bold">
+            Download Options
+          </span>
         </div>
       ),
     },
@@ -89,7 +97,10 @@ const PartnersSection = () => {
   };
 
   return (
-    <section id="download" className="section-padding relative overflow-hidden bg-card">
+    <section
+      id="download"
+      className="section-padding relative overflow-hidden bg-card"
+    >
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-32 sm:w-48 lg:w-64 h-32 sm:h-48 lg:h-64 bg-primary/5 rounded-full blur-3xl" />

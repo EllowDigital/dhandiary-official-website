@@ -46,8 +46,12 @@ const downloadOptions = [
     icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-primary border-2 border-primary rounded-lg">
-        <span className="text-[8px] sm:text-[9px] text-primary-foreground uppercase tracking-wider font-medium">Available on</span>
-        <span className="text-xs sm:text-sm text-primary-foreground font-bold">Amazon Appstore</span>
+        <span className="text-[8px] sm:text-[9px] text-primary-foreground uppercase tracking-wider font-medium">
+          Available on
+        </span>
+        <span className="text-xs sm:text-sm text-primary-foreground font-bold">
+          Amazon Appstore
+        </span>
       </div>
     ),
     url: APP_CONFIG.downloads.amazon,
@@ -59,8 +63,12 @@ const downloadOptions = [
     icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-foreground rounded-lg">
-        <span className="text-[8px] sm:text-[9px] text-background uppercase tracking-wider font-medium">Available on</span>
-        <span className="text-xs sm:text-sm text-background font-bold">Galaxy Store</span>
+        <span className="text-[8px] sm:text-[9px] text-background uppercase tracking-wider font-medium">
+          Available on
+        </span>
+        <span className="text-xs sm:text-sm text-background font-bold">
+          Galaxy Store
+        </span>
       </div>
     ),
     url: APP_CONFIG.downloads.samsung,
@@ -95,8 +103,12 @@ const downloadOptions = [
     icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-muted border border-border rounded-lg">
-        <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-wider font-medium">Available on</span>
-        <span className="text-xs sm:text-sm text-muted-foreground font-bold">Vivio Appstore</span>
+        <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-wider font-medium">
+          Available on
+        </span>
+        <span className="text-xs sm:text-sm text-muted-foreground font-bold">
+          Vivio Appstore
+        </span>
       </div>
     ),
     url: "",
@@ -166,8 +178,12 @@ const downloadOptions = [
     icon: <Download className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-foreground rounded-lg">
-        <span className="text-[8px] sm:text-[9px] text-background uppercase tracking-wider font-medium">Download</span>
-        <span className="text-xs sm:text-sm text-background font-bold">APK Direct</span>
+        <span className="text-[8px] sm:text-[9px] text-background uppercase tracking-wider font-medium">
+          Download
+        </span>
+        <span className="text-xs sm:text-sm text-background font-bold">
+          APK Direct
+        </span>
       </div>
     ),
     url: apkLinkValid ? APP_CONFIG.downloads.apk : "",
@@ -181,8 +197,12 @@ const downloadOptions = [
     icon: <Download className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-foreground rounded-lg">
-        <span className="text-[8px] sm:text-[9px] text-background uppercase tracking-wider font-medium">Download</span>
-        <span className="text-xs sm:text-sm text-background font-bold">Google Drive</span>
+        <span className="text-[8px] sm:text-[9px] text-background uppercase tracking-wider font-medium">
+          Download
+        </span>
+        <span className="text-xs sm:text-sm text-background font-bold">
+          Google Drive
+        </span>
       </div>
     ),
     url: APP_CONFIG.downloads.googleDriveApk,
@@ -194,8 +214,12 @@ const downloadOptions = [
     icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-muted border border-border rounded-lg">
-        <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-wider font-medium">Available on</span>
-        <span className="text-xs sm:text-sm text-muted-foreground font-bold">OPPO App Market</span>
+        <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-wider font-medium">
+          Available on
+        </span>
+        <span className="text-xs sm:text-sm text-muted-foreground font-bold">
+          OPPO App Market
+        </span>
       </div>
     ),
     url: "",
