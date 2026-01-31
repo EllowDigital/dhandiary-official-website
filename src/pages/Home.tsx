@@ -28,6 +28,7 @@ import ScrollReveal, {
   StaggerItem,
 } from "@/components/home/ScrollReveal";
 import FloatingParticles from "@/components/home/FloatingParticles";
+import TypewriterEffect from "@/components/home/TypewriterEffect";
 import { APP_CONFIG } from "@/lib/appConfig";
 
 const features = [
@@ -158,7 +159,12 @@ const Home = () => {
               >
                 Your Personal
                 <span className="text-gradient block mt-1 sm:mt-2">
-                  Finance Companion
+                  <TypewriterEffect
+                    words={["Finance Companion", "Money Manager", "Budget Tracker", "Expense Logger"]}
+                    typingSpeed={80}
+                    deletingSpeed={40}
+                    pauseDuration={2500}
+                  />
                 </span>
               </motion.h1>
 

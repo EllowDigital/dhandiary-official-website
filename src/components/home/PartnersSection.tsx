@@ -52,6 +52,38 @@ const PartnersSection = () => {
       ),
     },
     {
+      name: "Samsung Galaxy Store",
+      rating: "4.8",
+      reviews: "25+",
+      url: APP_CONFIG.downloads.samsung,
+      badge: (
+        <svg viewBox="0 0 135 40" className="h-12 w-auto">
+          <rect width="135" height="40" rx="5" fill="hsl(var(--foreground))" />
+          <text
+            x="67.5"
+            y="14"
+            textAnchor="middle"
+            fill="hsl(var(--background))"
+            fontSize="7"
+            fontFamily="system-ui"
+          >
+            AVAILABLE ON
+          </text>
+          <text
+            x="67.5"
+            y="28"
+            textAnchor="middle"
+            fill="hsl(var(--background))"
+            fontSize="11"
+            fontWeight="bold"
+            fontFamily="system-ui"
+          >
+            Galaxy Store
+          </text>
+        </svg>
+      ),
+    },
+    {
       name: "See more",
       url: "/download",
       internal: true,
