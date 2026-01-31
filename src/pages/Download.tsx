@@ -45,30 +45,10 @@ const downloadOptions = [
     description: "Available worldwide",
     icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
-        <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          AVAILABLE ON
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          Amazon Appstore
-        </text>
-      </svg>
+      <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-primary border-2 border-primary rounded-lg">
+        <span className="text-[8px] sm:text-[9px] text-primary-foreground uppercase tracking-wider font-medium">Available on</span>
+        <span className="text-xs sm:text-sm text-primary-foreground font-bold">Amazon Appstore</span>
+      </div>
     ),
     url: APP_CONFIG.downloads.amazon,
     primary: true,
@@ -78,33 +58,49 @@ const downloadOptions = [
     description: "For Samsung devices",
     icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
-        <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          AVAILABLE ON
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          Galaxy Store
-        </text>
-      </svg>
+      <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-foreground rounded-lg">
+        <span className="text-[8px] sm:text-[9px] text-background uppercase tracking-wider font-medium">Available on</span>
+        <span className="text-xs sm:text-sm text-background font-bold">Galaxy Store</span>
+      </div>
     ),
     url: APP_CONFIG.downloads.samsung,
     primary: true,
+  },
+  {
+    name: "Huawei AppGallery",
+    description: "For Huawei devices",
+    icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
+    badge: (
+      <>
+        <img
+          src="/img/Appstores/Huawei-light.png"
+          alt="Huawei AppGallery"
+          className="h-10 sm:h-12 w-auto dark:hidden"
+          loading="lazy"
+        />
+        <img
+          src="/img/Appstores/Huawei-dark.png"
+          alt="Huawei AppGallery"
+          className="h-10 sm:h-12 w-auto hidden dark:block"
+          loading="lazy"
+        />
+      </>
+    ),
+    url: APP_CONFIG.downloads.huawei,
+    primary: true,
+  },
+  {
+    name: "Vivio Appstore",
+    description: "Currently unavailable",
+    icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
+    badge: (
+      <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-muted border border-border rounded-lg">
+        <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-wider font-medium">Available on</span>
+        <span className="text-xs sm:text-sm text-muted-foreground font-bold">Vivio Appstore</span>
+      </div>
+    ),
+    url: "",
+    primary: false,
   },
   {
     name: "Huawei AppGallery",
@@ -169,30 +165,10 @@ const downloadOptions = [
       : "APK link expired — use app stores",
     icon: <Download className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
-        <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          DOWNLOAD
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          APK Direct
-        </text>
-      </svg>
+      <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-foreground rounded-lg">
+        <span className="text-[8px] sm:text-[9px] text-background uppercase tracking-wider font-medium">Download</span>
+        <span className="text-xs sm:text-sm text-background font-bold">APK Direct</span>
+      </div>
     ),
     url: apkLinkValid ? APP_CONFIG.downloads.apk : "",
     primary: false,
@@ -204,30 +180,10 @@ const downloadOptions = [
       : "Link coming soon",
     icon: <Download className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
-        <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          DOWNLOAD
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          Google Drive
-        </text>
-      </svg>
+      <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-foreground rounded-lg">
+        <span className="text-[8px] sm:text-[9px] text-background uppercase tracking-wider font-medium">Download</span>
+        <span className="text-xs sm:text-sm text-background font-bold">Google Drive</span>
+      </div>
     ),
     url: APP_CONFIG.downloads.googleDriveApk,
     primary: false,
@@ -237,30 +193,10 @@ const downloadOptions = [
     description: "Coming soon",
     icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
-      <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
-        <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text
-          x="67.5"
-          y="14"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="7"
-          fontFamily="system-ui"
-        >
-          AVAILABLE ON
-        </text>
-        <text
-          x="67.5"
-          y="28"
-          textAnchor="middle"
-          fill="hsl(var(--background))"
-          fontSize="11"
-          fontWeight="bold"
-          fontFamily="system-ui"
-        >
-          OPPO App Market
-        </text>
-      </svg>
+      <div className="h-10 sm:h-12 px-4 sm:px-5 flex flex-col items-center justify-center bg-muted border border-border rounded-lg">
+        <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-wider font-medium">Available on</span>
+        <span className="text-xs sm:text-sm text-muted-foreground font-bold">OPPO App Market</span>
+      </div>
     ),
     url: "",
     primary: false,
