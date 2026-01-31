@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import SEOHead, { pageSEO } from "@/components/shared/SEOHead";
 import PageHero from "@/components/shared/PageHero";
 import SectionCard from "@/components/shared/SectionCard";
 import AnimatedSection from "@/components/shared/AnimatedSection";
@@ -211,6 +212,7 @@ const sections = [
 const Terms = () => {
   return (
     <Layout>
+      <SEOHead {...pageSEO.terms} />
       <PageHero
         badge={{ icon: <Scale className="w-4 h-4" />, text: "Legal" }}
         title="Terms & Conditions"
