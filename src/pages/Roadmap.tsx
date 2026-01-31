@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import {
   CheckCircle2,
@@ -10,6 +9,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
+import SEOHead, { pageSEO } from "@/components/shared/SEOHead";
 import PageHero from "@/components/shared/PageHero";
 import AnimatedSection, {
   StaggerContainer,
@@ -75,19 +75,9 @@ const statusBadge = (status: RoadmapItem["status"]) => {
 };
 
 const Roadmap = () => {
-  const metaTitle = "DhanDiary Roadmap – What's Coming Next";
-  const metaDescription =
-    "See what's recently released, what we're working on now, and what's planned next for DhanDiary. This roadmap may evolve based on user feedback.";
-
   return (
     <Layout>
-      <Helmet>
-        <title>{metaTitle}</title>
-        <meta name="title" content={metaTitle} />
-        <meta name="description" content={metaDescription} />
-        <link rel="canonical" href="https://dhandiary.com/roadmap" />
-      </Helmet>
-
+      <SEOHead {...pageSEO.roadmap} />
       <PageHero
         badge={{
           icon: <Target className="w-4 h-4" />,

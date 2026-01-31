@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Smartphone } from "lucide-react";
 
@@ -61,6 +61,17 @@ const screenshots = [
 
 const ScreenshotCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile viewport
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -69,17 +80,22 @@ const ScreenshotCarousel = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     setActiveIndex(
-      (prev) => (prev - 1 + screenshots.length) % screenshots.length,
+      (prev) => (prev - 1 + screenshots.length) % screenshots.length
     );
-  };
+  }, []);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % screenshots.length);
-  };
+  }, []);
 
   const getVisibleIndexes = () => {
+    if (isMobile) {
+      // On mobile, only show the active screenshot
+      return [activeIndex];
+    }
+    // On tablet/desktop, show 3 screenshots
     const prev = (activeIndex - 1 + screenshots.length) % screenshots.length;
     const next = (activeIndex + 1) % screenshots.length;
     return [prev, activeIndex, next];
@@ -89,8 +105,8 @@ const ScreenshotCarousel = () => {
     <section className="section-padding bg-mesh-gradient overflow-hidden relative">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-10 w-40 sm:w-64 h-40 sm:h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-10 w-32 sm:w-48 lg:w-64 h-32 sm:h-48 lg:h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-10 w-40 sm:w-56 lg:w-72 h-40 sm:h-56 lg:h-72 bg-accent/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -108,24 +124,25 @@ const ScreenshotCarousel = () => {
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-4xl mx-auto">
           {/* Carousel Container */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 lg:gap-6">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-6">
             {/* Previous Button */}
             <button
               onClick={goToPrevious}
-              className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all shadow-soft z-20 touch-target"
+              className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all shadow-soft z-20 touch-target"
               aria-label="Previous screenshot"
             >
-              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+              <ChevronLeft className="w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </button>
 
             {/* Screenshots */}
-            <div className="flex items-center justify-center gap-2 sm:gap-3 lg:gap-6 py-4 sm:py-6 lg:py-8 overflow-hidden">
+            <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-6 py-4 sm:py-6 lg:py-8 overflow-hidden min-h-[280px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px]">
               <AnimatePresence mode="popLayout">
                 {getVisibleIndexes().map((index, i) => {
                   const screenshot = screenshots[index];
                   const isActive = index === activeIndex;
+                  const visibleCount = getVisibleIndexes().length;
 
                   return (
                     <motion.div
@@ -133,36 +150,42 @@ const ScreenshotCarousel = () => {
                       layout
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{
-                        opacity: isActive ? 1 : 0.4,
-                        scale: isActive ? 1 : 0.75,
+                        opacity: isActive ? 1 : 0.5,
+                        scale: isActive ? 1 : 0.8,
                         zIndex: isActive ? 10 : 0,
                       }}
                       exit={{ opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
-                      className={`cursor-pointer ${!isActive && i !== 1 ? "hidden sm:block" : ""}`}
+                      className={`cursor-pointer flex-shrink-0 ${
+                        visibleCount === 1 ? "" : !isActive ? "hidden sm:block" : ""
+                      }`}
                       onClick={() => setActiveIndex(index)}
                     >
                       {/* Phone Frame */}
-                      <div className="relative bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[1.25rem] sm:rounded-[1.75rem] lg:rounded-[2.5rem] p-1 sm:p-1.5 lg:p-2 shadow-elevated">
+                      <div
+                        className={`relative bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem] p-1 sm:p-1.5 lg:p-2 shadow-elevated ${
+                          isActive ? "ring-2 ring-primary/20" : ""
+                        }`}
+                      >
                         {/* Notch */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 sm:w-14 lg:w-20 h-2.5 sm:h-3.5 lg:h-5 bg-zinc-900 rounded-b-md sm:rounded-b-lg lg:rounded-b-xl z-10 flex items-center justify-center">
-                          <div className="w-5 sm:w-8 lg:w-12 h-1 sm:h-1.5 lg:h-2.5 bg-zinc-800 rounded-full" />
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 sm:w-16 lg:w-20 h-3 sm:h-4 lg:h-5 bg-zinc-900 rounded-b-lg lg:rounded-b-xl z-10 flex items-center justify-center">
+                          <div className="w-6 sm:w-10 lg:w-12 h-1 sm:h-1.5 lg:h-2 bg-zinc-800 rounded-full" />
                         </div>
                         {/* Screen */}
-                        <div className="relative bg-black rounded-[1rem] sm:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden">
+                        <div className="relative bg-black rounded-[1.25rem] sm:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden">
                           <img
                             src={screenshot.image}
                             alt={screenshot.title}
                             className={`object-cover transition-all duration-500 ${
                               isActive
-                                ? "w-36 xs:w-44 sm:w-52 md:w-56 lg:w-64"
-                                : "w-28 xs:w-32 sm:w-40 md:w-44 lg:w-48"
+                                ? "w-40 xs:w-48 sm:w-44 md:w-52 lg:w-56"
+                                : "w-32 xs:w-36 sm:w-36 md:w-40 lg:w-44"
                             }`}
                             loading="lazy"
                           />
                         </div>
                         {/* Home Indicator */}
-                        <div className="absolute bottom-0.5 sm:bottom-1 lg:bottom-1.5 left-1/2 -translate-x-1/2 w-10 sm:w-14 lg:w-20 h-0.5 sm:h-0.5 lg:h-1 bg-zinc-600 rounded-full" />
+                        <div className="absolute bottom-1 sm:bottom-1 lg:bottom-1.5 left-1/2 -translate-x-1/2 w-12 sm:w-16 lg:w-20 h-0.5 sm:h-0.5 lg:h-1 bg-zinc-600 rounded-full" />
                       </div>
                     </motion.div>
                   );
@@ -173,10 +196,10 @@ const ScreenshotCarousel = () => {
             {/* Next Button */}
             <button
               onClick={goToNext}
-              className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all shadow-soft z-20 touch-target"
+              className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all shadow-soft z-20 touch-target"
               aria-label="Next screenshot"
             >
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+              <ChevronRight className="w-5 h-5 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </button>
           </div>
 
@@ -191,21 +214,21 @@ const ScreenshotCarousel = () => {
             <h3 className="font-display font-semibold text-foreground text-sm sm:text-base lg:text-lg mb-0.5 sm:mb-1">
               {screenshots[activeIndex].title}
             </h3>
-            <p className="text-muted-foreground text-xs sm:text-sm lg:text-base max-w-md mx-auto">
+            <p className="text-muted-foreground text-xs sm:text-sm lg:text-base max-w-md mx-auto px-4">
               {screenshots[activeIndex].description}
             </p>
           </motion.div>
 
           {/* Dots Indicator */}
-          <div className="flex items-center justify-center gap-1 sm:gap-1.5 lg:gap-2 mt-4 sm:mt-5 lg:mt-6">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-5 lg:mt-6">
             {screenshots.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`transition-all duration-300 rounded-full touch-target ${
+                className={`transition-all duration-300 rounded-full ${
                   index === activeIndex
-                    ? "w-5 sm:w-6 lg:w-8 h-1.5 sm:h-2 bg-primary"
-                    : "w-1.5 sm:w-2 h-1.5 sm:h-2 bg-border hover:bg-primary/50"
+                    ? "w-6 sm:w-7 lg:w-8 h-2 bg-primary"
+                    : "w-2 h-2 bg-border hover:bg-primary/50"
                 }`}
                 aria-label={`Go to screenshot ${index + 1}`}
               />

@@ -9,6 +9,7 @@ import {
   Send,
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import SEOHead, { pageSEO } from "@/components/shared/SEOHead";
 import PageHero from "@/components/shared/PageHero";
 import AnimatedSection, {
   StaggerContainer,
@@ -51,6 +52,7 @@ const teamMembers = [
 const Contact = () => {
   return (
     <Layout>
+      <SEOHead {...pageSEO.contact} />
       <PageHero
         badge={{
           icon: <MessageCircle className="w-4 h-4" />,
