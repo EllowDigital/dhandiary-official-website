@@ -58,7 +58,10 @@ const Header = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5 focus-ring rounded-lg">
+            <Link
+              to="/"
+              className="flex items-center gap-2.5 focus-ring rounded-lg"
+            >
               <img
                 src="/img/logo.png"
                 alt="DhanDiary"
@@ -89,7 +92,12 @@ const Header = () => {
 
             {/* CTA Button */}
             <div className="hidden lg:block">
-              <Button asChild variant="hero" size="default" className="shadow-glow">
+              <Button
+                asChild
+                variant="hero"
+                size="default"
+                className="shadow-glow"
+              >
                 <Link to="/download">Get the App</Link>
               </Button>
             </div>
@@ -183,7 +191,12 @@ const Header = () => {
 
                 {/* CTA */}
                 <div className="p-4 border-t border-border">
-                  <Button asChild variant="hero" size="lg" className="w-full shadow-glow">
+                  <Button
+                    asChild
+                    variant="hero"
+                    size="lg"
+                    className="w-full shadow-glow"
+                  >
                     <Link to="/download" onClick={() => setIsMenuOpen(false)}>
                       Get the App
                     </Link>

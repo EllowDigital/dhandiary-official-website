@@ -49,7 +49,7 @@ const FloatingParticles = () => {
           }}
         />
       ))}
-      
+
       {/* Larger glowing orbs */}
       {[...Array(8)].map((_, i) => (
         <motion.div

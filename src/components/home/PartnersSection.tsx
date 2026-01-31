@@ -351,8 +351,12 @@ const PartnersSection = () => {
             { label: "Privacy First", sublabel: "Your data stays yours" },
           ].map((item, index) => (
             <div key={index} className="text-center">
-              <p className="font-semibold text-foreground text-sm sm:text-base">{item.label}</p>
-              <p className="text-xs sm:text-sm text-muted-foreground">{item.sublabel}</p>
+              <p className="font-semibold text-foreground text-sm sm:text-base">
+                {item.label}
+              </p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                {item.sublabel}
+              </p>
             </div>
           ))}
         </motion.div>

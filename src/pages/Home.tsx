@@ -102,7 +102,7 @@ const Home = () => {
       >
         {/* Floating Particles */}
         <FloatingParticles />
-        
+
         {/* Parallax Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
@@ -148,7 +148,9 @@ const Home = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                 </span>
-                <span className="truncate">Version {APP_CONFIG.version} — Now Available</span>
+                <span className="truncate">
+                  Version {APP_CONFIG.version} — Now Available
+                </span>
               </motion.div>
 
               <motion.h1
@@ -160,7 +162,12 @@ const Home = () => {
                 Your Personal
                 <span className="text-gradient block mt-1 sm:mt-2">
                   <TypewriterEffect
-                    words={["Finance Companion", "Money Manager", "Budget Tracker", "Expense Logger"]}
+                    words={[
+                      "Finance Companion",
+                      "Money Manager",
+                      "Budget Tracker",
+                      "Expense Logger",
+                    ]}
                     typingSpeed={80}
                     deletingSpeed={40}
                     pauseDuration={2500}
@@ -236,11 +243,23 @@ const Home = () => {
                 className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2 justify-center lg:justify-start"
               >
                 {[
-                  { icon: <Shield className="w-3.5 h-3.5 text-primary" />, label: "No Ads" },
-                  { icon: <Wifi className="w-3.5 h-3.5 text-primary" />, label: "Offline First" },
-                  { icon: <Lock className="w-3.5 h-3.5 text-primary" />, label: "Secure" },
+                  {
+                    icon: <Shield className="w-3.5 h-3.5 text-primary" />,
+                    label: "No Ads",
+                  },
+                  {
+                    icon: <Wifi className="w-3.5 h-3.5 text-primary" />,
+                    label: "Offline First",
+                  },
+                  {
+                    icon: <Lock className="w-3.5 h-3.5 text-primary" />,
+                    label: "Secure",
+                  },
                 ].map((badge, i) => (
-                  <div key={i} className="flex items-center gap-1.5 text-muted-foreground text-xs sm:text-sm px-3 py-1.5 rounded-full bg-card/80 border border-border backdrop-blur-sm">
+                  <div
+                    key={i}
+                    className="flex items-center gap-1.5 text-muted-foreground text-xs sm:text-sm px-3 py-1.5 rounded-full bg-card/80 border border-border backdrop-blur-sm"
+                  >
                     {badge.icon}
                     {badge.label}
                   </div>

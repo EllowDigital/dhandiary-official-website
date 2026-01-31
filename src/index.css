@@ -65,20 +65,18 @@
       hsl(150 15% 99%),
       hsl(150 15% 97%)
     );
-    --gradient-mesh: radial-gradient(
-      at 40% 20%,
-      hsl(162 63% 95%) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 80% 0%, hsl(170 60% 95%) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, hsl(162 50% 96%) 0px, transparent 50%);
+    --gradient-mesh:
+      radial-gradient(at 40% 20%, hsl(162 63% 95%) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(170 60% 95%) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsl(162 50% 96%) 0px, transparent 50%);
 
     /* Enhanced shadows */
     --shadow-soft: 0 2px 8px -2px hsl(160 25% 12% / 0.08);
     --shadow-card: 0 4px 24px -4px hsl(160 25% 12% / 0.1);
     --shadow-elevated: 0 12px 40px -8px hsl(160 25% 12% / 0.15);
     --shadow-glow: 0 0 40px -10px hsl(162 63% 41% / 0.3);
-    --shadow-glass: 0 8px 32px -8px hsl(160 25% 12% / 0.1),
+    --shadow-glass:
+      0 8px 32px -8px hsl(160 25% 12% / 0.1),
       inset 0 0 0 1px hsl(0 0% 100% / 0.1);
 
     /* Sidebar (keeping for shadcn compatibility) */
@@ -131,13 +129,10 @@
       hsl(160 18% 14%),
       hsl(160 18% 11%)
     );
-    --gradient-mesh: radial-gradient(
-      at 40% 20%,
-      hsl(162 40% 15%) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 80% 0%, hsl(170 35% 12%) 0px, transparent 50%),
-    radial-gradient(at 0% 50%, hsl(162 30% 10%) 0px, transparent 50%);
+    --gradient-mesh:
+      radial-gradient(at 40% 20%, hsl(162 40% 15%) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(170 35% 12%) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsl(162 30% 10%) 0px, transparent 50%);
 
     --sidebar-background: 160 18% 10%;
     --sidebar-foreground: 150 15% 90%;
