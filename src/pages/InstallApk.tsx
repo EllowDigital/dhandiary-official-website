@@ -13,7 +13,10 @@ import {
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/shared/PageHero";
-import AnimatedSection, { StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
+import AnimatedSection, {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/shared/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { APP_CONFIG, isApkDownloadLinkValid } from "@/lib/appConfig";
 
@@ -23,7 +26,8 @@ const steps = [
     title: "Step 1",
     text: (
       <>
-        Tap <span className="font-semibold text-foreground">Download anyway</span>{" "}
+        Tap{" "}
+        <span className="font-semibold text-foreground">Download anyway</span>{" "}
         when Chrome shows a warning.
       </>
     ),
@@ -33,7 +37,8 @@ const steps = [
     title: "Step 2",
     text: (
       <>
-        After download completes, tap <span className="font-semibold text-foreground">Open</span> to start
+        After download completes, tap{" "}
+        <span className="font-semibold text-foreground">Open</span> to start
         installing the APK file.
       </>
     ),
@@ -43,7 +48,8 @@ const steps = [
     title: "Step 3",
     text: (
       <>
-        If Android blocks the install, tap <span className="font-semibold text-foreground">Settings</span> when
+        If Android blocks the install, tap{" "}
+        <span className="font-semibold text-foreground">Settings</span> when
         prompted.
       </>
     ),
@@ -53,7 +59,11 @@ const steps = [
     title: "Step 4",
     text: (
       <>
-        Turn ON the switch <span className="font-semibold text-foreground">Allow from this source</span>.
+        Turn ON the switch{" "}
+        <span className="font-semibold text-foreground">
+          Allow from this source
+        </span>
+        .
       </>
     ),
   },
@@ -62,7 +72,8 @@ const steps = [
     title: "Step 5",
     text: (
       <>
-        Go back and tap <span className="font-semibold text-foreground">Install</span>.
+        Go back and tap{" "}
+        <span className="font-semibold text-foreground">Install</span>.
       </>
     ),
   },
@@ -81,12 +92,18 @@ const InstallApk = () => {
         <title>{title}</title>
         <meta name="title" content={title} />
         <meta name="description" content={description} />
-        <meta name="keywords" content="Install APK safely, Allow unknown apps Android, DhanDiary APK install" />
+        <meta
+          name="keywords"
+          content="Install APK safely, Allow unknown apps Android, DhanDiary APK install"
+        />
         <link rel="canonical" href="https://dhandiary.com/how-to-install-apk" />
       </Helmet>
 
       <PageHero
-        badge={{ icon: <ShieldCheck className="w-4 h-4" />, text: "Help Center" }}
+        badge={{
+          icon: <ShieldCheck className="w-4 h-4" />,
+          text: "Help Center",
+        }}
         title="How to Install DhanDiary APK on Android"
         description="If you downloaded DhanDiary directly from your browser, follow these simple steps to install it safely."
       />
@@ -103,7 +120,9 @@ const InstallApk = () => {
                 >
                   <div className="flex items-start gap-3 sm:gap-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary flex items-center justify-center text-primary-foreground flex-shrink-0">
-                      <span className="font-bold text-sm sm:text-base">{index + 1}</span>
+                      <span className="font-bold text-sm sm:text-base">
+                        {index + 1}
+                      </span>
                     </div>
                     <div className="flex-1">
                       <h2 className="font-display text-lg sm:text-xl font-semibold text-foreground mb-1.5 sm:mb-2">
@@ -129,7 +148,8 @@ const InstallApk = () => {
                     You're safe
                   </h2>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    DhanDiary is safe and does not contain ads or harmful content.
+                    DhanDiary is safe and does not contain ads or harmful
+                    content.
                   </p>
                 </div>
               </div>
@@ -146,10 +166,10 @@ const InstallApk = () => {
                     Why does Android show this warning?
                   </h2>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    Android shows this warning to protect you from apps that are not
-                    installed from an app store. This is normal when you install an
-                    APK directly from your browser. You can allow the install for
-                    Chrome (or your browser) and continue.
+                    Android shows this warning to protect you from apps that are
+                    not installed from an app store. This is normal when you
+                    install an APK directly from your browser. You can allow the
+                    install for Chrome (or your browser) and continue.
                   </p>
                 </div>
               </div>
@@ -176,7 +196,10 @@ const InstallApk = () => {
                 </Button>
                 <p className="text-muted-foreground text-xs sm:text-sm">
                   Please download from an app store on the{" "}
-                  <Link to="/download" className="text-primary hover:underline font-medium">
+                  <Link
+                    to="/download"
+                    className="text-primary hover:underline font-medium"
+                  >
                     Download page
                   </Link>
                   .

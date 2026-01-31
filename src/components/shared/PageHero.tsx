@@ -12,7 +12,13 @@ interface PageHeroProps {
   children?: ReactNode;
 }
 
-const PageHero = ({ badge, title, titleGradient, description, children }: PageHeroProps) => {
+const PageHero = ({
+  badge,
+  title,
+  titleGradient,
+  description,
+  children,
+}: PageHeroProps) => {
   return (
     <section className="relative bg-mesh-gradient overflow-hidden">
       {/* Background decoration */}
@@ -30,7 +36,7 @@ const PageHero = ({ badge, title, titleGradient, description, children }: PageHe
           className="text-center max-w-3xl mx-auto"
         >
           {badge && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.1 }}
@@ -40,7 +46,7 @@ const PageHero = ({ badge, title, titleGradient, description, children }: PageHe
               {badge.text}
             </motion.div>
           )}
-          
+
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 text-balance">
             {title}
             {titleGradient && (
@@ -49,13 +55,13 @@ const PageHero = ({ badge, title, titleGradient, description, children }: PageHe
               </span>
             )}
           </h1>
-          
+
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
             {description}
           </p>
-          
+
           {children && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }}

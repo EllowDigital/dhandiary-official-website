@@ -1,10 +1,20 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { CheckCircle2, Loader2, Clock, MessageSquare, Sparkles, Target } from "lucide-react";
+import {
+  CheckCircle2,
+  Loader2,
+  Clock,
+  MessageSquare,
+  Sparkles,
+  Target,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/shared/PageHero";
-import AnimatedSection, { StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
+import AnimatedSection, {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/shared/AnimatedSection";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -44,12 +54,24 @@ const longTermVision = [
 
 const statusBadge = (status: RoadmapItem["status"]) => {
   if (status === "Released") {
-    return <Badge className="bg-primary text-primary-foreground text-xs">Released</Badge>;
+    return (
+      <Badge className="bg-primary text-primary-foreground text-xs">
+        Released
+      </Badge>
+    );
   }
   if (status === "In Progress") {
-    return <Badge variant="secondary" className="text-xs">In Progress</Badge>;
+    return (
+      <Badge variant="secondary" className="text-xs">
+        In Progress
+      </Badge>
+    );
   }
-  return <Badge variant="outline" className="text-xs">Planned</Badge>;
+  return (
+    <Badge variant="outline" className="text-xs">
+      Planned
+    </Badge>
+  );
 };
 
 const Roadmap = () => {
@@ -67,7 +89,10 @@ const Roadmap = () => {
       </Helmet>
 
       <PageHero
-        badge={{ icon: <Target className="w-4 h-4" />, text: "Product Roadmap" }}
+        badge={{
+          icon: <Target className="w-4 h-4" />,
+          text: "Product Roadmap",
+        }}
         title="DhanDiary Roadmap"
         description="Here's what we're working on and what's coming next. This roadmap reflects our current plans and may evolve based on user feedback."
       />
@@ -83,7 +108,9 @@ const Roadmap = () => {
                   <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
                     Recently Released
                   </h2>
-                  <Badge className="bg-primary text-primary-foreground w-fit">Released</Badge>
+                  <Badge className="bg-primary text-primary-foreground w-fit">
+                    Released
+                  </Badge>
                 </div>
                 <StaggerContainer className="grid gap-3 sm:gap-4">
                   {recentlyReleased.map((item, index) => (
@@ -92,8 +119,12 @@ const Roadmap = () => {
                         <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
-                            <p className="text-foreground font-medium text-sm sm:text-base">{item.text}</p>
-                            <div className="w-fit">{statusBadge(item.status)}</div>
+                            <p className="text-foreground font-medium text-sm sm:text-base">
+                              {item.text}
+                            </p>
+                            <div className="w-fit">
+                              {statusBadge(item.status)}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -110,7 +141,9 @@ const Roadmap = () => {
                   <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
                     In Progress
                   </h2>
-                  <Badge variant="secondary" className="w-fit">In Progress</Badge>
+                  <Badge variant="secondary" className="w-fit">
+                    In Progress
+                  </Badge>
                 </div>
                 <StaggerContainer className="grid gap-3 sm:gap-4">
                   {inProgress.map((item, index) => (
@@ -119,8 +152,12 @@ const Roadmap = () => {
                         <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0 animate-spin" />
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
-                            <p className="text-foreground font-medium text-sm sm:text-base">{item.text}</p>
-                            <div className="w-fit">{statusBadge(item.status)}</div>
+                            <p className="text-foreground font-medium text-sm sm:text-base">
+                              {item.text}
+                            </p>
+                            <div className="w-fit">
+                              {statusBadge(item.status)}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -128,7 +165,8 @@ const Roadmap = () => {
                   ))}
                 </StaggerContainer>
                 <p className="text-muted-foreground text-xs sm:text-sm mt-4 sm:mt-6">
-                  We avoid exact dates here, because app reviews and platform rules can change unexpectedly.
+                  We avoid exact dates here, because app reviews and platform
+                  rules can change unexpectedly.
                 </p>
               </div>
             </AnimatedSection>
@@ -140,7 +178,9 @@ const Roadmap = () => {
                   <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
                     Planned (Coming Next)
                   </h2>
-                  <Badge variant="outline" className="w-fit">Planned</Badge>
+                  <Badge variant="outline" className="w-fit">
+                    Planned
+                  </Badge>
                 </div>
                 <StaggerContainer className="grid gap-3 sm:gap-4">
                   {planned.map((item, index) => (
@@ -149,8 +189,12 @@ const Roadmap = () => {
                         <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 flex-shrink-0" />
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
-                            <p className="text-foreground font-medium text-sm sm:text-base">{item.text}</p>
-                            <div className="w-fit">{statusBadge(item.status)}</div>
+                            <p className="text-foreground font-medium text-sm sm:text-base">
+                              {item.text}
+                            </p>
+                            <div className="w-fit">
+                              {statusBadge(item.status)}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -170,14 +214,17 @@ const Roadmap = () => {
                   </h2>
                 </div>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
-                  These are high-level goals that guide where DhanDiary is going over time.
+                  These are high-level goals that guide where DhanDiary is going
+                  over time.
                 </p>
                 <StaggerContainer className="grid gap-2 sm:gap-3">
                   {longTermVision.map((text, index) => (
                     <StaggerItem key={index}>
                       <div className="flex items-start gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-background border border-border">
                         <span className="text-primary font-bold mt-0.5">•</span>
-                        <p className="text-foreground font-medium text-sm sm:text-base">{text}</p>
+                        <p className="text-foreground font-medium text-sm sm:text-base">
+                          {text}
+                        </p>
                       </div>
                     </StaggerItem>
                   ))}
@@ -193,7 +240,8 @@ const Roadmap = () => {
                   Want to help shape the roadmap?
                 </h2>
                 <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto mb-4 sm:mb-6">
-                  Your feedback helps us prioritize improvements and build the features that matter most.
+                  Your feedback helps us prioritize improvements and build the
+                  features that matter most.
                 </p>
                 <Button asChild variant="hero" size="lg">
                   <Link to="/contact">
@@ -206,7 +254,8 @@ const Roadmap = () => {
 
             {/* Footer note */}
             <p className="text-muted-foreground text-xs sm:text-sm text-center">
-              This roadmap is subject to change based on user feedback and platform requirements.
+              This roadmap is subject to change based on user feedback and
+              platform requirements.
             </p>
           </div>
         </div>

@@ -13,14 +13,17 @@ const animations = {
   fadeIn: { initial: { opacity: 0 }, animate: { opacity: 1 } },
   fadeLeft: { initial: { opacity: 0, x: -30 }, animate: { opacity: 1, x: 0 } },
   fadeRight: { initial: { opacity: 0, x: 30 }, animate: { opacity: 1, x: 0 } },
-  scale: { initial: { opacity: 0, scale: 0.95 }, animate: { opacity: 1, scale: 1 } },
+  scale: {
+    initial: { opacity: 0, scale: 0.95 },
+    animate: { opacity: 1, scale: 1 },
+  },
 };
 
-const AnimatedSection = ({ 
-  children, 
+const AnimatedSection = ({
+  children,
   className = "",
   delay = 0,
-  animation = "fadeUp"
+  animation = "fadeUp",
 }: AnimatedSectionProps) => {
   const { initial, animate } = animations[animation];
 
@@ -29,10 +32,10 @@ const AnimatedSection = ({
       initial={initial}
       whileInView={animate}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ 
-        duration: 0.6, 
+      transition={{
+        duration: 0.6,
         delay,
-        ease: [0.25, 0.4, 0.25, 1]
+        ease: [0.25, 0.4, 0.25, 1],
       }}
       className={className}
     >
@@ -50,10 +53,10 @@ interface StaggerContainerProps {
   staggerDelay?: number;
 }
 
-export const StaggerContainer = ({ 
-  children, 
+export const StaggerContainer = ({
+  children,
   className = "",
-  staggerDelay = 0.1 
+  staggerDelay = 0.1,
 }: StaggerContainerProps) => {
   return (
     <motion.div
@@ -75,24 +78,24 @@ export const StaggerContainer = ({
   );
 };
 
-export const StaggerItem = ({ 
-  children, 
-  className = "" 
-}: { 
-  children: ReactNode; 
-  className?: string; 
+export const StaggerItem = ({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
 }) => {
   return (
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 20 },
-        visible: { 
-          opacity: 1, 
+        visible: {
+          opacity: 1,
           y: 0,
           transition: {
             duration: 0.5,
-            ease: [0.25, 0.4, 0.25, 1]
-          }
+            ease: [0.25, 0.4, 0.25, 1],
+          },
         },
       }}
       className={className}

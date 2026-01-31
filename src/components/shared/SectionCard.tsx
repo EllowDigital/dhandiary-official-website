@@ -10,18 +10,19 @@ interface SectionCardProps {
   delay?: number;
 }
 
-const SectionCard = ({ 
-  icon, 
-  title, 
-  children, 
+const SectionCard = ({
+  icon,
+  title,
+  children,
   variant = "default",
   className = "",
-  delay = 0 
+  delay = 0,
 }: SectionCardProps) => {
   const variants = {
     default: "bg-card border-border hover:border-primary/30",
     highlighted: "bg-accent/50 border-primary/20 hover:border-primary/40",
-    glass: "bg-glass-gradient backdrop-blur-sm border-border/50 hover:border-primary/30",
+    glass:
+      "bg-glass-gradient backdrop-blur-sm border-border/50 hover:border-primary/30",
   };
 
   return (

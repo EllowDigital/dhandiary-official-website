@@ -45,7 +45,9 @@ const sections = [
     content: (
       <>
         <p>Updates may be installed automatically.</p>
-        <p className="mt-2 sm:mt-3">We are not obligated to provide ongoing support or updates.</p>
+        <p className="mt-2 sm:mt-3">
+          We are not obligated to provide ongoing support or updates.
+        </p>
       </>
     ),
   },
@@ -103,7 +105,10 @@ const sections = [
     title: "9. Limitation of Liability",
     content: (
       <>
-        <p>EllowDigital is not liable for incidental or consequential damages. Liability is limited to:</p>
+        <p>
+          EllowDigital is not liable for incidental or consequential damages.
+          Liability is limited to:
+        </p>
         <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 mt-2 sm:mt-3">
           <li>Amount paid for the license, or</li>
           <li>INR 500 if no fees were paid.</li>
@@ -116,8 +121,24 @@ const sections = [
     title: "10. Contact",
     content: (
       <div className="space-y-1">
-        <p>Developer Email: <a href="mailto:sarwanyadav6174@gmail.com" className="text-primary hover:underline">sarwanyadav6174@gmail.com</a></p>
-        <p>Team Email: <a href="mailto:ellowdigitalindia@gmail.com" className="text-primary hover:underline">ellowdigitalindia@gmail.com</a></p>
+        <p>
+          Developer Email:{" "}
+          <a
+            href="mailto:sarwanyadav6174@gmail.com"
+            className="text-primary hover:underline"
+          >
+            sarwanyadav6174@gmail.com
+          </a>
+        </p>
+        <p>
+          Team Email:{" "}
+          <a
+            href="mailto:ellowdigitalindia@gmail.com"
+            className="text-primary hover:underline"
+          >
+            ellowdigitalindia@gmail.com
+          </a>
+        </p>
       </div>
     ),
   },
@@ -149,9 +170,9 @@ const Eula = () => {
             </AnimatedSection>
 
             {sections.map((section, index) => (
-              <SectionCard 
-                key={index} 
-                icon={section.icon} 
+              <SectionCard
+                key={index}
+                icon={section.icon}
                 title={section.title}
                 delay={index * 0.05}
               >

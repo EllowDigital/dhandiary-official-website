@@ -10,7 +10,10 @@ import {
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/shared/PageHero";
-import AnimatedSection, { StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
+import AnimatedSection, {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/shared/AnimatedSection";
 
 const contactMethods = [
   {
@@ -49,7 +52,10 @@ const Contact = () => {
   return (
     <Layout>
       <PageHero
-        badge={{ icon: <MessageCircle className="w-4 h-4" />, text: "Get in Touch" }}
+        badge={{
+          icon: <MessageCircle className="w-4 h-4" />,
+          text: "Get in Touch",
+        }}
         title="Contact & Support"
         description="Need help or have feedback? We'd love to hear from you."
       />
@@ -62,8 +68,14 @@ const Contact = () => {
               <StaggerItem key={index}>
                 <motion.a
                   href={method.href}
-                  target={method.href.startsWith("mailto") ? undefined : "_blank"}
-                  rel={method.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                  target={
+                    method.href.startsWith("mailto") ? undefined : "_blank"
+                  }
+                  rel={
+                    method.href.startsWith("mailto")
+                      ? undefined
+                      : "noopener noreferrer"
+                  }
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   className={`block p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border transition-all duration-300 group h-full ${
                     method.primary
@@ -83,7 +95,9 @@ const Contact = () => {
                   <h3 className="font-display text-lg sm:text-xl font-semibold text-foreground mb-1 sm:mb-2">
                     {method.title}
                   </h3>
-                  <p className="text-primary font-medium text-sm sm:text-base mb-0.5 sm:mb-1">{method.value}</p>
+                  <p className="text-primary font-medium text-sm sm:text-base mb-0.5 sm:mb-1">
+                    {method.value}
+                  </p>
                   <p className="text-muted-foreground text-xs sm:text-sm">
                     {method.description}
                   </p>
@@ -100,12 +114,17 @@ const Contact = () => {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {teamMembers.map((member, index) => (
-                  <div key={index} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-muted/50">
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-muted/50"
+                  >
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent flex items-center justify-center text-primary">
                       {member.icon}
                     </div>
                     <div>
-                      <p className="text-xs sm:text-sm text-muted-foreground">{member.role}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">
+                        {member.role}
+                      </p>
                       {member.href ? (
                         <a
                           href={member.href}
@@ -116,7 +135,9 @@ const Contact = () => {
                           {member.name}
                         </a>
                       ) : (
-                        <p className="font-semibold text-foreground text-sm sm:text-base">{member.name}</p>
+                        <p className="font-semibold text-foreground text-sm sm:text-base">
+                          {member.name}
+                        </p>
                       )}
                     </div>
                   </div>

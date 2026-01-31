@@ -15,7 +15,10 @@ import {
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/shared/PageHero";
-import { StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
+import {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/shared/AnimatedSection";
 
 const features = [
   {
@@ -80,7 +83,10 @@ const Features = () => {
   return (
     <Layout>
       <PageHero
-        badge={{ icon: <Sparkles className="w-4 h-4" />, text: "Powerful Yet Simple" }}
+        badge={{
+          icon: <Sparkles className="w-4 h-4" />,
+          text: "Powerful Yet Simple",
+        }}
         title="Powerful Features,"
         titleGradient="Simple Experience"
         description="Everything you need to manage your personal finances, without the complexity. Built for speed, security, and simplicity."

@@ -16,7 +16,10 @@ import {
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/shared/PageHero";
-import AnimatedSection, { StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
+import AnimatedSection, {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/shared/AnimatedSection";
 import { APP_CONFIG, isApkDownloadLinkValid } from "@/lib/appConfig";
 
 const apkLinkValid = isApkDownloadLinkValid();
@@ -44,8 +47,27 @@ const downloadOptions = [
     badge: (
       <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">AVAILABLE ON</text>
-        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">Amazon Appstore</text>
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          AVAILABLE ON
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          Amazon Appstore
+        </text>
       </svg>
     ),
     url: APP_CONFIG.downloads.amazon,
@@ -58,8 +80,27 @@ const downloadOptions = [
     badge: (
       <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">AVAILABLE ON</text>
-        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">Galaxy Store</text>
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          AVAILABLE ON
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          Galaxy Store
+        </text>
       </svg>
     ),
     url: APP_CONFIG.downloads.samsung,
@@ -71,8 +112,18 @@ const downloadOptions = [
     icon: <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <>
-        <img src="/img/Appstores/Huawei-light.png" alt="Huawei AppGallery" className="h-10 sm:h-12 w-auto dark:hidden" loading="lazy" />
-        <img src="/img/Appstores/Huawei-dark.png" alt="Huawei AppGallery" className="h-10 sm:h-12 w-auto hidden dark:block" loading="lazy" />
+        <img
+          src="/img/Appstores/Huawei-light.png"
+          alt="Huawei AppGallery"
+          className="h-10 sm:h-12 w-auto dark:hidden"
+          loading="lazy"
+        />
+        <img
+          src="/img/Appstores/Huawei-dark.png"
+          alt="Huawei AppGallery"
+          className="h-10 sm:h-12 w-auto hidden dark:block"
+          loading="lazy"
+        />
       </>
     ),
     url: APP_CONFIG.downloads.huawei,
@@ -85,8 +136,27 @@ const downloadOptions = [
     badge: (
       <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">AVAILABLE ON</text>
-        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">Vivio Appstore</text>
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          AVAILABLE ON
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          Vivio Appstore
+        </text>
       </svg>
     ),
     url: "",
@@ -94,13 +164,34 @@ const downloadOptions = [
   },
   {
     name: "Direct APK Download",
-    description: apkLinkValid ? "Manual install (valid for 30 days)" : "APK link expired — use app stores",
+    description: apkLinkValid
+      ? "Manual install (valid for 30 days)"
+      : "APK link expired — use app stores",
     icon: <Download className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">DOWNLOAD</text>
-        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">APK Direct</text>
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          DOWNLOAD
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          APK Direct
+        </text>
       </svg>
     ),
     url: apkLinkValid ? APP_CONFIG.downloads.apk : "",
@@ -108,13 +199,34 @@ const downloadOptions = [
   },
   {
     name: "Google Drive (Latest APK)",
-    description: APP_CONFIG.downloads.googleDriveApk ? "Latest APK hosted on Google Drive" : "Link coming soon",
+    description: APP_CONFIG.downloads.googleDriveApk
+      ? "Latest APK hosted on Google Drive"
+      : "Link coming soon",
     icon: <Download className="w-5 h-5 sm:w-6 sm:h-6" />,
     badge: (
       <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">DOWNLOAD</text>
-        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">Google Drive</text>
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          DOWNLOAD
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          Google Drive
+        </text>
       </svg>
     ),
     url: APP_CONFIG.downloads.googleDriveApk,
@@ -127,8 +239,27 @@ const downloadOptions = [
     badge: (
       <svg viewBox="0 0 135 40" className="h-10 sm:h-12 w-auto">
         <rect width="135" height="40" rx="6" fill="hsl(var(--foreground))" />
-        <text x="67.5" y="14" textAnchor="middle" fill="hsl(var(--background))" fontSize="7" fontFamily="system-ui">AVAILABLE ON</text>
-        <text x="67.5" y="28" textAnchor="middle" fill="hsl(var(--background))" fontSize="11" fontWeight="bold" fontFamily="system-ui">OPPO App Market</text>
+        <text
+          x="67.5"
+          y="14"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="7"
+          fontFamily="system-ui"
+        >
+          AVAILABLE ON
+        </text>
+        <text
+          x="67.5"
+          y="28"
+          textAnchor="middle"
+          fill="hsl(var(--background))"
+          fontSize="11"
+          fontWeight="bold"
+          fontFamily="system-ui"
+        >
+          OPPO App Market
+        </text>
       </svg>
     ),
     url: "",
@@ -137,37 +268,98 @@ const downloadOptions = [
 ];
 
 const requirements = [
-  { icon: <Cpu className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Android Version", value: `${APP_CONFIG.minAndroid} or higher` },
-  { icon: <HardDrive className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Storage Space", value: `${APP_CONFIG.sizeMb} MB` },
-  { icon: <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Device Type", value: "Phones & Tablets" },
-  { icon: <Tablet className="w-4 h-4 sm:w-5 sm:h-5" />, label: "Screen Size", value: "All sizes supported" },
+  {
+    icon: <Cpu className="w-4 h-4 sm:w-5 sm:h-5" />,
+    label: "Android Version",
+    value: `${APP_CONFIG.minAndroid} or higher`,
+  },
+  {
+    icon: <HardDrive className="w-4 h-4 sm:w-5 sm:h-5" />,
+    label: "Storage Space",
+    value: `${APP_CONFIG.sizeMb} MB`,
+  },
+  {
+    icon: <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />,
+    label: "Device Type",
+    value: "Phones & Tablets",
+  },
+  {
+    icon: <Tablet className="w-4 h-4 sm:w-5 sm:h-5" />,
+    label: "Screen Size",
+    value: "All sizes supported",
+  },
 ];
 
 const features = [
-  { icon: <WifiOff className="w-4 h-4 sm:w-5 sm:h-5" />, title: "Works Offline", description: "Full functionality without internet" },
-  { icon: <Lock className="w-4 h-4 sm:w-5 sm:h-5" />, title: "Secure & Private", description: "Your data stays on your device" },
-  { icon: <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />, title: "Smart Insights", description: "Beautiful charts & analytics" },
+  {
+    icon: <WifiOff className="w-4 h-4 sm:w-5 sm:h-5" />,
+    title: "Works Offline",
+    description: "Full functionality without internet",
+  },
+  {
+    icon: <Lock className="w-4 h-4 sm:w-5 sm:h-5" />,
+    title: "Secure & Private",
+    description: "Your data stays on your device",
+  },
+  {
+    icon: <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />,
+    title: "Smart Insights",
+    description: "Beautiful charts & analytics",
+  },
 ];
 
 const installSteps = [
-  { step: 1, title: "Download the App", description: "Choose your preferred app store above and tap to download." },
-  { step: 2, title: "Install & Open", description: "Once downloaded, open the app and grant necessary permissions." },
-  { step: 3, title: "Create Account", description: "Sign up with email or use Google/GitHub for quick access." },
-  { step: 4, title: "Start Tracking", description: "Add your first transaction and take control of your finances!" },
+  {
+    step: 1,
+    title: "Download the App",
+    description: "Choose your preferred app store above and tap to download.",
+  },
+  {
+    step: 2,
+    title: "Install & Open",
+    description:
+      "Once downloaded, open the app and grant necessary permissions.",
+  },
+  {
+    step: 3,
+    title: "Create Account",
+    description: "Sign up with email or use Google/GitHub for quick access.",
+  },
+  {
+    step: 4,
+    title: "Start Tracking",
+    description:
+      "Add your first transaction and take control of your finances!",
+  },
 ];
 
 const faqs = [
-  { q: "Is DhanDiary free to use?", a: "Yes! DhanDiary is completely free with no ads, no subscriptions, and no hidden costs." },
-  { q: "Is my data safe?", a: "Absolutely. Your data is stored locally on your device. We don't collect, share, or sell your personal information." },
-  { q: "Does it work offline?", a: "Yes! DhanDiary is designed to work fully offline. All your data is stored locally and syncs when you're back online." },
-  { q: "Is it available on iOS?", a: "Currently, DhanDiary is available only for Android devices. iOS support may come in the future." },
+  {
+    q: "Is DhanDiary free to use?",
+    a: "Yes! DhanDiary is completely free with no ads, no subscriptions, and no hidden costs.",
+  },
+  {
+    q: "Is my data safe?",
+    a: "Absolutely. Your data is stored locally on your device. We don't collect, share, or sell your personal information.",
+  },
+  {
+    q: "Does it work offline?",
+    a: "Yes! DhanDiary is designed to work fully offline. All your data is stored locally and syncs when you're back online.",
+  },
+  {
+    q: "Is it available on iOS?",
+    a: "Currently, DhanDiary is available only for Android devices. iOS support may come in the future.",
+  },
 ];
 
 const DownloadPage = () => {
   return (
     <Layout>
       <PageHero
-        badge={{ icon: <Shield className="w-4 h-4" />, text: "Safe & Verified Download" }}
+        badge={{
+          icon: <Shield className="w-4 h-4" />,
+          text: "Safe & Verified Download",
+        }}
         title="Download DhanDiary"
         description="Get the app on your Android device. Free forever, no ads, no subscriptions."
       >
@@ -182,7 +374,9 @@ const DownloadPage = () => {
               className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-card border border-border"
             >
               <span className="text-primary">{feature.icon}</span>
-              <span className="text-xs sm:text-sm font-medium text-foreground">{feature.title}</span>
+              <span className="text-xs sm:text-sm font-medium text-foreground">
+                {feature.title}
+              </span>
             </motion.div>
           ))}
         </div>
@@ -201,65 +395,77 @@ const DownloadPage = () => {
           </AnimatedSection>
 
           <StaggerContainer className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
-            {downloadOptions.filter((opt) => opt.primary && opt.url).map((option, index) => (
-              <StaggerItem key={index}>
-                <motion.a
-                  href={option.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -4 }}
-                  className="flex flex-col items-center p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 group h-full"
-                >
-                  <div className="mb-3 sm:mb-4 transform group-hover:scale-105 transition-transform">
-                    {option.badge}
-                  </div>
-                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1 text-center">
-                    {option.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3 text-center">
-                    {option.description}
-                  </p>
-                  <div className="flex items-center gap-1 text-primary text-xs sm:text-sm font-medium mt-auto">
-                    <span>Download</span>
-                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </div>
-                </motion.a>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          {/* Secondary options */}
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            {downloadOptions.filter((opt) => !opt.primary || !opt.url).map((option, index) =>
-              option.url ? (
+            {downloadOptions
+              .filter((opt) => opt.primary && opt.url)
+              .map((option, index) => (
                 <StaggerItem key={index}>
                   <motion.a
                     href={option.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ x: 4 }}
-                    className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-lg sm:rounded-xl bg-muted/50 border border-border hover:border-primary/30 transition-all group"
+                    whileHover={{ y: -4 }}
+                    className="flex flex-col items-center p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300 group h-full"
                   >
-                    <div className="shrink-0">{option.badge}</div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-foreground text-sm sm:text-base">{option.name}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground">{option.description}</p>
+                    <div className="mb-3 sm:mb-4 transform group-hover:scale-105 transition-transform">
+                      {option.badge}
                     </div>
-                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                    <h3 className="font-semibold text-foreground text-sm sm:text-base mb-0.5 sm:mb-1 text-center">
+                      {option.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3 text-center">
+                      {option.description}
+                    </p>
+                    <div className="flex items-center gap-1 text-primary text-xs sm:text-sm font-medium mt-auto">
+                      <span>Download</span>
+                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                    </div>
                   </motion.a>
                 </StaggerItem>
-              ) : (
-                <StaggerItem key={index}>
-                  <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-lg sm:rounded-xl bg-muted/30 border border-border opacity-60">
-                    <div className="shrink-0">{option.badge}</div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-foreground text-sm sm:text-base">{option.name}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground">{option.description}</p>
+              ))}
+          </StaggerContainer>
+
+          {/* Secondary options */}
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            {downloadOptions
+              .filter((opt) => !opt.primary || !opt.url)
+              .map((option, index) =>
+                option.url ? (
+                  <StaggerItem key={index}>
+                    <motion.a
+                      href={option.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ x: 4 }}
+                      className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-lg sm:rounded-xl bg-muted/50 border border-border hover:border-primary/30 transition-all group"
+                    >
+                      <div className="shrink-0">{option.badge}</div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-foreground text-sm sm:text-base">
+                          {option.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground">
+                          {option.description}
+                        </p>
+                      </div>
+                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                    </motion.a>
+                  </StaggerItem>
+                ) : (
+                  <StaggerItem key={index}>
+                    <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-5 rounded-lg sm:rounded-xl bg-muted/30 border border-border opacity-60">
+                      <div className="shrink-0">{option.badge}</div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-foreground text-sm sm:text-base">
+                          {option.name}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground">
+                          {option.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </StaggerItem>
-              )
-            )}
+                  </StaggerItem>
+                ),
+              )}
           </StaggerContainer>
         </div>
       </section>
@@ -283,8 +489,12 @@ const DownloadPage = () => {
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-accent flex items-center justify-center text-primary mb-2 sm:mb-3">
                       {req.icon}
                     </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground">{req.label}</p>
-                    <p className="font-semibold text-foreground text-sm sm:text-base">{req.value}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground">
+                      {req.label}
+                    </p>
+                    <p className="font-semibold text-foreground text-sm sm:text-base">
+                      {req.value}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -301,7 +511,9 @@ const DownloadPage = () => {
                     <p className="font-display text-2xl sm:text-3xl font-bold text-primary">
                       v{APP_CONFIG.version}
                     </p>
-                    <p className="text-muted-foreground text-sm sm:text-base">Latest Stable Release</p>
+                    <p className="text-muted-foreground text-sm sm:text-base">
+                      Latest Stable Release
+                    </p>
                   </div>
                   <div className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium">
                     Stable
@@ -313,10 +525,16 @@ const DownloadPage = () => {
                   </p>
                 )}
                 <div className="space-y-1.5 sm:space-y-2">
-                  {["All features unlocked", "Latest security updates", "Bug fixes & improvements"].map((item, i) => (
+                  {[
+                    "All features unlocked",
+                    "Latest security updates",
+                    "Bug fixes & improvements",
+                  ].map((item, i) => (
                     <div key={i} className="flex items-center gap-2">
                       <Check className="w-3 h-3 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      <span className="text-xs sm:text-sm text-foreground">
+                        {item}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -402,8 +620,12 @@ const DownloadPage = () => {
                   whileHover={{ x: 4 }}
                   className="p-4 sm:p-5 rounded-lg sm:rounded-xl bg-background border border-border hover:border-primary/30 transition-all"
                 >
-                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-1.5 sm:mb-2">{faq.q}</h3>
-                  <p className="text-muted-foreground text-xs sm:text-sm">{faq.a}</p>
+                  <h3 className="font-semibold text-foreground text-sm sm:text-base mb-1.5 sm:mb-2">
+                    {faq.q}
+                  </h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm">
+                    {faq.a}
+                  </p>
                 </motion.div>
               </StaggerItem>
             ))}

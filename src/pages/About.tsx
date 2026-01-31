@@ -14,7 +14,10 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/shared/PageHero";
 import SectionCard from "@/components/shared/SectionCard";
-import AnimatedSection, { StaggerContainer, StaggerItem } from "@/components/shared/AnimatedSection";
+import AnimatedSection, {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/shared/AnimatedSection";
 
 const values = [
   {
@@ -52,7 +55,10 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <div className="space-y-6 sm:space-y-8">
             {/* Our Story */}
-            <SectionCard icon={<Heart className="w-5 h-5 sm:w-6 sm:h-6" />} title="Our Story">
+            <SectionCard
+              icon={<Heart className="w-5 h-5 sm:w-6 sm:h-6" />}
+              title="Our Story"
+            >
               <div className="space-y-3 sm:space-y-4">
                 <p>
                   DhanDiary was born from a simple frustration – most finance
@@ -78,7 +84,11 @@ const About = () => {
             </SectionCard>
 
             {/* Our Mission */}
-            <SectionCard icon={<Target className="w-5 h-5 sm:w-6 sm:h-6" />} title="Our Mission" delay={0.1}>
+            <SectionCard
+              icon={<Target className="w-5 h-5 sm:w-6 sm:h-6" />}
+              title="Our Mission"
+              delay={0.1}
+            >
               <div className="space-y-3 sm:space-y-4">
                 <p>
                   To provide everyone with a simple, secure, and reliable tool
@@ -138,8 +148,12 @@ const About = () => {
                       <Code className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div>
-                      <p className="text-xs sm:text-sm text-muted-foreground">Developer</p>
-                      <p className="font-semibold text-foreground text-sm sm:text-base">Sarwan Yadav</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">
+                        Developer
+                      </p>
+                      <p className="font-semibold text-foreground text-sm sm:text-base">
+                        Sarwan Yadav
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-muted/50">
@@ -147,7 +161,9 @@ const About = () => {
                       <Globe className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div>
-                      <p className="text-xs sm:text-sm text-muted-foreground">Company</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">
+                        Company
+                      </p>
                       <a
                         href="https://ellowdigital.space"
                         target="_blank"

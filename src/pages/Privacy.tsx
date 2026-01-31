@@ -14,11 +14,15 @@ const sections = [
         <p>We collect only what is necessary to provide our services:</p>
         <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 mt-2 sm:mt-3">
           <li>
-            <span className="font-medium text-foreground">Profile Details:</span>{" "}
+            <span className="font-medium text-foreground">
+              Profile Details:
+            </span>{" "}
             Name (optional) and email address
           </li>
           <li>
-            <span className="font-medium text-foreground">Finance Entries:</span>{" "}
+            <span className="font-medium text-foreground">
+              Finance Entries:
+            </span>{" "}
             Income, expenses, categories, notes, and attachments
           </li>
           <li>
@@ -41,7 +45,9 @@ const sections = [
           <li>Provide optional cloud backups</li>
           <li>Improve stability and performance</li>
         </ul>
-        <p className="mt-2 sm:mt-3 font-medium text-foreground">We never sell or rent personal data.</p>
+        <p className="mt-2 sm:mt-3 font-medium text-foreground">
+          We never sell or rent personal data.
+        </p>
       </>
     ),
   },
@@ -134,8 +140,24 @@ const sections = [
     title: "10. Contact Us",
     content: (
       <div className="space-y-1">
-        <p>Developer Email: <a href="mailto:sarwanyadav6174@gmail.com" className="text-primary hover:underline">sarwanyadav6174@gmail.com</a></p>
-        <p>Team Email: <a href="mailto:ellowdigitalindia@gmail.com" className="text-primary hover:underline">ellowdigitalindia@gmail.com</a></p>
+        <p>
+          Developer Email:{" "}
+          <a
+            href="mailto:sarwanyadav6174@gmail.com"
+            className="text-primary hover:underline"
+          >
+            sarwanyadav6174@gmail.com
+          </a>
+        </p>
+        <p>
+          Team Email:{" "}
+          <a
+            href="mailto:ellowdigitalindia@gmail.com"
+            className="text-primary hover:underline"
+          >
+            ellowdigitalindia@gmail.com
+          </a>
+        </p>
       </div>
     ),
   },
@@ -161,16 +183,16 @@ const Privacy = () => {
                 </h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                   DhanDiary provides finance tools designed with privacy by
-                  default. This policy explains what data we collect and how it is
-                  used.
+                  default. This policy explains what data we collect and how it
+                  is used.
                 </p>
               </div>
             </AnimatedSection>
 
             {sections.map((section, index) => (
-              <SectionCard 
-                key={index} 
-                icon={section.icon} 
+              <SectionCard
+                key={index}
+                icon={section.icon}
                 title={section.title}
                 delay={index * 0.05}
               >
