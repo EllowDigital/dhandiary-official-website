@@ -9,7 +9,8 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import SEOHead, { pageSEO } from "@/components/shared/SEOHead";
+import SEOHead from "@/components/shared/SEOHead";
+import { pageSEO } from "@/components/shared/SEOHead.constants";
 import PageHero from "@/components/shared/PageHero";
 import AnimatedSection, {
   StaggerContainer,
