@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -14,75 +15,68 @@ const navLinks = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
 
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <img
-              src="/img/logo.png"
-              alt="DhanDiary"
-              className="w-9 h-9 rounded-xl object-contain shadow-soft"
-              loading="eager"
-            />
-            <span className="font-display font-bold text-xl text-foreground">
-              DhanDiary
-            </span>
-          </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-soft"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-2.5 focus-ring rounded-lg">
+              <img
+                src="/img/logo.png"
+                alt="DhanDiary"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl object-contain shadow-soft"
+                loading="eager"
+              />
+              <span className="font-display font-bold text-lg sm:text-xl text-foreground">
+                DhanDiary
+              </span>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  isActive(link.path)
-                    ? "text-primary bg-accent"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Button asChild variant="hero" size="default">
-              <Link to="/download">Get the App</Link>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
-            ) : (
-              <Menu className="w-6 h-6 text-foreground" />
-            )}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="lg:hidden py-4 border-t border-border animate-fade-in">
-            <div className="flex flex-col gap-1">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-ring ${
                     isActive(link.path)
                       ? "text-primary bg-accent"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -91,18 +85,116 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              <div className="pt-4 px-4">
-                <Button asChild variant="hero" size="lg" className="w-full">
-                  <Link to="/download" onClick={() => setIsMenuOpen(false)}>
-                    Get the App
-                  </Link>
-                </Button>
-              </div>
+            </nav>
+
+            {/* CTA Button */}
+            <div className="hidden lg:block">
+              <Button asChild variant="hero" size="default" className="shadow-glow">
+                <Link to="/download">Get the App</Link>
+              </Button>
             </div>
-          </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2.5 rounded-xl hover:bg-muted transition-colors focus-ring touch-target"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-foreground" />
+              ) : (
+                <Menu className="w-6 h-6 text-foreground" />
+              )}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Navigation Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden"
+              onClick={() => setIsMenuOpen(false)}
+            />
+
+            {/* Menu Panel */}
+            <motion.nav
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-background border-l border-border z-50 lg:hidden safe-top safe-bottom overflow-y-auto"
+            >
+              <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between p-4 border-b border-border">
+                  <Link to="/" className="flex items-center gap-2.5">
+                    <img
+                      src="/img/logo.png"
+                      alt="DhanDiary"
+                      className="w-9 h-9 rounded-xl object-contain shadow-soft"
+                    />
+                    <span className="font-display font-bold text-lg text-foreground">
+                      DhanDiary
+                    </span>
+                  </Link>
+                  <button
+                    className="p-2.5 rounded-xl hover:bg-muted transition-colors touch-target"
+                    onClick={() => setIsMenuOpen(false)}
+                    aria-label="Close menu"
+                  >
+                    <X className="w-6 h-6 text-foreground" />
+                  </button>
+                </div>
+
+                {/* Links */}
+                <div className="flex-1 p-4">
+                  <div className="flex flex-col gap-1">
+                    {navLinks.map((link, index) => (
+                      <motion.div
+                        key={link.path}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        <Link
+                          to={link.path}
+                          onClick={() => setIsMenuOpen(false)}
+                          className={`flex items-center px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-200 touch-target ${
+                            isActive(link.path)
+                              ? "text-primary bg-accent"
+                              : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                          }`}
+                        >
+                          {link.name}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="p-4 border-t border-border">
+                  <Button asChild variant="hero" size="lg" className="w-full shadow-glow">
+                    <Link to="/download" onClick={() => setIsMenuOpen(false)}>
+                      Get the App
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </motion.nav>
+          </>
         )}
-      </div>
-    </header>
+      </AnimatePresence>
+    </>
   );
 };
 

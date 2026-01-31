@@ -12,6 +12,7 @@ import {
   Download,
   Users,
   TrendingUp,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
@@ -59,17 +60,17 @@ const features = [
 
 const stats = [
   {
-    icon: <Download className="w-4 h-4 sm:w-5 sm:h-5" />,
+    icon: <Download className="w-4 h-4" />,
     value: "1K+",
     label: "Downloads",
   },
   {
-    icon: <Star className="w-4 h-4 sm:w-5 sm:h-5" />,
+    icon: <Star className="w-4 h-4" />,
     value: "4.8",
     label: "Rating",
   },
   {
-    icon: <Users className="w-4 h-4 sm:w-5 sm:h-5" />,
+    icon: <Users className="w-4 h-4" />,
     value: "5K+",
     label: "Active Users",
   },
@@ -97,65 +98,64 @@ const Home = () => {
       {/* Hero Section - Enhanced with Parallax */}
       <section
         ref={heroRef}
-        className="relative overflow-hidden bg-subtle-gradient min-h-[calc(100vh-4rem)] lg:min-h-[calc(100vh-5rem)] flex items-center"
+        className="relative overflow-hidden bg-mesh-gradient min-h-[100dvh] lg:min-h-[calc(100vh-5rem)] flex items-center pt-16 lg:pt-20"
       >
-        {/* Parallax Background Elements */}
         {/* Floating Particles */}
         <FloatingParticles />
         
+        {/* Parallax Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             style={{ y: y1, scale: scale1, rotate: rotate1, opacity: opacity1 }}
-            className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-primary/10 rounded-full blur-3xl"
+            className="absolute top-10 sm:top-20 left-5 sm:left-10 w-40 sm:w-72 h-40 sm:h-72 bg-primary/10 rounded-full blur-3xl"
           />
           <motion.div
             style={{ y: y2, scale: scale2, rotate: rotate2, opacity: opacity1 }}
-            className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-accent/20 rounded-full blur-3xl"
+            className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-52 sm:w-96 h-52 sm:h-96 bg-accent/20 rounded-full blur-3xl"
           />
           <motion.div
             style={{ y: y3, opacity: opacity1 }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-gradient-radial from-primary/5 to-transparent rounded-full"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-gradient-radial from-primary/5 to-transparent rounded-full"
           />
-          {/* Additional floating elements */}
           <motion.div
             style={{
               y: useTransform(scrollYProgress, [0, 1], [0, -80]),
               opacity: opacity1,
             }}
-            className="absolute top-1/4 right-1/4 w-32 h-32 bg-primary/5 rounded-full blur-2xl"
+            className="absolute top-1/4 right-1/4 w-24 sm:w-32 h-24 sm:h-32 bg-primary/5 rounded-full blur-2xl"
           />
           <motion.div
             style={{
               y: useTransform(scrollYProgress, [0, 1], [0, 120]),
               opacity: opacity1,
             }}
-            className="absolute bottom-1/3 left-1/4 w-40 h-40 bg-accent/10 rounded-full blur-2xl"
+            className="absolute bottom-1/3 left-1/4 w-32 sm:w-40 h-32 sm:h-40 bg-accent/10 rounded-full blur-2xl"
           />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 relative w-full">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-16 relative w-full">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 xl:gap-20 items-center">
             {/* Left Content */}
-            <div className="text-center lg:text-left order-2 lg:order-1">
+            <div className="text-center lg:text-left order-2 lg:order-1 space-y-4 sm:space-y-6">
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-6"
+                className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs sm:text-sm font-medium"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                 </span>
-                Version {APP_CONFIG.version} — Now Available
+                <span className="truncate">Version {APP_CONFIG.version} — Now Available</span>
               </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-4 sm:mb-6"
+                className="heading-1 text-foreground text-balance"
               >
                 Your Personal
                 <span className="text-gradient block mt-1 sm:mt-2">
@@ -172,7 +172,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed"
+                className="body-large max-w-lg mx-auto lg:mx-0 text-balance"
               >
                 Track income and expenses effortlessly. DhanDiary is fast,
                 secure, offline-first, and designed for simplicity.
@@ -182,15 +182,16 @@ const Home = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
+                className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2"
               >
                 <Button
                   asChild
                   variant="hero"
                   size="lg"
-                  className="w-full sm:w-auto"
+                  className="w-full xs:w-auto shadow-glow"
                 >
                   <Link to="/download">
+                    <Sparkles className="w-4 h-4 mr-1" />
                     Download Free
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Link>
@@ -199,7 +200,7 @@ const Home = () => {
                   asChild
                   variant="heroOutline"
                   size="lg"
-                  className="w-full sm:w-auto"
+                  className="w-full xs:w-auto"
                 >
                   <Link to="/features">Explore Features</Link>
                 </Button>
@@ -210,13 +211,13 @@ const Home = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex items-center gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-10 justify-center lg:justify-start"
+                className="flex items-center gap-6 sm:gap-8 pt-4 sm:pt-6 justify-center lg:justify-start"
               >
                 {stats.map((stat, index) => (
                   <div key={index} className="text-center">
-                    <div className="flex items-center justify-center gap-1 sm:gap-1.5 text-primary mb-0.5 sm:mb-1">
+                    <div className="flex items-center justify-center gap-1.5 text-primary mb-0.5">
                       {stat.icon}
-                      <span className="font-display font-bold text-lg sm:text-xl text-foreground">
+                      <span className="font-display font-bold text-lg sm:text-xl lg:text-2xl text-foreground">
                         {stat.value}
                       </span>
                     </div>
@@ -232,20 +233,18 @@ const Home = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex flex-wrap items-center gap-2 sm:gap-4 lg:gap-6 mt-6 sm:mt-8 justify-center lg:justify-start"
+                className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2 justify-center lg:justify-start"
               >
-                <div className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground text-xs sm:text-sm px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-background/50 border border-border">
-                  <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
-                  No Ads
-                </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground text-xs sm:text-sm px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-background/50 border border-border">
-                  <Wifi className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
-                  Offline First
-                </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 text-muted-foreground text-xs sm:text-sm px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-background/50 border border-border">
-                  <Lock className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
-                  Secure
-                </div>
+                {[
+                  { icon: <Shield className="w-3.5 h-3.5 text-primary" />, label: "No Ads" },
+                  { icon: <Wifi className="w-3.5 h-3.5 text-primary" />, label: "Offline First" },
+                  { icon: <Lock className="w-3.5 h-3.5 text-primary" />, label: "Secure" },
+                ].map((badge, i) => (
+                  <div key={i} className="flex items-center gap-1.5 text-muted-foreground text-xs sm:text-sm px-3 py-1.5 rounded-full bg-card/80 border border-border backdrop-blur-sm">
+                    {badge.icon}
+                    {badge.label}
+                  </div>
+                ))}
               </motion.div>
             </div>
 
@@ -262,40 +261,40 @@ const Home = () => {
 
                 {/* Phone Frame */}
                 <div className="relative animate-float">
-                  <div className="relative bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[2rem] sm:rounded-[3rem] p-2 sm:p-3 shadow-elevated">
+                  <div className="relative bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-1.5 sm:p-2 lg:p-3 shadow-elevated">
                     {/* Notch */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 sm:w-28 h-5 sm:h-7 bg-zinc-900 rounded-b-xl sm:rounded-b-2xl z-10 flex items-center justify-center">
-                      <div className="w-12 sm:w-16 h-3 sm:h-4 bg-zinc-800 rounded-full" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 sm:w-20 lg:w-28 h-4 sm:h-5 lg:h-7 bg-zinc-900 rounded-b-lg sm:rounded-b-xl lg:rounded-b-2xl z-10 flex items-center justify-center">
+                      <div className="w-10 sm:w-12 lg:w-16 h-2 sm:h-3 lg:h-4 bg-zinc-800 rounded-full" />
                     </div>
-                    {/* Screen (add a top safe-area so the notch doesn't cover screenshot content) */}
-                    <div className="relative bg-black rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden pt-6 sm:pt-7">
+                    {/* Screen */}
+                    <div className="relative bg-black rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden pt-5 sm:pt-6 lg:pt-7">
                       <img
                         src="/img/Screenshot/1s.jpg"
                         alt="DhanDiary App Dashboard"
-                        className="block w-48 sm:w-64 md:w-72 lg:w-80 h-auto object-cover"
+                        className="block w-44 xs:w-52 sm:w-64 md:w-72 lg:w-80 h-auto object-cover"
                         loading="eager"
                       />
                     </div>
                     {/* Home Indicator */}
-                    <div className="absolute bottom-1.5 sm:bottom-2 left-1/2 -translate-x-1/2 w-20 sm:w-28 h-1 sm:h-1.5 bg-zinc-600 rounded-full" />
+                    <div className="absolute bottom-1 sm:bottom-1.5 lg:bottom-2 left-1/2 -translate-x-1/2 w-16 sm:w-20 lg:w-28 h-1 sm:h-1.5 bg-zinc-600 rounded-full" />
                   </div>
 
-                  {/* Floating Elements - Hidden on very small screens */}
+                  {/* Floating Elements */}
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.8 }}
-                    className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 bg-card border border-border rounded-xl sm:rounded-2xl p-2 sm:p-3 shadow-elevated hidden xs:block"
+                    className="absolute -top-2 sm:-top-3 lg:-top-4 -right-1 sm:-right-2 lg:-right-4 bg-card/95 backdrop-blur-sm border border-border rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-2.5 lg:p-3 shadow-elevated hidden xs:block"
                   >
                     <div className="flex items-center gap-1.5 sm:gap-2">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                        <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-green-500" />
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                        <TrendingUp className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 text-green-500" />
                       </div>
                       <div>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground">
+                        <p className="text-[9px] sm:text-[10px] lg:text-xs text-muted-foreground">
                           Income
                         </p>
-                        <p className="font-semibold text-green-500 text-xs sm:text-sm">
+                        <p className="font-semibold text-green-500 text-[10px] sm:text-xs lg:text-sm">
                           +₹25,000
                         </p>
                       </div>
@@ -306,17 +305,17 @@ const Home = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 1 }}
-                    className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 bg-card border border-border rounded-xl sm:rounded-2xl p-2 sm:p-3 shadow-elevated hidden xs:block"
+                    className="absolute -bottom-2 sm:-bottom-3 lg:-bottom-4 -left-1 sm:-left-2 lg:-left-4 bg-card/95 backdrop-blur-sm border border-border rounded-lg sm:rounded-xl lg:rounded-2xl p-2 sm:p-2.5 lg:p-3 shadow-elevated hidden xs:block"
                   >
                     <div className="flex items-center gap-1.5 sm:gap-2">
-                      <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                        <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                        <BarChart3 className="w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 text-primary" />
                       </div>
                       <div>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground">
+                        <p className="text-[9px] sm:text-[10px] lg:text-xs text-muted-foreground">
                           Savings
                         </p>
-                        <p className="font-semibold text-primary text-xs sm:text-sm">
+                        <p className="font-semibold text-primary text-[10px] sm:text-xs lg:text-sm">
                           ₹12,500
                         </p>
                       </div>
@@ -330,26 +329,26 @@ const Home = () => {
       </section>
 
       {/* Features Preview */}
-      <section className="section-padding">
+      <section className="section-padding bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal
             animation="fadeUp"
-            className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-16"
+            className="text-center max-w-2xl mx-auto mb-8 sm:mb-12 lg:mb-16"
           >
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+            <h2 className="heading-2 text-foreground mb-3 sm:mb-4 text-balance">
               Why Choose DhanDiary?
             </h2>
-            <p className="text-muted-foreground text-base sm:text-lg">
+            <p className="body-default">
               Built with simplicity and privacy at its core. Everything you
               need, nothing you don't.
             </p>
           </ScrollReveal>
 
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <StaggerContainer className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
             {features.map((feature, index) => (
               <StaggerItem key={index}>
-                <div className="group h-full p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent flex items-center justify-center text-primary mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <div className="group h-full p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-card-gradient border border-border hover:border-primary/30 hover:shadow-card hover-lift">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl bg-accent flex items-center justify-center text-primary mb-3 sm:mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     {feature.icon}
                   </div>
                   <h3 className="font-display font-semibold text-foreground mb-1.5 sm:mb-2 text-sm sm:text-base">
@@ -366,13 +365,13 @@ const Home = () => {
           <ScrollReveal
             animation="fadeUp"
             delay={0.4}
-            className="text-center mt-8 sm:mt-12"
+            className="text-center mt-6 sm:mt-10 lg:mt-12"
           >
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto"
+              className="w-full xs:w-auto"
             >
               <Link to="/features">
                 View All Features
@@ -419,14 +418,18 @@ const Home = () => {
       </ScrollReveal>
 
       {/* CTA Section */}
-      <section className="section-padding bg-subtle-gradient">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-mesh-gradient relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-10 w-48 h-48 bg-accent/15 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <ScrollReveal animation="scale">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+              <h2 className="heading-2 text-foreground mb-3 sm:mb-4 text-balance">
                 Ready to Take Control of Your Finances?
               </h2>
-              <p className="text-muted-foreground text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto">
+              <p className="body-default mb-6 sm:mb-8 max-w-xl mx-auto">
                 Download DhanDiary today and start your journey to better money
                 management. Free, secure, and private.
               </p>
@@ -434,9 +437,10 @@ const Home = () => {
                 asChild
                 variant="hero"
                 size="lg"
-                className="w-full sm:w-auto"
+                className="w-full xs:w-auto shadow-glow"
               >
                 <Link to="/download">
+                  <Sparkles className="w-4 h-4 mr-1" />
                   Get DhanDiary Now
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Link>

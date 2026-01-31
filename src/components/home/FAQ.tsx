@@ -44,17 +44,17 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 xl:py-24">
+    <section className="section-padding bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 lg:mb-12">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-            <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4" />
+            <HelpCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             Got Questions?
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+          <h2 className="heading-2 text-foreground mb-3 sm:mb-4 text-balance">
             Frequently Asked Questions
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-lg mx-auto">
+          <p className="body-default max-w-lg mx-auto">
             Everything you need to know about DhanDiary. Can't find what you're
             looking for?
           </p>
@@ -64,7 +64,7 @@ const FAQ = () => {
           <Accordion
             type="single"
             collapsible
-            className="space-y-3 sm:space-y-4"
+            className="space-y-2 sm:space-y-3"
           >
             {faqs.map((faq, index) => (
               <motion.div
@@ -76,12 +76,12 @@ const FAQ = () => {
               >
                 <AccordionItem
                   value={`item-${index}`}
-                  className="bg-card border border-border rounded-xl sm:rounded-2xl px-4 sm:px-6 data-[state=open]:shadow-card transition-shadow"
+                  className="bg-card-gradient border border-border rounded-xl sm:rounded-2xl px-4 sm:px-6 data-[state=open]:shadow-card transition-all duration-300"
                 >
-                  <AccordionTrigger className="text-left font-display font-semibold text-foreground hover:text-primary py-4 sm:py-5 text-sm sm:text-base [&[data-state=open]>svg]:rotate-180">
+                  <AccordionTrigger className="text-left font-display font-semibold text-foreground hover:text-primary py-3.5 sm:py-4 lg:py-5 text-sm sm:text-base [&[data-state=open]>svg]:rotate-180">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-4 sm:pb-5 leading-relaxed text-sm sm:text-base">
+                  <AccordionContent className="text-muted-foreground pb-3.5 sm:pb-4 lg:pb-5 leading-relaxed text-xs sm:text-sm lg:text-base">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -95,12 +95,12 @@ const FAQ = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="mt-8 sm:mt-10 text-center p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-accent/50 border border-border"
+            className="mt-6 sm:mt-8 lg:mt-10 text-center p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl bg-accent/50 border border-border"
           >
-            <h3 className="font-display font-semibold text-foreground text-base sm:text-lg mb-2">
+            <h3 className="font-display font-semibold text-foreground text-sm sm:text-base lg:text-lg mb-1.5 sm:mb-2">
               Still have questions?
             </h3>
-            <p className="text-muted-foreground text-sm sm:text-base mb-4">
+            <p className="text-muted-foreground text-xs sm:text-sm lg:text-base mb-3 sm:mb-4">
               We're here to help. Reach out to our support team.
             </p>
             <Button asChild variant="outline" size="sm" className="gap-2">

@@ -86,17 +86,23 @@ const ScreenshotCarousel = () => {
   };
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 xl:py-24 bg-card overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10 lg:mb-12">
+    <section className="section-padding bg-mesh-gradient overflow-hidden relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-10 w-40 sm:w-64 h-40 sm:h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-accent/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 lg:mb-12">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-            <Smartphone className="w-3 h-3 sm:w-4 sm:h-4" />
+            <Smartphone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             App Preview
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+          <h2 className="heading-2 text-foreground mb-3 sm:mb-4 text-balance">
             See DhanDiary in Action
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-lg mx-auto">
+          <p className="body-default max-w-lg mx-auto">
             Clean, intuitive interface designed for effortless money management
             on your Android device.
           </p>
@@ -104,18 +110,18 @@ const ScreenshotCarousel = () => {
 
         <div className="relative max-w-5xl mx-auto">
           {/* Carousel Container */}
-          <div className="flex items-center justify-center gap-2 sm:gap-4 lg:gap-6">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 lg:gap-6">
             {/* Previous Button */}
             <button
               onClick={goToPrevious}
-              className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all shadow-soft z-20"
+              className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all shadow-soft z-20 touch-target"
               aria-label="Previous screenshot"
             >
               <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
             </button>
 
             {/* Screenshots */}
-            <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-6 py-4 sm:py-6 lg:py-8 overflow-hidden">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 lg:gap-6 py-4 sm:py-6 lg:py-8 overflow-hidden">
               <AnimatePresence mode="popLayout">
                 {getVisibleIndexes().map((index, i) => {
                   const screenshot = screenshots[index];
@@ -137,26 +143,26 @@ const ScreenshotCarousel = () => {
                       onClick={() => setActiveIndex(index)}
                     >
                       {/* Phone Frame */}
-                      <div className="relative bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem] p-1.5 sm:p-2 shadow-elevated">
+                      <div className="relative bg-gradient-to-b from-zinc-800 to-zinc-900 rounded-[1.25rem] sm:rounded-[1.75rem] lg:rounded-[2.5rem] p-1 sm:p-1.5 lg:p-2 shadow-elevated">
                         {/* Notch */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 sm:w-16 lg:w-20 h-3 sm:h-4 lg:h-5 bg-zinc-900 rounded-b-lg sm:rounded-b-xl z-10 flex items-center justify-center">
-                          <div className="w-6 sm:w-10 lg:w-12 h-1.5 sm:h-2 lg:h-2.5 bg-zinc-800 rounded-full" />
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 sm:w-14 lg:w-20 h-2.5 sm:h-3.5 lg:h-5 bg-zinc-900 rounded-b-md sm:rounded-b-lg lg:rounded-b-xl z-10 flex items-center justify-center">
+                          <div className="w-5 sm:w-8 lg:w-12 h-1 sm:h-1.5 lg:h-2.5 bg-zinc-800 rounded-full" />
                         </div>
                         {/* Screen */}
-                        <div className="relative bg-black rounded-[1.25rem] sm:rounded-[1.75rem] lg:rounded-[2rem] overflow-hidden">
+                        <div className="relative bg-black rounded-[1rem] sm:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden">
                           <img
                             src={screenshot.image}
                             alt={screenshot.title}
                             className={`object-cover transition-all duration-500 ${
                               isActive
-                                ? "w-40 sm:w-52 md:w-56 lg:w-64"
-                                : "w-32 sm:w-40 md:w-44 lg:w-48"
+                                ? "w-36 xs:w-44 sm:w-52 md:w-56 lg:w-64"
+                                : "w-28 xs:w-32 sm:w-40 md:w-44 lg:w-48"
                             }`}
                             loading="lazy"
                           />
                         </div>
                         {/* Home Indicator */}
-                        <div className="absolute bottom-1 sm:bottom-1.5 left-1/2 -translate-x-1/2 w-12 sm:w-16 lg:w-20 h-0.5 sm:h-1 bg-zinc-600 rounded-full" />
+                        <div className="absolute bottom-0.5 sm:bottom-1 lg:bottom-1.5 left-1/2 -translate-x-1/2 w-10 sm:w-14 lg:w-20 h-0.5 sm:h-0.5 lg:h-1 bg-zinc-600 rounded-full" />
                       </div>
                     </motion.div>
                   );
@@ -167,7 +173,7 @@ const ScreenshotCarousel = () => {
             {/* Next Button */}
             <button
               onClick={goToNext}
-              className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all shadow-soft z-20"
+              className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all shadow-soft z-20 touch-target"
               aria-label="Next screenshot"
             >
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
@@ -180,25 +186,25 @@ const ScreenshotCarousel = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-center mt-6 sm:mt-8"
+            className="text-center mt-4 sm:mt-6 lg:mt-8"
           >
-            <h3 className="font-display font-semibold text-foreground text-base sm:text-lg mb-1">
+            <h3 className="font-display font-semibold text-foreground text-sm sm:text-base lg:text-lg mb-0.5 sm:mb-1">
               {screenshots[activeIndex].title}
             </h3>
-            <p className="text-muted-foreground text-sm sm:text-base max-w-md mx-auto">
+            <p className="text-muted-foreground text-xs sm:text-sm lg:text-base max-w-md mx-auto">
               {screenshots[activeIndex].description}
             </p>
           </motion.div>
 
           {/* Dots Indicator */}
-          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-5 sm:mt-6">
+          <div className="flex items-center justify-center gap-1 sm:gap-1.5 lg:gap-2 mt-4 sm:mt-5 lg:mt-6">
             {screenshots.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`transition-all duration-300 rounded-full ${
+                className={`transition-all duration-300 rounded-full touch-target ${
                   index === activeIndex
-                    ? "w-6 sm:w-8 h-1.5 sm:h-2 bg-primary"
+                    ? "w-5 sm:w-6 lg:w-8 h-1.5 sm:h-2 bg-primary"
                     : "w-1.5 sm:w-2 h-1.5 sm:h-2 bg-border hover:bg-primary/50"
                 }`}
                 aria-label={`Go to screenshot ${index + 1}`}
